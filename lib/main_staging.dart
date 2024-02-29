@@ -22,21 +22,21 @@ Future<void> main() async {
 }
 
 /*
-#Run app in `stg` environment
-flutter run -t lib/main_staging.dart  --flavor=staging
+#Run app in staging environment
+fvm flutter run -t lib/main_staging.dart  --flavor=staging
 
 # Run app in debug mode (Picks up debug signing config)
-flutter run -t lib/main_staging.dart  --debug --flavor=staging
+fvm flutter run -t lib/main_staging.dart  --debug --flavor=staging
 
 # Run app in release mode (Picks up release signing config)
-flutter run -t lib/main_staging.dart  --release --flavor=staging
+fvm flutter run -t lib/main_staging.dart  --release --flavor=staging
 
 # Create appBundle for Android platform. Runs in release mode by default.
-flutter build appbundle -t lib/main_staging.dart  --flavor=staging
+fvm flutter build appbundle -t lib/main_staging.dart  --flavor=staging
 
 # Create APK for staging flavor. Runs in release mode by default
-* flutter build apk -t lib/main_staging.dart  --flavor=staging
+* fvm flutter build apk -t lib/main_staging.dart  --flavor=staging
 
-# Create minified APK for staging flavor.
-flutter build apk -t lib/main_staging.dart  --flavor=staging --split-per-abi --no-shrink
+# Create a build for IOS
+fvm flutter build ios -t lib/main_staging.dart --flavor staging
 */

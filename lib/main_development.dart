@@ -13,7 +13,7 @@ Future<void> main() async {
 
       runApp(
         const MainApp(
-          flavor: 'Developemnt',
+          flavor: 'Development',
         ),
       );
     },
@@ -24,21 +24,9 @@ Future<void> main() async {
 
 
 /*
-#Run app in `dev` environment
-flutter run -t lib/main_development.dart  --flavor=development
+#Run app in development environment
+fvm flutter run -t lib/main_development.dart  --flavor=development
 
 # Run app in debug mode (Picks up debug signing config)
-flutter run -t lib/main_development.dart  --debug --flavor=development
-
-# Run app in release mode (Picks up release signing config)
-flutter run -t lib/main_development.dart  --release --flavor=development
-
-# Create appBundle for Android platform. Runs in release mode by default.
-flutter build appbundle -t lib/main_development.dart  --flavor=development
-
-# Create APK for dev flavor. Runs in release mode by default.
-flutter build apk -t lib/main_development.dart  --flavor=development
-
-# Create minified APK for dev flavor.
-flutter build apk -t lib/main_development.dart  --flavor=development --split-per-abi --no-shrink
+fvm flutter run -t lib/main_development.dart  --debug --flavor=development
 */
