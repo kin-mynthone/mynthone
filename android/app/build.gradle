@@ -51,6 +51,29 @@ android {
         versionName flutterVersionName
     }
 
+    flavorDimensions "default"
+    productFlavors { 
+        production {
+            dimension "default"
+            // TODO: Change public facing production name.
+            resValue "string", "app_name", "Mynthone"
+            applicationIdSuffix ""
+        }
+        staging {
+            dimension "default"
+            // TODO: Change public facing staging name.
+            resValue "string", "app_name", "STG Mynthone"
+            applicationIdSuffix ".stg"
+           
+        }        
+        development {
+            dimension "default"
+            // TODO: Change public facing development name.
+            resValue "string", "app_name", "DEV Mynthone"
+            applicationIdSuffix ".dev"
+        }
+    }
+
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
@@ -64,4 +87,6 @@ flutter {
     source '../..'
 }
 
-dependencies {}
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
