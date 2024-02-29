@@ -42,3 +42,12 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Flutter Version Management Flutter SDK
+.fvm/flutter_sdk
+
+# Environments
+.env.**
+
+# Devtools Options
+devtools_options.yaml
