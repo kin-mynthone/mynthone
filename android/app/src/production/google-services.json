@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "261874882552",
+    "project_id": "mynthone-prod",
+    "storage_bucket": "mynthone-prod.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:261874882552:android:25079b4356cd701e4d280d",
+        "android_client_info": {
+          "package_name": "com.mynthchain.mynthone"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATXkfyywNVrXGj3WTO5r0rbznSmnU1_Pk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
