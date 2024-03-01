@@ -33,7 +33,8 @@ class AuthController extends GetxController {
   void _monitorFirebaseUser() {
     _firebaseUser = Rx<User?>(firebaseAuth.currentUser);
     _firebaseUser.bindStream(firebaseAuth.idTokenChanges());
-    ever(_firebaseUser, (User? value) {
+    ever(_firebaseUser, (User? value) async {
+      await Future.delayed(const Duration(seconds: 1));
       if (value != null) {
         _status.value = AuthStatus.authenticated;
       } else {

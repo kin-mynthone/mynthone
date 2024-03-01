@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../helpers/log_helper.dart';
+import '../../../themes/app_colors.dart';
 import '../../../widgets/loading_indicator_widget.dart';
 import '../controllers/auth_controller.dart';
 
@@ -47,6 +48,7 @@ class _SplashViewState extends State<SplashView> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
+      backgroundColor: AppColors.h425AC2,
       body: SafeArea(
         child: Center(
           child: LoadingIndicator(),

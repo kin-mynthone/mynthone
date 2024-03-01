@@ -8,8 +8,8 @@ class AppThemes {
   static final lightTheme = ThemeData(
     primarySwatch: AppColors.materialSteelBlue,
     colorScheme: ColorScheme.fromSwatch().copyWith(
-      primary: AppColors.h3F7DB2,
-      secondary: AppColors.h9EC6DC,
+      primary: AppColors.hF87054,
+      secondary: AppColors.h425AC2,
       brightness: Brightness.light,
     ),
     textTheme: TextTheme(
@@ -17,21 +17,21 @@ class AppThemes {
         textStyle: const TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.normal,
-          color: AppColors.h031223,
+          color: AppColors.h0403E51,
         ),
       ),
       bodyMedium: GoogleFonts.poppins(
         textStyle: const TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.normal,
-          color: AppColors.h031223,
+          color: AppColors.h0403E51,
         ),
       ),
       bodySmall: GoogleFonts.poppins(
         textStyle: const TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.normal,
-          color: AppColors.h031223,
+          color: AppColors.h0403E51,
         ),
       ),
       labelLarge: GoogleFonts.poppins(
@@ -52,14 +52,14 @@ class AppThemes {
       filled: true,
       fillColor: AppColors.hF6F6F6,
       labelStyle: const TextStyle(color: AppColors.hBDBDBD),
-      floatingLabelStyle: const TextStyle(color: AppColors.h3F7DB2),
+      floatingLabelStyle: const TextStyle(color: AppColors.hF87054),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(AppNumbers.inputBorderRadius),
-        borderSide: const BorderSide(color: AppColors.h3F7DB2, width: 2.0),
+        borderSide: const BorderSide(color: AppColors.hF87054, width: 2.0),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(AppNumbers.inputBorderRadius),
-        borderSide: const BorderSide(color: AppColors.hEEEEEE, width: 1.0),
+        borderSide: const BorderSide(color: AppColors.hD0D0D0, width: 1.0),
       ),
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(AppNumbers.inputBorderRadius),
@@ -75,8 +75,8 @@ class AppThemes {
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.h3F7DB2,
-        foregroundColor: Colors.white,
+        backgroundColor: AppColors.hF87054,
+        foregroundColor: AppColors.hFFF8F8,
         elevation: 0,
         minimumSize: const Size(
           double.infinity,
@@ -85,9 +85,12 @@ class AppThemes {
         textStyle: GoogleFonts.poppins(
           textStyle: const TextStyle(
             fontSize: 16,
-            fontWeight: FontWeight.normal,
+            fontWeight: FontWeight.w600,
             color: Colors.white,
           ),
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
         ),
       ),
     ),
@@ -96,8 +99,8 @@ class AppThemes {
   static final darkTheme = ThemeData(
     primarySwatch: AppColors.materialSteelBlue,
     colorScheme: ColorScheme.fromSwatch().copyWith(
-      primary: AppColors.h3F7DB2,
-      secondary: AppColors.h9EC6DC,
+      primary: AppColors.hF87054,
+      secondary: AppColors.h425AC2,
       brightness: Brightness.dark,
     ),
     textTheme: GoogleFonts.acmeTextTheme(),
