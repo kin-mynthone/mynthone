@@ -1,0 +1,27 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../themes/app_colors.dart';
+
+class GoBackButton extends StatelessWidget {
+  const GoBackButton({
+    super.key,
+    required this.onPressed,
+    this.iconColor = AppColors.h031223,
+  });
+
+  final VoidCallback onPressed;
+  final Color iconColor;
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+        onPressed: onPressed,
+        tooltip: 'Go back'.tr,
+        padding: EdgeInsets.zero,
+        constraints: const BoxConstraints(),
+        icon: const Icon(
+          Icons.arrow_back,
+        ));
+  }
+}
