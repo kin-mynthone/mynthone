@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const Color h3F7DB2 = Color(0xFF3F7DB2);
-  static const Color h9EC6DC = Color(0xFF9EC6DC);
-  static const Color h031223 = Color(0xFF031223);
-  static const Color hF6F6F6 = Color(0xFFF6F6F6);
-  static const Color hBDBDBD = Color(0xFFBDBDBD);
-  static const Color hEEEEEE = Color(0xFFEEEEEE);
+  static const Color hF87054 = Color(0xFFF87054); //primary
+  static const Color hFFF8F8 = Color(0xFFFFF8F8); //primary light
+  static const Color h425AC2 = Color(0xFF425AC2); //secondary
+  static const Color hA4B8EA = Color(0xFFA4B8EA); //secondary light
 
-  static Color barrierColor = Colors.black.withOpacity(0.80);
+  static const Color h0403E51 = Color(0xFF403E51); //text
+  static const Color hF6F6F6 = Color(0xFFF6F6F6); //white variant
+  static const Color hBDBDBD = Color(0xFFBDBDBD); //inputForm label
+  static const Color hD0D0D0 = Color(0xFFD0D0D0); //inputForm border
+
+  static const Color h7CD0AD = Color(0xFF7CD0AD); //positive
+
+  static Color barrierColor = Colors.black.withOpacity(0.80); //overlay
 
   static const Map<int, Color> _steelBlueColorMap = {
     50: Color.fromRGBO(63, 125, 178, .1),
@@ -24,5 +29,5 @@ class AppColors {
   };
 
   static const MaterialColor materialSteelBlue =
-      MaterialColor(0xFF3F7DB2, _steelBlueColorMap);
+      MaterialColor(0xFFF87054, _steelBlueColorMap);
 }
