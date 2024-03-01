@@ -19,7 +19,7 @@ class CustomTextWidget extends StatelessWidget {
       required this.text,
       this.fontSize = 16,
       this.fontWeight = FontWeight.normal,
-      this.color = AppColors.h0403E51,
+      this.color = AppColors.h425AC2,
       this.centerAlignment = false,
       this.letterSpacing = 0,
       this.overflow = false,

@@ -6,7 +6,9 @@ class AppColors {
   static const Color h425AC2 = Color(0xFF425AC2); //secondary
   static const Color hA4B8EA = Color(0xFFA4B8EA); //secondary light
 
-  static const Color h0403E51 = Color(0xFF403E51); //text
+  static const Color h403E51 = Color(0xFF403E51); //text
+  static const Color h8E8E8E = Color(0xFF8E8E8E); //sub text
+
   static const Color hF6F6F6 = Color(0xFFF6F6F6); //white variant
   static const Color hBDBDBD = Color(0xFFBDBDBD); //inputForm label
   static const Color hD0D0D0 = Color(0xFFD0D0D0); //inputForm border

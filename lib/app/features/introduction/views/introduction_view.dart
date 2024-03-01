@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/utils.dart';
+import 'package:get/get.dart';
+import 'package:mynthone/app/routes/app_pages.dart';
 
 import '../../../constants/app_numbers.dart';
 import '../../../helpers/asset_path_helper.dart';
@@ -49,7 +50,7 @@ class IntroductionView extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 80),
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () => Get.offAllNamed(AppPages.onboarding),
                     child: Text('Continue'.tr),
                   ),
                 ),
