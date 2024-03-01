@@ -7,7 +7,7 @@ class GoBackButton extends StatelessWidget {
   const GoBackButton({
     super.key,
     required this.onPressed,
-    this.iconColor = AppColors.h0403E51,
+    this.iconColor = AppColors.h425AC2,
   });
 
   final VoidCallback onPressed;
@@ -16,12 +16,13 @@ class GoBackButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-        onPressed: onPressed,
-        tooltip: 'Go back'.tr,
-        padding: EdgeInsets.zero,
-        constraints: const BoxConstraints(),
-        icon: const Icon(
-          Icons.arrow_back,
-        ));
+      onPressed: onPressed,
+      tooltip: 'Go back'.tr,
+      padding: EdgeInsets.zero,
+      constraints: const BoxConstraints(),
+      icon: const Icon(
+        Icons.arrow_back,
+      ),
+    );
   }
 }

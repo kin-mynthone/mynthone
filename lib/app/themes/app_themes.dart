@@ -17,21 +17,21 @@ class AppThemes {
         textStyle: const TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.normal,
-          color: AppColors.h0403E51,
+          color: AppColors.h403E51,
         ),
       ),
       bodyMedium: GoogleFonts.poppins(
         textStyle: const TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.normal,
-          color: AppColors.h0403E51,
+          color: AppColors.h403E51,
         ),
       ),
       bodySmall: GoogleFonts.poppins(
         textStyle: const TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.normal,
-          color: AppColors.h0403E51,
+          color: AppColors.h403E51,
         ),
       ),
       labelLarge: GoogleFonts.poppins(
