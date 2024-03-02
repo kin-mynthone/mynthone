@@ -4,6 +4,11 @@ final Map<String, String> _englishTranslationMap = {
   // Common
   'Continue': 'Continue',
   'Next': 'Next',
+  'Sign In': 'Sign In',
+  'Mobile Number': 'Mobile Number',
+  'Password': 'Password',
+  'Forgot password?': 'Forgot password?',
+  'Open an account': 'Open an account',
 
   // Introduction
   'The Digital wallet that connects global':
@@ -21,4 +26,8 @@ final Map<String, String> _englishTranslationMap = {
   'Personalized Financial Solutions': 'Personalized Financial Solutions',
   'Discover tailored financial solutions designed to meet your unique needs. From budgeting tools to investment options, were here to help you achieve your goals.':
       "Discover tailored financial solutions designed to meet your unique needs. From budgeting tools to investment options, we're here to help you achieve your goals.",
+
+// Login
+  'Hi, Welcome Back': 'Hi, Welcome Back',
+  'Please sign in to continue': 'Please sign in to continue',
 };

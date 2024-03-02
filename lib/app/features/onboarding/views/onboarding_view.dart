@@ -100,7 +100,7 @@ class _OnboardingViewState extends State<OnboardingView> {
                     ),
                     children: onboardingWidgets,
                   ),
-                  _BottomPageNavigation(
+                  _BottomPageNavigationWidget(
                       onboardingController: onboardingController,
                       onboardingWidgets: onboardingWidgets),
                 ],
@@ -117,8 +117,8 @@ class _OnboardingViewState extends State<OnboardingView> {
       Obx(() => LoadingOverlay(isLoading: onboardingController.isLoading));
 }
 
-class _BottomPageNavigation extends StatelessWidget {
-  const _BottomPageNavigation({
+class _BottomPageNavigationWidget extends StatelessWidget {
+  const _BottomPageNavigationWidget({
     required this.onboardingController,
     required this.onboardingWidgets,
   });
@@ -148,7 +148,7 @@ class _BottomPageNavigation extends StatelessWidget {
                 activeDotColor: AppColors.hF87054,
               ),
             ),
-            _NextButton(onboardingController: onboardingController),
+            _NextButton(),
           ],
         ),
       ),
@@ -156,29 +156,23 @@ class _BottomPageNavigation extends StatelessWidget {
   }
 }
 
-class _NextButton extends StatelessWidget {
-  const _NextButton({
-    required this.onboardingController,
-  });
-
-  final OnboardingController onboardingController;
-
+class _NextButton extends GetView<OnboardingController> {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () => onboardingController.goToNextView(),
-      child: const Row(
+      onPressed: () => controller.goToNextView(),
+      child: Row(
         children: [
-          CustomTextWidget(
-            text: 'Next',
-            color: AppColors.hF6F6F6,
-            fontWeight: FontWeight.w700,
-            fontSize: 20,
-          ),
-          SizedBox(
+          Obx(() => CustomTextWidget(
+                text: controller.currentPage != 2 ? 'Next' : 'Continue',
+                color: AppColors.hF6F6F6,
+                fontWeight: FontWeight.w700,
+                fontSize: 20,
+              )),
+          const SizedBox(
             width: 5,
           ),
-          Icon(
+          const Icon(
             Icons.arrow_forward,
             color: AppColors.hF6F6F6,
           ),

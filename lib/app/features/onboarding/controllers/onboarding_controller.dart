@@ -15,12 +15,16 @@ class OnboardingController extends GetxController {
   Rx<OnboardingStatus> get status => _status;
   bool get isLoading => _status.value == OnboardingStatus.loading;
 
+  final _currentPage = 0.obs;
+  int get currentPage => _currentPage.value;
+
   String get currentState => 'OnboardingController(status: ${_status.value})';
 
   @override
   void onInit() {
     super.onInit();
     _pageController = PageController();
+    _pageController.addListener(_getCurrentPageIndex);
   }
 
   @override
@@ -30,7 +34,7 @@ class OnboardingController extends GetxController {
   }
 
   void goToNextView() {
-    if (getCurrentPageIndex(_pageController) != 2) {
+    if (_currentPage.value != 2) {
       _pageController.nextPage(
         duration: const Duration(milliseconds: 400),
         curve: Curves.easeIn,
@@ -40,8 +44,9 @@ class OnboardingController extends GetxController {
     }
   }
 
-  int getCurrentPageIndex(PageController controller) {
-    return controller.page?.round() ?? controller.initialPage;
+  void _getCurrentPageIndex() {
+    _currentPage.value =
+        _pageController.page?.round() ?? _pageController.initialPage;
   }
 
   Future<void> finishOnboarding() async {

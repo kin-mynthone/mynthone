@@ -2,6 +2,10 @@ class AssetPath {
   static const _imageMainPath = 'assets/images';
   static const _imageSvgPath = 'assets/svg';
 
+  // Common
+  static const eye = '$_imageSvgPath/eye.svg';
+  static const eyeSlash = '$_imageSvgPath/eye_slash.svg';
+
   // Introduction
   static const introBg = '$_imageMainPath/intro_bg.png';
 
@@ -12,4 +16,7 @@ class AssetPath {
 
   // Splash
   static const mynthLogo = '$_imageSvgPath/mynth_logo.svg';
+
+  // Login
+  static const loginBg = '$_imageMainPath/login_bg.png';
 }

@@ -59,10 +59,10 @@ class _SplashViewState extends State<SplashView> {
           children: [
             SvgPicture.asset(
               AssetPath.mynthLogo,
-              height: 40,
+              height: 50,
             ),
             const SizedBox(
-              height: 10,
+              height: 20,
             ),
             const LoadingIndicator(),
           ],
