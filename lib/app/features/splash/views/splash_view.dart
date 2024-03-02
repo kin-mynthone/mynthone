@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
+import '../../../helpers/asset_path_helper.dart';
 import '../../../helpers/log_helper.dart';
+import '../../../routes/app_pages.dart';
 import '../../../themes/app_colors.dart';
 import '../../../widgets/loading_indicator_widget.dart';
 import '../controllers/auth_controller.dart';
@@ -36,7 +39,7 @@ class _SplashViewState extends State<SplashView> {
       }
       if (value == AuthStatus.unauthenticated) {
         Log.printInfo(authController.currentState);
-        //TODO: Add page here
+        Get.offAllNamed(AppPages.signIn);
       }
       if (value == AuthStatus.authenticated) {
         Log.printInfo(authController.currentState);
@@ -47,11 +50,22 @@ class _SplashViewState extends State<SplashView> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: AppColors.h425AC2,
       body: SafeArea(
-        child: Center(
-          child: LoadingIndicator(),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SvgPicture.asset(
+              AssetPath.mynthLogo,
+              height: 50,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            const LoadingIndicator(),
+          ],
         ),
       ),
     );

@@ -52,10 +52,10 @@ class AppThemes {
       filled: true,
       fillColor: AppColors.hF6F6F6,
       labelStyle: const TextStyle(color: AppColors.hBDBDBD),
-      floatingLabelStyle: const TextStyle(color: AppColors.hF87054),
+      floatingLabelStyle: const TextStyle(color: AppColors.h425AC2),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(AppNumbers.inputBorderRadius),
-        borderSide: const BorderSide(color: AppColors.hF87054, width: 2.0),
+        borderSide: const BorderSide(color: AppColors.h425AC2, width: 2.0),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(AppNumbers.inputBorderRadius),
@@ -63,12 +63,12 @@ class AppThemes {
       ),
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(AppNumbers.inputBorderRadius),
-        borderSide: const BorderSide(color: Colors.red, width: 1.0),
+        borderSide: const BorderSide(color: AppColors.hF05C5C, width: 1.0),
       ),
       focusedErrorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(AppNumbers.inputBorderRadius),
         borderSide: const BorderSide(
-          color: Colors.red,
+          color: AppColors.hF05C5C,
           width: 2.0,
         ),
       ),

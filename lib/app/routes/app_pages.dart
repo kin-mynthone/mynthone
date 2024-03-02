@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 import 'package:mynthone/app/features/onboarding/bindings/onboarding_binding.dart';
 import 'package:mynthone/app/features/onboarding/views/onboarding_view.dart';
+import 'package:mynthone/app/features/sign_in/bindings/sign_in_binding.dart';
+import 'package:mynthone/app/features/sign_in/views/sign_in_view.dart';
 import '../features/introduction/bindings/introduction_binding.dart';
 import '../features/introduction/views/introduction_view.dart';
 import '../features/splash/bindings/splash_binding.dart';
@@ -14,6 +16,7 @@ class AppPages {
   static const introduction = _Routes.introduction;
   static const splash = _Routes.splash;
   static const onboarding = _Routes.onboarding;
+  static const signIn = _Routes.signIn;
 
   static final routes = [
     GetPage(
@@ -30,6 +33,11 @@ class AppPages {
       name: _Paths.onboarding,
       page: () => const OnboardingView(),
       binding: OnboardingBinding(),
+    ),
+    GetPage(
+      name: _Paths.signIn,
+      page: () => const SignInView(),
+      binding: SignInBinding(),
     ),
   ];
 }

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:mynthone/app/themes/app_colors.dart';
 
 class LoadingIndicator extends StatelessWidget {
   const LoadingIndicator({
     super.key,
-    this.color = const Color(0xFF3F7DB2),
-    this.size = 60.0,
+    this.color = AppColors.hF6F6F6,
+    this.size = 50.0,
   });
 
   final Color color;
@@ -13,7 +14,7 @@ class LoadingIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SpinKitCircle(
+    return SpinKitRing(
       color: color,
       size: size,
     );
