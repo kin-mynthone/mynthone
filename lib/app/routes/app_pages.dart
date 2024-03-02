@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:mynthone/app/features/auth_otp/bindings/auth_otp_binding.dart';
+import 'package:mynthone/app/features/auth_otp/views/auth_otp_view.dart';
 import 'package:mynthone/app/features/onboarding/bindings/onboarding_binding.dart';
 import 'package:mynthone/app/features/onboarding/views/onboarding_view.dart';
 import 'package:mynthone/app/features/sign_in/bindings/sign_in_binding.dart';
@@ -17,6 +19,7 @@ class AppPages {
   static const splash = _Routes.splash;
   static const onboarding = _Routes.onboarding;
   static const signIn = _Routes.signIn;
+  static const authOtp = _Routes.authOtp;
 
   static final routes = [
     GetPage(
@@ -38,6 +41,11 @@ class AppPages {
       name: _Paths.signIn,
       page: () => const SignInView(),
       binding: SignInBinding(),
+    ),
+    GetPage(
+      name: _Paths.authOtp,
+      page: () => const AuthOtpView(),
+      binding: AuthOtpBinding(),
     ),
   ];
 }

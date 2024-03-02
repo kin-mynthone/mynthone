@@ -4,6 +4,7 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:fl_country_code_picker/fl_country_code_picker.dart';
 
 import 'package:get/get.dart';
+import 'package:mynthone/app/routes/app_pages.dart';
 
 import '../../../constants/app_numbers.dart';
 import '../../../constants/app_strings.dart';
@@ -413,7 +414,8 @@ class _SignInButtonState extends State<_SignInButton> {
 
             return;
           }
-
+          Get.offNamed(AppPages.authOtp);
+          //TODO: add signin function
           // signInController.signIn();
         },
         child: Text('Login'.tr),
