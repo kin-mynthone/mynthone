@@ -4,6 +4,7 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:fl_country_code_picker/fl_country_code_picker.dart';
 
 import 'package:get/get.dart';
+import 'package:mynthone/app/features/auth_otp/views/auth_otp_view.dart';
 import 'package:mynthone/app/routes/app_pages.dart';
 
 import '../../../constants/app_numbers.dart';
@@ -414,9 +415,23 @@ class _SignInButtonState extends State<_SignInButton> {
 
             return;
           }
-          Get.offNamed(AppPages.authOtp);
+
           //TODO: add signin function
           // signInController.signIn();
+
+          final mobileNumber =
+              signInController.mobileNumberEditingController.text;
+          final countryCode = signInController.countryCode;
+          final dialCode = signInController.dialCode;
+
+          final args = AuthOtpViewArgs(
+            otp: '1234',
+            mobileNumber: mobileNumber.trim(),
+            countryCode: countryCode.trim(),
+            dialCode: dialCode.trim(),
+          );
+          Get.offAllNamed(AppPages.authOtp, arguments: args);
+          Log.printInfo(signInController.currentState);
         },
         child: Text('Login'.tr),
       ),

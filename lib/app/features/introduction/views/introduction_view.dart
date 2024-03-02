@@ -28,8 +28,8 @@ class IntroductionView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const CustomTextWidget(
-                  text: 'The Digital wallet that connects global',
+                CustomTextWidget(
+                  text: 'The Digital wallet that connects global'.tr,
                   color: AppColors.hF6F6F6,
                   fontWeight: FontWeight.w700,
                   fontSize: 30,
@@ -38,8 +38,8 @@ class IntroductionView extends StatelessWidget {
                 const SizedBox(
                   height: 15,
                 ),
-                const CustomTextWidget(
-                  text: 'Banking Beyond, Welcome to the super experience',
+                CustomTextWidget(
+                  text: 'Banking Beyond, Welcome to the super experience'.tr,
                   color: AppColors.hF6F6F6,
                   fontSize: 18,
                   centerAlignment: true,
