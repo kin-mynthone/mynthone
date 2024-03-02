@@ -79,6 +79,10 @@ class SignInController extends GetxController {
 
   bool validateForm() {
     final isValid = _formKey.currentState?.isValid ?? false;
+    final mobileNumber = _mobileNumberEditingController.text.trim();
+    final password = _passwordEditingController.text.trim();
+    final countryCode = _countryCode.value.trim();
+    Log.printInfo('Credentials: $countryCode| $mobileNumber | $password');
     return isValid;
   }
 
