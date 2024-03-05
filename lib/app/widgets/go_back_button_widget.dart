@@ -20,8 +20,10 @@ class GoBackButton extends StatelessWidget {
       tooltip: 'Go back'.tr,
       padding: EdgeInsets.zero,
       constraints: const BoxConstraints(),
-      icon: const Icon(
+      icon: Icon(
         Icons.arrow_back,
+        color: iconColor,
+        size: 35,
       ),
     );
   }

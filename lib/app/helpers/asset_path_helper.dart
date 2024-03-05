@@ -19,4 +19,7 @@ class AssetPath {
 
   // Login
   static const loginBg = '$_imageMainPath/login_bg.png';
+
+  //OTP
+  static const otpImage = '$_imageMainPath/otp_image.png';
 }
