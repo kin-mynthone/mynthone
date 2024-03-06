@@ -12,9 +12,11 @@ class AppColors {
   static const Color hF6F6F6 = Color(0xFFF6F6F6); //white variant
   static const Color hBDBDBD = Color(0xFFBDBDBD); //inputForm label
   static const Color hD0D0D0 = Color(0xFFD0D0D0); //inputForm border
-  static const Color hF05C5C = Color(0xFFF05C5C); //error
 
+  static const Color hF05C5C = Color(0xFFF05C5C); //negative
   static const Color h7CD0AD = Color(0xFF7CD0AD); //positive
+
+  static const Color hE5EAFF = Color(0xFFE5EAFF); //navbar inactive
 
   static Color barrierColor = Colors.black.withOpacity(0.80); //overlay
 

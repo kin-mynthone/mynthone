@@ -8,6 +8,7 @@ abstract class _Routes {
   static const signIn = _Paths.signIn;
   static const authOtp = _Paths.authOtp;
   static const selectAccount = _Paths.selectAccount;
+  static const dashboard = _Paths.dashboard;
 }
 
 abstract class _Paths {
@@ -18,4 +19,5 @@ abstract class _Paths {
   static const signIn = '/sign-in';
   static const authOtp = '/auth-otp';
   static const selectAccount = '/select-account';
+  static const dashboard = '/dashboard';
 }
