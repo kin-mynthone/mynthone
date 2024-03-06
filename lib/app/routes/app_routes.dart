@@ -7,6 +7,7 @@ abstract class _Routes {
   static const onboarding = _Paths.onboarding;
   static const signIn = _Paths.signIn;
   static const authOtp = _Paths.authOtp;
+  static const selectAccount = _Paths.selectAccount;
 }
 
 abstract class _Paths {
@@ -15,5 +16,6 @@ abstract class _Paths {
   static const splash = '/splash';
   static const onboarding = '/onboarding';
   static const signIn = '/sign-in';
-  static const authOtp = '/aut-otp';
+  static const authOtp = '/auth-otp';
+  static const selectAccount = '/select-account';
 }

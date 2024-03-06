@@ -27,7 +27,7 @@ final Map<String, String> _englishTranslationMap = {
   'Discover tailored financial solutions designed to meet your unique needs. From budgeting tools to investment options, were here to help you achieve your goals.':
       "Discover tailored financial solutions designed to meet your unique needs. From budgeting tools to investment options, we're here to help you achieve your goals.",
 
-  // Login
+  // Sign In
   'Hi, Welcome Back': 'Hi, Welcome Back',
   'Please sign in to continue': 'Please sign in to continue',
 
@@ -35,4 +35,9 @@ final Map<String, String> _englishTranslationMap = {
   'OTP Verification': 'OTP Verification',
   'Enter OTP Code sent to': 'Enter OTP Code sent to',
   'Didn’t receive OTP code?': 'Didn’t receive OTP code?',
+
+  // Select Account
+  'Select your account': 'Select your account',
+  'Please select one of your account to proceed':
+      'Please select one of your account to proceed',
 };

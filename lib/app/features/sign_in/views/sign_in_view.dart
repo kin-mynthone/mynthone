@@ -4,7 +4,6 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:fl_country_code_picker/fl_country_code_picker.dart';
 
 import 'package:get/get.dart';
-import 'package:mynthone/app/features/auth_otp/views/auth_otp_view.dart';
 import 'package:mynthone/app/routes/app_pages.dart';
 
 import '../../../constants/app_numbers.dart';
@@ -75,7 +74,7 @@ class _SignInViewState extends State<SignInView> {
             height: screenHeight,
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(AssetPath.loginBg),
+                image: AssetImage(AssetPath.signInBg),
                 fit: BoxFit.cover,
               ),
             ),
@@ -363,27 +362,27 @@ class _SignInButton extends StatefulWidget {
 class _SignInButtonState extends State<_SignInButton> {
   final signInController = SignInController.find;
 
-  late Worker _loginStatusWorker;
+  late Worker _signInStatusWorker;
 
   @override
   void initState() {
     super.initState();
-    _setUpLoginStatusWorker();
+    _setUpSignInStatusWorker();
   }
 
   @override
   void dispose() {
-    _loginStatusWorker.dispose();
+    _signInStatusWorker.dispose();
     super.dispose();
   }
 
-  void _setUpLoginStatusWorker() {
-    _loginStatusWorker = ever(
+  void _setUpSignInStatusWorker() {
+    _signInStatusWorker = ever(
       signInController.status,
       (value) {
         if (value == SignInStatus.error) {
           Log.printInfo(signInController.currentState);
-          final title = 'Login Error'.tr;
+          final title = 'SignIn Error'.tr;
           final message = signInController.errorMessage;
           _showErrorDialog(context, title: title, message: message);
         }
@@ -408,32 +407,22 @@ class _SignInButtonState extends State<_SignInButton> {
           final isValidForm = signInController.validateForm();
 
           if (!isValidForm) {
-            Log.printWarning('Invalid Login Form');
-            final title = 'Login Error'.tr;
+            Log.printWarning('Invalid SignIn Form');
+            final title = 'SignIn Error'.tr;
             final message = 'Ensure that the form is properly filled in.'.tr;
             _showErrorDialog(context, title: title, message: message);
 
             return;
           }
 
-          //TODO: add signin function
-          // signInController.signIn();
+          //TODO: add sign in function
 
-          final mobileNumber =
-              signInController.mobileNumberEditingController.text;
-          final countryCode = signInController.countryCode;
-          final dialCode = signInController.dialCode;
-
-          final args = AuthOtpViewArgs(
-            otp: '1234',
-            mobileNumber: mobileNumber.trim(),
-            countryCode: countryCode.trim(),
-            dialCode: dialCode.trim(),
+          Get.offAllNamed(
+            AppPages.selectAccount,
           );
-          Get.offAllNamed(AppPages.authOtp, arguments: args);
           Log.printInfo(signInController.currentState);
         },
-        child: Text('Login'.tr),
+        child: Text('Sign'.tr),
       ),
     );
   }
@@ -465,3 +454,17 @@ class _SignInButtonState extends State<_SignInButton> {
     );
   }
 }
+
+
+
+  // final mobileNumber =
+          //     signInController.mobileNumberEditingController.text;
+          // final countryCode = signInController.countryCode;
+          // final dialCode = signInController.dialCode;
+
+          // final args = AuthOtpViewArgs(
+          //   otp: '1234',
+          //   mobileNumber: mobileNumber.trim(),
+          //   countryCode: countryCode.trim(),
+          //   dialCode: dialCode.trim(),
+          // );
