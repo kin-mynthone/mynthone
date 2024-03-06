@@ -3,6 +3,8 @@ import 'package:mynthone/app/features/auth_otp/bindings/auth_otp_binding.dart';
 import 'package:mynthone/app/features/auth_otp/views/auth_otp_view.dart';
 import 'package:mynthone/app/features/onboarding/bindings/onboarding_binding.dart';
 import 'package:mynthone/app/features/onboarding/views/onboarding_view.dart';
+import 'package:mynthone/app/features/select_account/bindings/select_account_binding.dart';
+import 'package:mynthone/app/features/select_account/views/select_account_view.dart';
 import 'package:mynthone/app/features/sign_in/bindings/sign_in_binding.dart';
 import 'package:mynthone/app/features/sign_in/views/sign_in_view.dart';
 import '../features/introduction/bindings/introduction_binding.dart';
@@ -20,6 +22,7 @@ class AppPages {
   static const onboarding = _Routes.onboarding;
   static const signIn = _Routes.signIn;
   static const authOtp = _Routes.authOtp;
+  static const selectAccount = _Routes.selectAccount;
 
   static final routes = [
     GetPage(
@@ -46,6 +49,11 @@ class AppPages {
       name: _Paths.authOtp,
       page: () => const AuthOtpView(),
       binding: AuthOtpBinding(),
+    ),
+    GetPage(
+      name: _Paths.selectAccount,
+      page: () => const SelectAccountView(),
+      binding: SelectAccountBinding(),
     ),
   ];
 }
