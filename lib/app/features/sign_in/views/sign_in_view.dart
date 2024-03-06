@@ -11,6 +11,7 @@ import '../../../constants/app_strings.dart';
 import '../../../helpers/asset_path_helper.dart';
 import '../../../helpers/log_helper.dart';
 import '../../../themes/app_colors.dart';
+import '../../../widgets/custom_alert_dialog_widget.dart';
 import '../../../widgets/custom_text_widget.dart';
 import '../../../widgets/eye_icon_widget.dart';
 import '../../../widgets/loading_overlay_widget.dart';
@@ -437,19 +438,12 @@ class _SignInButtonState extends State<_SignInButton> {
       barrierDismissible: false,
       builder: (BuildContext context) {
         return PopScope(
-          canPop: false,
-          child: AlertDialog(
-            backgroundColor: Colors.white,
-            title: Text(title),
-            content: Text(message),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.of(context).pop(),
-                child: Text('Got it'.tr),
-              ),
-            ],
-          ),
-        );
+            canPop: false,
+            child: CustomAlertDialogWidget(
+              title: title,
+              message: message,
+              onPressed: () {},
+            ));
       },
     );
   }

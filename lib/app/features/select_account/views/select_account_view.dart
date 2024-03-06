@@ -6,6 +6,7 @@ import 'package:mynthone/app/models/account_model.dart';
 import '../../../constants/app_numbers.dart';
 import '../../../helpers/log_helper.dart';
 import '../../../themes/app_colors.dart';
+import '../../../widgets/custom_alert_dialog_widget.dart';
 import '../../../widgets/custom_text_widget.dart';
 import '../../../widgets/loading_overlay_widget.dart';
 import '../controllers/select_account_controller.dart';
@@ -181,19 +182,12 @@ Future<void> _showErrorDialog(
     barrierDismissible: false,
     builder: (BuildContext context) {
       return PopScope(
-        canPop: false,
-        child: AlertDialog(
-          backgroundColor: Colors.white,
-          title: Text(title),
-          content: Text(message),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.of(context).pop(),
-              child: Text('Got it'.tr),
-            ),
-          ],
-        ),
-      );
+          canPop: false,
+          child: CustomAlertDialogWidget(
+            title: title,
+            message: message,
+            onPressed: () {},
+          ));
     },
   );
 }
