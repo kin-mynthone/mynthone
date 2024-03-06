@@ -54,7 +54,7 @@ Future<void> _loadEnv() async {
 
 String _getFlavor() {
   try {
-    final flavor = dotenv.get(Env.environment, fallback: '');
+    final flavor = dotenv.get(Env.productionFlavor, fallback: '');
     return flavor;
   } catch (_) {
     Log.printError('Unable to get flavor/environment.');

@@ -20,18 +20,17 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: Be sure to use the switch case
-    // switch (flavor) {
-    //   case "Production":
-    //     return showAppForReleasing();
-    //   case "Staging":
-    //     return showAppForReleasing();
-    //   case "Development":
-    //     return showAppForDebugging();
-    //   default:
-    //     return showAppForReleasing();
-    // }
-    return showAppForReleasing();
+    switch (flavor) {
+      case "PRODUCTION":
+        return showAppForReleasing();
+      case "STAGING":
+        return showAppForReleasing();
+      case "DEVELOPMENT":
+        return showAppForDebugging();
+      default:
+        return showAppForReleasing();
+    }
+    // return showAppForReleasing();
   }
 
   DevicePreview showAppForDebugging() {
@@ -40,7 +39,7 @@ class MainApp extends StatelessWidget {
       builder: (context) => GetMaterialApp(
         title: '$flavor Mynthone',
         defaultTransition: _defaultTransition,
-        initialRoute: _getInitialRoute(),
+        initialRoute: AppPages.dashboard,
         getPages: AppPages.routes,
         builder: (context, child) {
           child = ResponsiveBreakpoints.builder(
