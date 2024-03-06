@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:mynthone/app/features/dashboard/views/dashboard_view.dart';
 import 'package:mynthone/app/models/account_model.dart';
+import 'package:mynthone/app/routes/app_pages.dart';
 
 import '../../../constants/app_numbers.dart';
 import '../../../helpers/log_helper.dart';
@@ -159,7 +161,10 @@ class _AccountListTileWidget extends StatelessWidget {
         color: AppColors.h8E8E8E,
         fontSize: 15,
       ),
-      onTap: () {},
+      onTap: () {
+        final args = DashboardViewArgs(account: account);
+        Get.offAllNamed(AppPages.dashboard, arguments: args);
+      },
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
       ),
