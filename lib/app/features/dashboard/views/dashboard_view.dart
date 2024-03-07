@@ -258,38 +258,47 @@ class _DrawerHeaderWidget extends StatelessWidget {
         const SizedBox(
           height: 5,
         ),
-        FittedBox(
-          child: Container(
-            padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 20),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              color: AppColors.hF87054,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SvgPicture.asset(
-                  AssetPath.verified,
-                  colorFilter: const ColorFilter.mode(
-                    AppColors.hF6F6F6,
-                    BlendMode.modulate,
-                  ),
-                  height: 15,
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                const CustomTextWidget(
-                  text: 'Fully Verified',
-                  color: AppColors.hF6F6F6,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 13,
-                ),
-              ],
-            ),
-          ),
-        ),
+        const _FullyVerifiedWidget(),
       ],
+    );
+  }
+}
+
+class _FullyVerifiedWidget extends StatelessWidget {
+  const _FullyVerifiedWidget();
+
+  @override
+  Widget build(BuildContext context) {
+    return FittedBox(
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 20),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: AppColors.hF87054,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SvgPicture.asset(
+              AssetPath.verified,
+              colorFilter: const ColorFilter.mode(
+                AppColors.hF6F6F6,
+                BlendMode.modulate,
+              ),
+              height: 15,
+            ),
+            const SizedBox(
+              width: 10,
+            ),
+            const CustomTextWidget(
+              text: 'Fully Verified',
+              color: AppColors.hF6F6F6,
+              fontWeight: FontWeight.w600,
+              fontSize: 13,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
