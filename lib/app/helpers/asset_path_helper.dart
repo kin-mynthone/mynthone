@@ -5,6 +5,7 @@ class AssetPath {
   // Common
   static const eye = '$_imageSvgPath/eye.svg';
   static const eyeSlash = '$_imageSvgPath/eye_slash.svg';
+  static const verified = '$_imageSvgPath/verified.svg';
 
   // Introduction
   static const introBg = '$_imageMainPath/intro_bg.png';
@@ -34,5 +35,5 @@ class AssetPath {
   static const beneficiary = '$_imageSvgPath/beneficiary.svg';
   static const qrScanner = '$_imageSvgPath/qr_scanner.svg';
   static const limits = '$_imageSvgPath/limits.svg';
-  static const accountSettings = '$_imageSvgPath/account_settings.svg';
+  static const profileSettings = '$_imageSvgPath/profile_settings.svg';
 }
