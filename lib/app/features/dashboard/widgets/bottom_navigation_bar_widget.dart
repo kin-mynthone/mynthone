@@ -14,45 +14,82 @@ class _BottomNavigationBarWidget extends GetView<DashboardController> {
         currentIndex: controller.currentIndex,
         type: BottomNavigationBarType.fixed,
         onTap: (index) => controller.setCurrentIndexValue(index),
-        items: const [
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home,
-              color: AppColors.hE5EAFF,
-              size: 30,
+            icon: SvgPicture.asset(
+              AssetPath.home,
+              colorFilter: const ColorFilter.mode(
+                AppColors.hE5EAFF,
+                BlendMode.modulate, // Blend mode
+              ),
+              height: 30,
             ),
-            activeIcon: Icon(
-              Icons.home,
-              color: AppColors.hF87054,
-              size: 30,
+            activeIcon: SvgPicture.asset(
+              AssetPath.home,
+              colorFilter: const ColorFilter.mode(
+                AppColors.hF87054,
+                BlendMode.modulate, // Blend mode
+              ),
+              height: 30,
             ),
             label: 'Page1',
           ),
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.calendar_month,
-              color: AppColors.hE5EAFF,
-              size: 30,
+            icon: SvgPicture.asset(
+              AssetPath.cards,
+              colorFilter: const ColorFilter.mode(
+                AppColors.hE5EAFF,
+                BlendMode.modulate, // Blend mode
+              ),
+              height: 30,
             ),
-            activeIcon: Icon(
-              Icons.calendar_month,
-              color: AppColors.hF87054,
-              size: 30,
+            activeIcon: SvgPicture.asset(
+              AssetPath.cards,
+              colorFilter: const ColorFilter.mode(
+                AppColors.hF87054,
+                BlendMode.modulate, // Blend mode
+              ),
+              height: 30,
             ),
-            label: 'Page2',
+            label: 'Page1',
           ),
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.person,
-              color: AppColors.hE5EAFF,
-              size: 30,
+            icon: SvgPicture.asset(
+              AssetPath.statements,
+              colorFilter: const ColorFilter.mode(
+                AppColors.hE5EAFF,
+                BlendMode.modulate, // Blend mode
+              ),
+              height: 30,
             ),
-            activeIcon: Icon(
-              Icons.person,
-              color: AppColors.hF87054,
-              size: 30,
+            activeIcon: SvgPicture.asset(
+              AssetPath.statements,
+              colorFilter: const ColorFilter.mode(
+                AppColors.hF87054,
+                BlendMode.modulate, // Blend mode
+              ),
+              height: 30,
             ),
-            label: 'Page3',
+            label: 'Page1',
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              AssetPath.settings,
+              colorFilter: const ColorFilter.mode(
+                AppColors.hE5EAFF,
+                BlendMode.modulate, // Blend mode
+              ),
+              height: 30,
+            ),
+            activeIcon: SvgPicture.asset(
+              AssetPath.settings,
+              colorFilter: const ColorFilter.mode(
+                AppColors.hF87054,
+                BlendMode.modulate, // Blend mode
+              ),
+              height: 30,
+            ),
+            label: 'Page1',
           ),
         ],
       ),

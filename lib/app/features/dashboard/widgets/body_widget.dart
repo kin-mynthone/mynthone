@@ -12,6 +12,7 @@ class _BodyWidget extends GetView<DashboardController> {
           Center(child: Text('page1')),
           Center(child: Text('page2')),
           Center(child: Text('page3')),
+          Center(child: Text('page4')),
         ],
       ),
     );

@@ -7,6 +7,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
+import 'app/enums/flavor_enum.dart';
 import 'app/helpers/env_helper.dart';
 import 'app/helpers/log_helper.dart';
 import 'app/helpers/persistent_storage_helper.dart';
@@ -54,7 +55,7 @@ Future<void> _loadEnv() async {
 
 String _getFlavor() {
   try {
-    final flavor = dotenv.get(Env.productionFlavor, fallback: '');
+    final flavor = Flavor.production.description;
     return flavor;
   } catch (_) {
     Log.printError('Unable to get flavor/environment.');

@@ -9,6 +9,7 @@ final Map<String, String> _englishTranslationMap = {
   'Password': 'Password',
   'Forgot password?': 'Forgot password?',
   'Open an account': 'Open an account',
+  'Fully Verified': 'Fully Verified',
 
   // Introduction
   'The Digital wallet that connects global':
@@ -40,4 +41,11 @@ final Map<String, String> _englishTranslationMap = {
   'Select your account': 'Select your account',
   'Please select one of your account to proceed':
       'Please select one of your account to proceed',
+
+  // Drawer
+  'Your Accounts': 'Your Accounts',
+  'Beneficiaries': 'Beneficiaries',
+  'Generate QR code': 'Generate QR code',
+  'Limits': 'Limits',
+  'Profile Settings': 'Profile Settings',
 };
