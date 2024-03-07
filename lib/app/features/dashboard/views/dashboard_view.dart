@@ -260,7 +260,7 @@ class _DrawerHeaderWidget extends StatelessWidget {
         ),
         FittedBox(
           child: Container(
-            padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+            padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 20),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               color: AppColors.hF87054,
@@ -282,7 +282,7 @@ class _DrawerHeaderWidget extends StatelessWidget {
                 const CustomTextWidget(
                   text: 'Fully Verified',
                   color: AppColors.hF6F6F6,
-                  fontWeight: FontWeight.normal,
+                  fontWeight: FontWeight.w600,
                   fontSize: 13,
                 ),
               ],
