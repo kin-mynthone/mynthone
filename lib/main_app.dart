@@ -39,7 +39,7 @@ class MainApp extends StatelessWidget {
       builder: (context) => GetMaterialApp(
         title: '$flavor Mynthone',
         defaultTransition: _defaultTransition,
-        initialRoute: AppPages.dashboard,
+        initialRoute: _getInitialRoute(),
         getPages: AppPages.routes,
         builder: (context, child) {
           child = ResponsiveBreakpoints.builder(

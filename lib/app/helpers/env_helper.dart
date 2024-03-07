@@ -3,8 +3,8 @@ class Env {
   static const String stagingEnvFile = '.env.staging';
   static const String productionEnvFile = '.env.production';
 
-  static const String developementFlavor = 'Development';
-  static const String stagingtFlavor = 'Staging';
+  static const String developmentFlavor = 'Development';
+  static const String stagingFlavor = 'Staging';
   static const String productionFlavor = 'Production';
 
   static const String signInApiEndpoint = 'SIGNIN_API_ENDPOINT';
