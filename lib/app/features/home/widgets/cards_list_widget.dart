@@ -7,7 +7,7 @@ class _CardsListWidget extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Obx(
       () => SizedBox(
-        height: 190,
+        height: 170,
         child: Swiper(
           itemBuilder: (BuildContext context, int index) {
             return _CardsWidget(
@@ -79,7 +79,7 @@ class _CardsWidget extends GetView<HomeController> {
                 fontSize: 30,
               ),
               const SizedBox(
-                height: 30,
+                height: 10,
               ),
               CustomTextWidget(
                 text: 'Acct. no:'.tr,

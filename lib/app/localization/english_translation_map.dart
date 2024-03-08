@@ -14,6 +14,7 @@ final Map<String, String> _englishTranslationMap = {
   'Transfer': 'Transfer',
   'Account Number': 'Account Number',
   'Acct. no:': 'Acct. no:',
+  'Statement': 'Statement',
 
   // Introduction
   'The Digital wallet that connects global':

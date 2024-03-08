@@ -6,92 +6,114 @@ class _BottomNavigationBarWidget extends GetView<DashboardController> {
   @override
   Widget build(BuildContext context) {
     return Obx(
-      () => BottomNavigationBar(
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        elevation: 3,
-        backgroundColor: Colors.white,
-        currentIndex: controller.currentIndex,
-        type: BottomNavigationBarType.fixed,
-        onTap: (index) => controller.setCurrentIndexValue(index),
-        items: [
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              AssetPath.home,
-              colorFilter: const ColorFilter.mode(
-                AppColors.hE5EAFF,
-                BlendMode.modulate, // Blend mode
-              ),
-              height: 30,
-            ),
-            activeIcon: SvgPicture.asset(
-              AssetPath.home,
-              colorFilter: const ColorFilter.mode(
-                AppColors.hF87054,
-                BlendMode.modulate, // Blend mode
-              ),
-              height: 30,
-            ),
-            label: 'Page1',
+      () => Container(
+        decoration: BoxDecoration(
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(30),
+            topRight: Radius.circular(30),
           ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              AssetPath.cards,
-              colorFilter: const ColorFilter.mode(
-                AppColors.hE5EAFF,
-                BlendMode.modulate, // Blend mode
-              ),
-              height: 30,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.4),
+              spreadRadius: 1,
+              blurRadius: 20,
+              offset: const Offset(0, 3),
             ),
-            activeIcon: SvgPicture.asset(
-              AssetPath.cards,
-              colorFilter: const ColorFilter.mode(
-                AppColors.hF87054,
-                BlendMode.modulate, // Blend mode
-              ),
-              height: 30,
-            ),
-            label: 'Page1',
+          ],
+        ),
+        child: ClipRRect(
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(30),
+            topRight: Radius.circular(30),
           ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              AssetPath.statements,
-              colorFilter: const ColorFilter.mode(
-                AppColors.hE5EAFF,
-                BlendMode.modulate, // Blend mode
+          child: BottomNavigationBar(
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+            elevation: 0,
+            backgroundColor: Colors.white,
+            currentIndex: controller.currentIndex,
+            type: BottomNavigationBarType.fixed,
+            onTap: (index) => controller.setCurrentIndexValue(index),
+            items: [
+              BottomNavigationBarItem(
+                icon: SvgPicture.asset(
+                  AssetPath.home,
+                  colorFilter: const ColorFilter.mode(
+                    AppColors.hE5EAFF,
+                    BlendMode.modulate, // Blend mode
+                  ),
+                  height: 25,
+                ),
+                activeIcon: SvgPicture.asset(
+                  AssetPath.home,
+                  colorFilter: const ColorFilter.mode(
+                    AppColors.hF87054,
+                    BlendMode.modulate, // Blend mode
+                  ),
+                  height: 25,
+                ),
+                label: 'Page1',
               ),
-              height: 30,
-            ),
-            activeIcon: SvgPicture.asset(
-              AssetPath.statements,
-              colorFilter: const ColorFilter.mode(
-                AppColors.hF87054,
-                BlendMode.modulate, // Blend mode
+              BottomNavigationBarItem(
+                icon: SvgPicture.asset(
+                  AssetPath.cards,
+                  colorFilter: const ColorFilter.mode(
+                    AppColors.hE5EAFF,
+                    BlendMode.modulate, // Blend mode
+                  ),
+                  height: 25,
+                ),
+                activeIcon: SvgPicture.asset(
+                  AssetPath.cards,
+                  colorFilter: const ColorFilter.mode(
+                    AppColors.hF87054,
+                    BlendMode.modulate, // Blend mode
+                  ),
+                  height: 25,
+                ),
+                label: 'Page1',
               ),
-              height: 30,
-            ),
-            label: 'Page1',
+              BottomNavigationBarItem(
+                icon: SvgPicture.asset(
+                  AssetPath.statements,
+                  colorFilter: const ColorFilter.mode(
+                    AppColors.hE5EAFF,
+                    BlendMode.modulate, // Blend mode
+                  ),
+                  height: 25,
+                ),
+                activeIcon: SvgPicture.asset(
+                  AssetPath.statements,
+                  colorFilter: const ColorFilter.mode(
+                    AppColors.hF87054,
+                    BlendMode.modulate, // Blend mode
+                  ),
+                  height: 25,
+                ),
+                label: 'Page1',
+              ),
+              BottomNavigationBarItem(
+                icon: SvgPicture.asset(
+                  AssetPath.settings,
+                  colorFilter: const ColorFilter.mode(
+                    AppColors.hE5EAFF,
+                    BlendMode.modulate, // Blend mode
+                  ),
+                  height: 25,
+                ),
+                activeIcon: SvgPicture.asset(
+                  AssetPath.settings,
+                  colorFilter: const ColorFilter.mode(
+                    AppColors.hF87054,
+                    BlendMode.modulate, // Blend mode
+                  ),
+                  height: 25,
+                ),
+                label: 'Page1',
+              ),
+            ],
           ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              AssetPath.settings,
-              colorFilter: const ColorFilter.mode(
-                AppColors.hE5EAFF,
-                BlendMode.modulate, // Blend mode
-              ),
-              height: 30,
-            ),
-            activeIcon: SvgPicture.asset(
-              AssetPath.settings,
-              colorFilter: const ColorFilter.mode(
-                AppColors.hF87054,
-                BlendMode.modulate, // Blend mode
-              ),
-              height: 30,
-            ),
-            label: 'Page1',
-          ),
-        ],
+        ),
       ),
     );
   }

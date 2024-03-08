@@ -16,6 +16,7 @@ import '../controllers/home_controller.dart';
 part '../widgets/announcement_list_widget.dart';
 part '../widgets/cards_list_widget.dart';
 part '../widgets/buttons_widget.dart';
+part '../widgets/statement_widget.dart';
 
 class HomeView extends GetView<HomeController> {
   const HomeView({super.key});
@@ -39,11 +40,12 @@ class HomeView extends GetView<HomeController> {
       body: const SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _AnnouncementListWidget(),
             _CardsListWidget(),
-            _ButtonsWidget()
+            _ButtonsWidget(),
+            _StatementWidget(),
           ],
         ),
       ),

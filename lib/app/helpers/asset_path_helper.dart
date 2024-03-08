@@ -12,6 +12,7 @@ class AssetPath {
   static const transfer = '$_imageSvgPath/transfer.svg';
   static const receive = '$_imageSvgPath/receive.svg';
   static const options = '$_imageSvgPath/options.svg';
+  static const magnifier = '$_imageSvgPath/magnifier.svg';
 
   // Introduction
   static const introBg = '$_imageMainPath/intro_bg.png';
