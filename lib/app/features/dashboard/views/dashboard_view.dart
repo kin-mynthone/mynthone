@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import '../../../constants/app_strings.dart';
 import '../../../helpers/asset_path_helper.dart';
 import '../../../models/account_model.dart';
+import '../../../routes/app_pages.dart';
 import '../../../themes/app_colors.dart';
 import '../../../widgets/custom_text_widget.dart';
 import '../../home/views/home_view.dart';

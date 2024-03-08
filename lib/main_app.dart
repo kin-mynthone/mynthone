@@ -30,7 +30,6 @@ class MainApp extends StatelessWidget {
       default:
         return showAppForReleasing();
     }
-    // return showAppForReleasing();
   }
 
   DevicePreview showAppForDebugging() {

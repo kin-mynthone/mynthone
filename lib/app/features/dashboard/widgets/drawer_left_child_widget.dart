@@ -138,9 +138,7 @@ class _GotoAccounts extends StatelessWidget {
         ),
         height: 20,
       ),
-      onTap: () {
-        // Handle option 1
-      },
+      onTap: () => Get.offAllNamed(AppPages.selectAccount),
     );
   }
 }
