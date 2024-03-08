@@ -1,7 +1,7 @@
 part of '../views/home_view.dart';
 
-class _AnnouncementWidget extends GetView<HomeController> {
-  const _AnnouncementWidget();
+class _AnnouncementListWidget extends GetView<HomeController> {
+  const _AnnouncementListWidget();
 
   @override
   Widget build(BuildContext context) {
@@ -9,7 +9,7 @@ class _AnnouncementWidget extends GetView<HomeController> {
       () => Padding(
         padding: const EdgeInsets.symmetric(vertical: 20),
         child: SizedBox(
-          height: 150,
+          height: 110,
           child: Swiper(
             itemBuilder: (BuildContext context, int index) {
               return _AnnouncementCardWidget(
@@ -17,12 +17,11 @@ class _AnnouncementWidget extends GetView<HomeController> {
               );
             },
             itemCount: controller.announcement.length,
-            autoplay: true,
             loop: false,
             viewportFraction: 0.85,
             scale: 0.9,
             pagination: const SwiperPagination(
-              margin: EdgeInsets.only(top: 100),
+              margin: EdgeInsets.only(top: 90),
               builder: DotSwiperPaginationBuilder(
                 color: AppColors.hE8E8E8,
                 activeColor: AppColors.hF87054,
@@ -44,7 +43,7 @@ class _AnnouncementCardWidget extends GetView<HomeController> {
   Widget build(BuildContext context) {
     final announcement = controller.announcement[index];
     return Padding(
-      padding: const EdgeInsets.only(bottom: 25),
+      padding: const EdgeInsets.only(bottom: 20),
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 10),
         decoration: index == 0
@@ -52,19 +51,19 @@ class _AnnouncementCardWidget extends GetView<HomeController> {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(15),
                 border: Border.all(
-                  color: AppColors.hE5EAFF,
+                  color: AppColors.hF2F4FE,
                   width: 2,
                 ),
               )
             : BoxDecoration(
-                color: AppColors.hE5EAFF,
+                color: AppColors.hF2F4FE,
                 borderRadius: BorderRadius.circular(15),
               ),
         child: Row(
           children: [
             SizedBox(
-              height: 90,
-              width: 90,
+              height: 60,
+              width: 60,
               child: Image.network(
                 'https://firebasestorage.googleapis.com/v0/b/mynthone-dev.appspot.com/o/gift.png?alt=media&token=4abad1fe-9675-4bb1-a76c-dd3be63521d0', // Replace with your actual image URL
                 loadingBuilder: (BuildContext context, Widget child,
@@ -86,7 +85,7 @@ class _AnnouncementCardWidget extends GetView<HomeController> {
               width: 10,
             ),
             SizedBox(
-              width: 210,
+              width: 230,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -94,17 +93,17 @@ class _AnnouncementCardWidget extends GetView<HomeController> {
                   CustomTextWidget(
                     text: announcement.title,
                     color: AppColors.h403E51,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 17,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 13,
                   ),
                   const SizedBox(
-                    height: 8,
+                    height: 5,
                   ),
                   CustomTextWidget(
                     text: announcement.description,
                     color: AppColors.h8E8E8E,
                     fontWeight: FontWeight.normal,
-                    fontSize: 12,
+                    fontSize: 10,
                   ),
                 ],
               ),

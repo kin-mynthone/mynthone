@@ -12,7 +12,8 @@ import '../../../themes/app_colors.dart';
 import '../../../widgets/custom_text_widget.dart';
 import '../controllers/home_controller.dart';
 
-part '../widgets/announcement_widget.dart';
+part '../widgets/announcement_list_widget.dart';
+part '../widgets/cards_list_widget.dart';
 
 class HomeView extends GetView<HomeController> {
   const HomeView({super.key});
@@ -38,7 +39,8 @@ class HomeView extends GetView<HomeController> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            _AnnouncementWidget(),
+            _AnnouncementListWidget(),
+            _CardsListWidget(),
           ],
         ),
       ),

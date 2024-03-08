@@ -13,6 +13,7 @@ class AppColors {
   static const Color hBDBDBD = Color(0xFFBDBDBD); //inputForm label
   static const Color hD0D0D0 = Color(0xFFD0D0D0); //inputForm border
   static const Color hE8E8E8 = Color(0xFFE8E8E8); //page indicator
+  static const Color hF2F4FE = Color(0xFFF2F4FE); //announcement cards
 
   static const Color hF05C5C = Color(0xFFF05C5C); //negative
   static const Color h7CD0AD = Color(0xFF7CD0AD); //positive
