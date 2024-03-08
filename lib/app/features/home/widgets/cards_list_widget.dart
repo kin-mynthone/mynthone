@@ -7,7 +7,7 @@ class _CardsListWidget extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Obx(
       () => SizedBox(
-        height: 200,
+        height: 190,
         child: Swiper(
           itemBuilder: (BuildContext context, int index) {
             return _CardsWidget(
@@ -15,9 +15,8 @@ class _CardsListWidget extends GetView<HomeController> {
             );
           },
           itemCount: controller.debitCards.length,
-          viewportFraction: 0.85,
-          loop: false,
-          scale: 0.9,
+          viewportFraction: 0.8,
+          scale: 0.8,
           onTap: (index) {},
         ),
       ),
@@ -63,41 +62,38 @@ class _CardsWidget extends GetView<HomeController> {
           const SizedBox(
             height: 20,
           ),
-          SizedBox(
-            width: 210,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CustomTextWidget(
-                  text: debitCards.cardName,
-                  color: AppColors.hF6F6F6,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 13,
-                ),
-                CustomTextWidget(
-                  text: '${debitCards.currency} ${debitCards.amount}',
-                  color: AppColors.hF6F6F6,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 30,
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                CustomTextWidget(
-                  text: 'Acct. no:'.tr,
-                  color: AppColors.hF6F6F6,
-                  fontWeight: FontWeight.normal,
-                  fontSize: 12,
-                ),
-                CustomTextWidget(
-                  text: debitCards.accountNumber,
-                  color: AppColors.hF6F6F6,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 15,
-                ),
-              ],
-            ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CustomTextWidget(
+                text: debitCards.cardName,
+                color: AppColors.hF6F6F6,
+                fontWeight: FontWeight.w700,
+                fontSize: 13,
+              ),
+              CustomTextWidget(
+                text: '${debitCards.currency} ${debitCards.amount}',
+                color: AppColors.hF6F6F6,
+                fontWeight: FontWeight.w700,
+                fontSize: 30,
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              CustomTextWidget(
+                text: 'Acct. no:'.tr,
+                color: AppColors.hF6F6F6,
+                fontWeight: FontWeight.normal,
+                fontSize: 12,
+              ),
+              CustomTextWidget(
+                text: debitCards.accountNumber,
+                color: AppColors.hF6F6F6,
+                fontWeight: FontWeight.w600,
+                fontSize: 15,
+              ),
+            ],
           ),
         ],
       ),

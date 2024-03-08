@@ -11,7 +11,7 @@ class _ButtonsWidget extends StatelessWidget {
         children: [
           SizedBox(
             width: 130,
-            height: 50,
+            height: 45,
             child: ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
@@ -39,7 +39,7 @@ class _ButtonsWidget extends StatelessWidget {
           ),
           SizedBox(
             width: 130,
-            height: 50,
+            height: 45,
             child: ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
@@ -66,8 +66,8 @@ class _ButtonsWidget extends StatelessWidget {
             width: 20,
           ),
           SizedBox(
-            width: 50,
-            height: 50,
+            width: 60,
+            height: 45,
             child: ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
