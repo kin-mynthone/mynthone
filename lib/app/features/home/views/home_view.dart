@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:get/get.dart';
+import 'package:mynthone/app/constants/app_numbers.dart';
 import 'package:mynthone/app/features/dashboard/controllers/dashboard_controller.dart';
 import 'package:mynthone/app/widgets/loading_indicator_widget.dart';
 
@@ -14,6 +15,7 @@ import '../controllers/home_controller.dart';
 
 part '../widgets/announcement_list_widget.dart';
 part '../widgets/cards_list_widget.dart';
+part '../widgets/buttons_widget.dart';
 
 class HomeView extends GetView<HomeController> {
   const HomeView({super.key});
@@ -41,6 +43,7 @@ class HomeView extends GetView<HomeController> {
           children: [
             _AnnouncementListWidget(),
             _CardsListWidget(),
+            _ButtonsWidget()
           ],
         ),
       ),

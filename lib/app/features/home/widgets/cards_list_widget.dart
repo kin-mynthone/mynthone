@@ -7,7 +7,7 @@ class _CardsListWidget extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Obx(
       () => SizedBox(
-        height: 220,
+        height: 200,
         child: Swiper(
           itemBuilder: (BuildContext context, int index) {
             return _CardsWidget(
@@ -32,77 +32,74 @@ class _CardsWidget extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     final debitCards = controller.debitCards[index];
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 25),
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-              colors: [
-                Color(int.parse(0xFFFBC3C5.toString())),
-                Color(int.parse(0xFFA9BCEB.toString())),
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            colors: [
+              Color(int.parse(0xFFFBC3C5.toString())),
+              Color(int.parse(0xFFA9BCEB.toString())),
+            ],
+            stops: const [
+              0.1,
+              1
+            ]),
+        borderRadius: BorderRadius.circular(15),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SvgPicture.asset(
+            AssetPath.visa,
+            colorFilter: const ColorFilter.mode(
+              AppColors.hF6F6F6,
+              BlendMode.modulate, // Blend mode
+            ),
+            height: 12,
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          SizedBox(
+            width: 210,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomTextWidget(
+                  text: debitCards.cardName,
+                  color: AppColors.hF6F6F6,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 13,
+                ),
+                CustomTextWidget(
+                  text: '${debitCards.currency} ${debitCards.amount}',
+                  color: AppColors.hF6F6F6,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 30,
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                CustomTextWidget(
+                  text: 'Acct. no:'.tr,
+                  color: AppColors.hF6F6F6,
+                  fontWeight: FontWeight.normal,
+                  fontSize: 12,
+                ),
+                CustomTextWidget(
+                  text: debitCards.accountNumber,
+                  color: AppColors.hF6F6F6,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 15,
+                ),
               ],
-              stops: const [
-                0.1,
-                1
-              ]),
-          borderRadius: BorderRadius.circular(15),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SvgPicture.asset(
-              AssetPath.visa,
-              colorFilter: const ColorFilter.mode(
-                AppColors.hF6F6F6,
-                BlendMode.modulate, // Blend mode
-              ),
-              height: 12,
             ),
-            const SizedBox(
-              height: 20,
-            ),
-            SizedBox(
-              width: 210,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  CustomTextWidget(
-                    text: debitCards.cardName,
-                    color: AppColors.hF6F6F6,
-                    fontWeight: FontWeight.w700,
-                    fontSize: 13,
-                  ),
-                  CustomTextWidget(
-                    text: '${debitCards.currency} ${debitCards.amount}',
-                    color: AppColors.hF6F6F6,
-                    fontWeight: FontWeight.w700,
-                    fontSize: 30,
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  const CustomTextWidget(
-                    text: 'Acct. no',
-                    color: AppColors.hF6F6F6,
-                    fontWeight: FontWeight.normal,
-                    fontSize: 12,
-                  ),
-                  CustomTextWidget(
-                    text: debitCards.accountNumber,
-                    color: AppColors.hF6F6F6,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 15,
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

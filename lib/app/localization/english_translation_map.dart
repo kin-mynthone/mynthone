@@ -10,6 +10,10 @@ final Map<String, String> _englishTranslationMap = {
   'Forgot password?': 'Forgot password?',
   'Open an account': 'Open an account',
   'Fully Verified': 'Fully Verified',
+  'Request': 'Request',
+  'Transfer': 'Transfer',
+  'Account Number': 'Account Number',
+  'Acct. no:': 'Acct. no:',
 
   // Introduction
   'The Digital wallet that connects global':
