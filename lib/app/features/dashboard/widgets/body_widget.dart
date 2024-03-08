@@ -9,7 +9,7 @@ class _BodyWidget extends GetView<DashboardController> {
       () => _IndexStackWithFadeAnimation(
         index: controller.currentIndex,
         children: const [
-          Center(child: Text('page1')),
+          Center(child: HomeView()),
           Center(child: Text('page2')),
           Center(child: Text('page3')),
           Center(child: Text('page4')),

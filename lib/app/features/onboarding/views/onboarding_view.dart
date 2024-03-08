@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mynthone/app/helpers/asset_path_helper.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../constants/app_numbers.dart';
+import '../../../helpers/asset_path_helper.dart';
 import '../../../helpers/log_helper.dart';
 import '../../../routes/app_pages.dart';
 import '../../../themes/app_colors.dart';

@@ -4,12 +4,12 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:fl_country_code_picker/fl_country_code_picker.dart';
 
 import 'package:get/get.dart';
-import 'package:mynthone/app/routes/app_pages.dart';
 
 import '../../../constants/app_numbers.dart';
 import '../../../constants/app_strings.dart';
 import '../../../helpers/asset_path_helper.dart';
 import '../../../helpers/log_helper.dart';
+import '../../../routes/app_pages.dart';
 import '../../../themes/app_colors.dart';
 import '../../../widgets/custom_alert_dialog_widget.dart';
 import '../../../widgets/custom_text_widget.dart';

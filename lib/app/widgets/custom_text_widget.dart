@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mynthone/app/themes/app_colors.dart';
+import '../../../app/themes/app_colors.dart';
 
 class CustomTextWidget extends StatelessWidget {
   final String text;
@@ -19,7 +19,7 @@ class CustomTextWidget extends StatelessWidget {
       required this.text,
       this.fontSize = 16,
       this.fontWeight = FontWeight.normal,
-      this.color = AppColors.h425AC2,
+      this.color = AppColors.h403E51,
       this.centerAlignment = false,
       this.letterSpacing = 0,
       this.overflow = false,

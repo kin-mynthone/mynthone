@@ -6,6 +6,7 @@ class AssetPath {
   static const eye = '$_imageSvgPath/eye.svg';
   static const eyeSlash = '$_imageSvgPath/eye_slash.svg';
   static const verified = '$_imageSvgPath/verified.svg';
+  static const notification = '$_imageSvgPath/notification.svg';
 
   // Introduction
   static const introBg = '$_imageMainPath/intro_bg.png';

@@ -1,16 +1,19 @@
 import 'package:get/get.dart';
-import 'package:mynthone/app/features/auth_otp/bindings/auth_otp_binding.dart';
-import 'package:mynthone/app/features/auth_otp/views/auth_otp_view.dart';
-import 'package:mynthone/app/features/onboarding/bindings/onboarding_binding.dart';
-import 'package:mynthone/app/features/onboarding/views/onboarding_view.dart';
-import 'package:mynthone/app/features/select_account/bindings/select_account_binding.dart';
-import 'package:mynthone/app/features/select_account/views/select_account_view.dart';
-import 'package:mynthone/app/features/sign_in/bindings/sign_in_binding.dart';
-import 'package:mynthone/app/features/sign_in/views/sign_in_view.dart';
+
+import '../features/auth_otp/bindings/auth_otp_binding.dart';
+import '../features/auth_otp/views/auth_otp_view.dart';
 import '../features/dashboard/bindings/dashboard_binding.dart';
 import '../features/dashboard/views/dashboard_view.dart';
+import '../features/home/bindings/home_binding.dart';
+import '../features/home/views/home_view.dart';
 import '../features/introduction/bindings/introduction_binding.dart';
 import '../features/introduction/views/introduction_view.dart';
+import '../features/onboarding/bindings/onboarding_binding.dart';
+import '../features/onboarding/views/onboarding_view.dart';
+import '../features/select_account/bindings/select_account_binding.dart';
+import '../features/select_account/views/select_account_view.dart';
+import '../features/sign_in/bindings/sign_in_binding.dart';
+import '../features/sign_in/views/sign_in_view.dart';
 import '../features/splash/bindings/splash_binding.dart';
 import '../features/splash/views/splash_view.dart';
 
@@ -26,6 +29,7 @@ class AppPages {
   static const authOtp = _Routes.authOtp;
   static const selectAccount = _Routes.selectAccount;
   static const dashboard = _Routes.dashboard;
+  static const home = _Routes.home;
 
   static final routes = [
     GetPage(
@@ -62,6 +66,11 @@ class AppPages {
       name: _Paths.dashboard,
       page: () => const DashboardView(),
       binding: DashboardBinding(),
+    ),
+    GetPage(
+      name: _Paths.home,
+      page: () => const HomeView(),
+      binding: HomeBinding(),
     ),
   ];
 }

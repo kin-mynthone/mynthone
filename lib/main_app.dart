@@ -30,7 +30,6 @@ class MainApp extends StatelessWidget {
       default:
         return showAppForReleasing();
     }
-    // return showAppForReleasing();
   }
 
   DevicePreview showAppForDebugging() {
@@ -39,7 +38,7 @@ class MainApp extends StatelessWidget {
       builder: (context) => GetMaterialApp(
         title: '$flavor Mynthone',
         defaultTransition: _defaultTransition,
-        initialRoute: _getInitialRoute(),
+        initialRoute: AppPages.dashboard,
         getPages: AppPages.routes,
         builder: (context, child) {
           child = ResponsiveBreakpoints.builder(
