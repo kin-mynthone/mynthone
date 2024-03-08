@@ -3,10 +3,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 
 import 'package:get/get.dart';
-import 'package:mynthone/app/helpers/asset_path_helper.dart';
-import 'package:mynthone/app/themes/app_colors.dart';
 
+import '../../../helpers/asset_path_helper.dart';
 import '../../../helpers/log_helper.dart';
+import '../../../themes/app_colors.dart';
 import '../../../widgets/custom_alert_dialog_widget.dart';
 import '../../../widgets/custom_text_widget.dart';
 import '../../../widgets/go_back_button_widget.dart';

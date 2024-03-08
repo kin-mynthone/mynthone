@@ -9,6 +9,7 @@ abstract class _Routes {
   static const authOtp = _Paths.authOtp;
   static const selectAccount = _Paths.selectAccount;
   static const dashboard = _Paths.dashboard;
+  static const home = _Paths.home;
 }
 
 abstract class _Paths {
@@ -20,4 +21,5 @@ abstract class _Paths {
   static const authOtp = '/auth-otp';
   static const selectAccount = '/select-account';
   static const dashboard = '/dashboard';
+  static const home = '/home';
 }

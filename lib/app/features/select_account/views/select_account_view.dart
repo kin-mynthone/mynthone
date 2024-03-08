@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:mynthone/app/features/dashboard/views/dashboard_view.dart';
-import 'package:mynthone/app/models/account_model.dart';
-import 'package:mynthone/app/routes/app_pages.dart';
 
 import '../../../constants/app_numbers.dart';
 import '../../../helpers/log_helper.dart';
+import '../../../models/account_model.dart';
+import '../../../routes/app_pages.dart';
 import '../../../themes/app_colors.dart';
 import '../../../widgets/custom_alert_dialog_widget.dart';
 import '../../../widgets/custom_text_widget.dart';
 import '../../../widgets/loading_overlay_widget.dart';
+import '../../dashboard/views/dashboard_view.dart';
 import '../controllers/select_account_controller.dart';
 
 class SelectAccountView extends StatefulWidget {
