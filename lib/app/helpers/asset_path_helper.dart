@@ -7,6 +7,12 @@ class AssetPath {
   static const eyeSlash = '$_imageSvgPath/eye_slash.svg';
   static const verified = '$_imageSvgPath/verified.svg';
   static const notification = '$_imageSvgPath/notification.svg';
+  static const visa = '$_imageSvgPath/visa.svg';
+  static const flip = '$_imageSvgPath/flip.svg';
+  static const transfer = '$_imageSvgPath/transfer.svg';
+  static const receive = '$_imageSvgPath/receive.svg';
+  static const options = '$_imageSvgPath/options.svg';
+  static const magnifier = '$_imageSvgPath/magnifier.svg';
 
   // Introduction
   static const introBg = '$_imageMainPath/intro_bg.png';
