@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:mynthone/app/features/home/controllers/home_controller.dart';
 
+import '../../dashboard_home/controllers/home_controller.dart';
 import '../controllers/dashboard_controller.dart';
 
 class DashboardBinding extends Bindings {

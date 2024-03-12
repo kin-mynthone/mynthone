@@ -3,6 +3,7 @@ import 'package:flutter_inner_drawer/inner_drawer.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:get/get.dart';
+import 'package:mynthone/app/features/dashboard_card_list/views/card_list_view.dart';
 
 import '../../../constants/app_strings.dart';
 import '../../../helpers/asset_path_helper.dart';
@@ -10,7 +11,7 @@ import '../../../models/account_model.dart';
 import '../../../routes/app_pages.dart';
 import '../../../themes/app_colors.dart';
 import '../../../widgets/custom_text_widget.dart';
-import '../../home/views/home_view.dart';
+import '../../dashboard_home/views/home_view.dart';
 import '../controllers/dashboard_controller.dart';
 
 part '../widgets/body_widget.dart';
