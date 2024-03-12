@@ -1,4 +1,4 @@
-class DebitCards {
+class DebitCard {
   final String id;
   final String cardName;
   final String accountNumber;
@@ -8,7 +8,7 @@ class DebitCards {
   final String validity;
   final String cvv;
 
-  DebitCards({
+  DebitCard({
     required this.id,
     required this.cardName,
     required this.accountNumber,
@@ -31,8 +31,8 @@ class DebitCards {
     };
   }
 
-  factory DebitCards.fromMap(Map<String, dynamic> map) {
-    return DebitCards(
+  factory DebitCard.fromMap(Map<String, dynamic> map) {
+    return DebitCard(
       id: map['id'] as String,
       cardName: map['name'] as String,
       accountNumber: map['accountNumber'] as String,

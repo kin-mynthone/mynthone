@@ -29,6 +29,7 @@ class CustomTextWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text.tr,
+      maxLines: overflow ? 1 : 2,
       overflow: overflow ? TextOverflow.ellipsis : null,
       style: GoogleFonts.poppins(
           fontSize: fontSize,

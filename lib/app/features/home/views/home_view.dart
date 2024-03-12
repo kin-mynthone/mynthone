@@ -9,6 +9,7 @@ import 'package:mynthone/app/widgets/loading_indicator_widget.dart';
 
 import '../../../constants/app_strings.dart';
 import '../../../helpers/asset_path_helper.dart';
+import '../../../models/statement_model.dart';
 import '../../../themes/app_colors.dart';
 import '../../../widgets/custom_text_widget.dart';
 import '../controllers/home_controller.dart';
@@ -38,15 +39,17 @@ class HomeView extends GetView<HomeController> {
         automaticallyImplyLeading: false,
       ),
       body: const SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _AnnouncementListWidget(),
-            _CardsListWidget(),
-            _ButtonsWidget(),
-            _StatementWidget(),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _AnnouncementListWidget(),
+              _CardsListWidget(),
+              _ButtonsWidget(),
+              _StatementWidget(),
+            ],
+          ),
         ),
       ),
     );

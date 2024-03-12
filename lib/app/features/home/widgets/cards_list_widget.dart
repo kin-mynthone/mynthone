@@ -7,7 +7,7 @@ class _CardsListWidget extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Obx(
       () => SizedBox(
-        height: 170,
+        height: 140,
         child: Swiper(
           itemBuilder: (BuildContext context, int index) {
             return _CardsWidget(
@@ -32,7 +32,7 @@ class _CardsWidget extends GetView<HomeController> {
   Widget build(BuildContext context) {
     final debitCards = controller.debitCards[index];
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       decoration: BoxDecoration(
         gradient: LinearGradient(
             begin: Alignment.topRight,
@@ -48,7 +48,7 @@ class _CardsWidget extends GetView<HomeController> {
         borderRadius: BorderRadius.circular(15),
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SvgPicture.asset(
@@ -63,7 +63,7 @@ class _CardsWidget extends GetView<HomeController> {
             height: 20,
           ),
           Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CustomTextWidget(
@@ -78,21 +78,21 @@ class _CardsWidget extends GetView<HomeController> {
                 fontWeight: FontWeight.w700,
                 fontSize: 30,
               ),
-              const SizedBox(
-                height: 10,
-              ),
-              CustomTextWidget(
-                text: 'Acct. no:'.tr,
-                color: AppColors.hF6F6F6,
-                fontWeight: FontWeight.normal,
-                fontSize: 12,
-              ),
-              CustomTextWidget(
-                text: debitCards.accountNumber,
-                color: AppColors.hF6F6F6,
-                fontWeight: FontWeight.w600,
-                fontSize: 15,
-              ),
+              // const SizedBox(
+              //   height: 10,
+              // ),
+              // CustomTextWidget(
+              //   text: 'Acct. no:'.tr,
+              //   color: AppColors.hF6F6F6,
+              //   fontWeight: FontWeight.normal,
+              //   fontSize: 12,
+              // ),
+              // CustomTextWidget(
+              //   text: debitCards.accountNumber,
+              //   color: AppColors.hF6F6F6,
+              //   fontWeight: FontWeight.w600,
+              //   fontSize: 15,
+              // ),
             ],
           ),
         ],
