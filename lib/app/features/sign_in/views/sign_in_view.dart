@@ -81,6 +81,7 @@ class _SignInViewState extends State<SignInView> {
             ),
           ),
           const Scaffold(
+            resizeToAvoidBottomInset: false,
             backgroundColor: Colors.transparent,
             body: SafeArea(
               bottom: false,
@@ -117,8 +118,6 @@ class _BodyWidget extends GetView<SignInController> {
 
   @override
   Widget build(BuildContext context) {
-    var screenHeight = MediaQuery.of(context).size.height;
-
     return Expanded(
       child: Container(
         decoration: const BoxDecoration(
@@ -131,7 +130,8 @@ class _BodyWidget extends GetView<SignInController> {
         child: Padding(
           padding: const EdgeInsets.symmetric(
               horizontal: AppNumbers.screenPadding, vertical: 30),
-          child: Stack(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               SingleChildScrollView(
                 child: FormBuilder(
@@ -158,11 +158,7 @@ class _BodyWidget extends GetView<SignInController> {
                   ),
                 ),
               ),
-              Positioned(
-                bottom: screenHeight * 0.03,
-                right: 0,
-                child: const _AppVersion(),
-              ),
+              const _AppVersion(),
             ],
           ),
         ),
@@ -342,13 +338,24 @@ class _AppVersion extends GetView<SignInController> {
 
   @override
   Widget build(BuildContext context) {
-    return Obx(
-      () => CustomTextWidget(
-        text: 'v ${controller.currentVersion}',
-        color: AppColors.h8E8E8E,
-        fontWeight: FontWeight.normal,
-        fontSize: 15,
-      ),
+    return Column(
+      children: [
+        const CustomTextWidget(
+          text: 'Powered by: Guilder Capital',
+          color: AppColors.h403E51,
+          fontWeight: FontWeight.w600,
+          fontSize: 15,
+        ),
+        const SizedBox(height: 10),
+        Obx(
+          () => CustomTextWidget(
+            text: 'v ${controller.currentVersion}',
+            color: AppColors.h8E8E8E,
+            fontWeight: FontWeight.normal,
+            fontSize: 12,
+          ),
+        ),
+      ],
     );
   }
 }

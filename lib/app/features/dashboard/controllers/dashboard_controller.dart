@@ -21,6 +21,5 @@ class DashboardController extends GetxController {
 
   void toggleDrawer() {
     _innerDrawerKey.currentState?.toggle();
-    // _innerDrawerKey.currentState!.toggle(direction: InnerDrawerDirection.end);
   }
 }

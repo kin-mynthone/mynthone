@@ -26,7 +26,7 @@ class HomeController extends GetxController {
   List<Statement> get statement => _statement;
 
   String get currentState =>
-      'HomeController(status: ${_status.value},  errorMessage: ${_errorMessage.value}, announcementLength: ${_announcement.length}, debitCardLength: ${_debitCard.length}, )';
+      'HomeController(status: ${_status.value},  errorMessage: ${_errorMessage.value}, announcementLength: ${_announcement.length}, debitCardLength: ${_debitCard.length}, statementLength: ${_statement.length})';
 
   @override
   void onInit() {
