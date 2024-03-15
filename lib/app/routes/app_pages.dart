@@ -1,11 +1,13 @@
 import 'package:get/get.dart';
+import 'package:mynthone/app/features/dashboard_card_list/bindings/card_list_binding.dart';
+import 'package:mynthone/app/features/dashboard_card_list/views/card_list_view.dart';
 
 import '../features/auth_otp/bindings/auth_otp_binding.dart';
 import '../features/auth_otp/views/auth_otp_view.dart';
 import '../features/dashboard/bindings/dashboard_binding.dart';
 import '../features/dashboard/views/dashboard_view.dart';
-import '../features/home/bindings/home_binding.dart';
-import '../features/home/views/home_view.dart';
+import '../features/dashboard_home/bindings/home_binding.dart';
+import '../features/dashboard_home/views/home_view.dart';
 import '../features/introduction/bindings/introduction_binding.dart';
 import '../features/introduction/views/introduction_view.dart';
 import '../features/onboarding/bindings/onboarding_binding.dart';
@@ -30,6 +32,7 @@ class AppPages {
   static const selectAccount = _Routes.selectAccount;
   static const dashboard = _Routes.dashboard;
   static const home = _Routes.home;
+  static const cardList = _Routes.cardList;
 
   static final routes = [
     GetPage(
@@ -71,6 +74,11 @@ class AppPages {
       name: _Paths.home,
       page: () => const HomeView(),
       binding: HomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.cardList,
+      page: () => const CardListView(),
+      binding: CardListBinding(),
     ),
   ];
 }

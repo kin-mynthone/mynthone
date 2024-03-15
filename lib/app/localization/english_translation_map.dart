@@ -53,4 +53,8 @@ final Map<String, String> _englishTranslationMap = {
   'Generate QR code': 'Generate QR code',
   'Limits': 'Limits',
   'Profile Settings': 'Profile Settings',
+
+  // CardList
+  'Your Cards': 'Your Cards',
+  'Total Cards:': 'Total Cards:',
 };

@@ -10,6 +10,7 @@ abstract class _Routes {
   static const selectAccount = _Paths.selectAccount;
   static const dashboard = _Paths.dashboard;
   static const home = _Paths.home;
+  static const cardList = _Paths.cardList;
 }
 
 abstract class _Paths {
@@ -22,4 +23,5 @@ abstract class _Paths {
   static const selectAccount = '/select-account';
   static const dashboard = '/dashboard';
   static const home = '/home';
+  static const cardList = '/card-list';
 }

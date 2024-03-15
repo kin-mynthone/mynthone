@@ -10,7 +10,7 @@ class _BodyWidget extends GetView<DashboardController> {
         index: controller.currentIndex,
         children: const [
           Center(child: HomeView()),
-          Center(child: Text('page2')),
+          Center(child: CardListView()),
           Center(child: Text('page3')),
           Center(child: Text('page4')),
         ],
