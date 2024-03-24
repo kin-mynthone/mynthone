@@ -11,6 +11,7 @@ abstract class _Routes {
   static const dashboard = _Paths.dashboard;
   static const home = _Paths.home;
   static const cardList = _Paths.cardList;
+  static const cardInfo = _Paths.cardInfo;
 }
 
 abstract class _Paths {
@@ -24,4 +25,5 @@ abstract class _Paths {
   static const dashboard = '/dashboard';
   static const home = '/home';
   static const cardList = '/card-list';
+  static const cardInfo = '/card-info';
 }
