@@ -10,8 +10,10 @@ import 'package:mynthone/app/widgets/loading_indicator_widget.dart';
 import '../../../constants/app_strings.dart';
 import '../../../helpers/asset_path_helper.dart';
 import '../../../models/statement_model.dart';
+import '../../../routes/app_pages.dart';
 import '../../../themes/app_colors.dart';
 import '../../../widgets/custom_text_widget.dart';
+import '../../card_info/views/card_info_view.dart';
 import '../controllers/home_controller.dart';
 
 part '../widgets/announcement_list_widget.dart';
