@@ -63,6 +63,7 @@ String _getFlavor() {
   }
 }
 
+//todo remove this
 Future<void> _initializeFirebase() async {
   try {
     final firebaseApp = await Firebase.initializeApp();

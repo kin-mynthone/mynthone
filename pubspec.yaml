@@ -32,6 +32,7 @@ dependencies:
   package_info_plus: ^5.0.1
   responsive_framework: ^1.1.1
   smooth_page_indicator: ^1.1.0
+  supabase_flutter: ^2.5.1
 
 dev_dependencies:
   flutter_test:
