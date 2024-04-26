@@ -7,11 +7,13 @@ import 'package:mynthone/app/features/dashboard_card_list/views/card_list_view.d
 
 import '../../../constants/app_strings.dart';
 import '../../../helpers/asset_path_helper.dart';
+import '../../../helpers/log_helper.dart';
 import '../../../models/account_model.dart';
 import '../../../routes/app_pages.dart';
 import '../../../themes/app_colors.dart';
 import '../../../widgets/custom_text_widget.dart';
 import '../../dashboard_home/views/home_view.dart';
+import '../../splash/controllers/auth_controller.dart';
 import '../controllers/dashboard_controller.dart';
 
 part '../widgets/body_widget.dart';
@@ -26,13 +28,56 @@ class DashboardViewArgs {
   });
 }
 
-class DashboardView extends GetView<DashboardController> {
+class DashboardView extends StatefulWidget {
   const DashboardView({super.key});
+
+  @override
+  State<DashboardView> createState() => _DashboardViewState();
+}
+
+class _DashboardViewState extends State<DashboardView> {
+  final dashboardController = DashboardController.find;
+  final authController = AuthController.find;
+  late Worker _authStatusWorker;
+
+  @override
+  void initState() {
+    super.initState();
+    _setUpAuthStatusWorker();
+  }
+
+  @override
+  void dispose() {
+    _authStatusWorker.dispose();
+    super.dispose();
+  }
+
+  void _setUpAuthStatusWorker() {
+    _authStatusWorker = ever(
+      authController.status,
+      (value) {
+        if (value == AuthStatus.error) {
+          Log.printInfo(authController.currentState);
+        }
+
+        if (value == AuthStatus.unauthenticated) {
+          Log.printInfo(authController.currentState);
+          Get.offAllNamed(
+            AppPages.signIn,
+          );
+        }
+
+        if (value == AuthStatus.authenticated) {
+          Log.printInfo(authController.currentState);
+        }
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return InnerDrawer(
-      key: controller.innerDrawerKey,
+      key: dashboardController.innerDrawerKey,
       onTapClose: true,
       swipe: true,
       colorTransitionChild: AppColors.h425AC2,

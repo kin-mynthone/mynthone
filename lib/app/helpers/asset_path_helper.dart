@@ -43,4 +43,5 @@ class AssetPath {
   static const qrScanner = '$_imageSvgPath/qr_scanner.svg';
   static const limits = '$_imageSvgPath/limits.svg';
   static const profileSettings = '$_imageSvgPath/profile_settings.svg';
+  static const signOut = '$_imageSvgPath/signout.svg';
 }

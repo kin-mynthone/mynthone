@@ -1,15 +1,11 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:get/get.dart';
-import 'package:http/http.dart' as http;
 import 'package:package_info_plus/package_info_plus.dart';
 
 import '../../../constants/app_strings.dart';
-import '../../../helpers/env_helper.dart';
 import '../../../helpers/log_helper.dart';
-import '../../../instances/firebase_service_instances.dart';
+import '../../../instances/supabase_service_instances.dart';
 import '../../../utils/api_error_util.dart';
 
 enum SignInStatus { initial, loading, succeeded, error }
@@ -91,36 +87,13 @@ class SignInController extends GetxController {
     try {
       Log.printInfo('Logging in');
 
-      final mobileNumber = _mobileNumberEditingController.text.trim();
-      final password = _passwordEditingController.text.trim();
-      final countryCode = _countryCode.value.trim();
-      Log.printInfo('Credentials: $countryCode| $mobileNumber | $password');
-
-      final signInApiEndpoint = dotenv.get(Env.signInApiEndpoint, fallback: '');
-      final url = Uri.parse(signInApiEndpoint);
-      final headers = {'Content-Type': 'application/json'};
-      final body = jsonEncode({
-        'countryCode': countryCode,
-        'mobileNumber': mobileNumber,
-        'password': password,
-      });
-
-      final response = await http.post(url, headers: headers, body: body);
-
-      final isSuccessful = response.statusCode == 200;
-      final data = jsonDecode(response.body);
-      Log.printInfo('Data from server: $data');
-
-      if (!isSuccessful) {
-        throw ApiError(data['error']);
-      }
-
-      final token = data['token'];
-      final userCredential = await firebaseAuth.signInWithCustomToken(token);
-      final uid = userCredential.user?.uid;
+      await supabase.auth.signInWithPassword(
+        email: 'sample@gmail.com',
+        password: 'password123',
+      );
 
       _status.value = SignInStatus.succeeded;
-      Log.printInfo('Logged in successfully $uid');
+      Log.printInfo('Logged in successfully ${supabase.auth.currentUser?.id}');
     } on ApiError catch (e) {
       Log.printError(e);
       final message = 'Mobile number or password is incorrect'.tr;

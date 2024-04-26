@@ -33,19 +33,22 @@ class _SplashViewState extends State<SplashView> {
   }
 
   void _setUpAuthStatusWorker() {
-    _authStatusWorker = ever(authController.status, (value) {
-      if (value == AuthStatus.error) {
-        Log.printInfo(authController.currentState);
-      }
-      if (value == AuthStatus.unauthenticated) {
-        Log.printInfo(authController.currentState);
-        Get.offAllNamed(AppPages.signIn);
-      }
-      if (value == AuthStatus.authenticated) {
-        Log.printInfo(authController.currentState);
-        //TODO: Add page here
-      }
-    });
+    _authStatusWorker = ever(
+      authController.status,
+      (value) {
+        if (value == AuthStatus.error) {
+          Log.printInfo(authController.currentState);
+        }
+        if (value == AuthStatus.unauthenticated) {
+          Log.printInfo(authController.currentState);
+          Get.offAllNamed(AppPages.signIn);
+        }
+        if (value == AuthStatus.authenticated) {
+          Log.printInfo(authController.currentState);
+          Get.offAllNamed(AppPages.selectAccount);
+        }
+      },
+    );
   }
 
   @override

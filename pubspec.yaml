@@ -8,10 +8,8 @@ environment:
 
 dependencies:
   card_swiper: ^3.0.1
-  cloud_firestore: ^4.14.0
+
   device_preview: ^1.1.0
-  firebase_auth: ^4.17.6
-  firebase_core: ^2.26.0
   fl_country_code_picker: ^0.1.9+1
   flutter:
     sdk: flutter

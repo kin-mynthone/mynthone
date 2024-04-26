@@ -3,6 +3,9 @@ class Env {
   static const String stagingEnvFile = '.env.staging';
   static const String productionEnvFile = '.env.production';
 
+  static const String supabaseUrl = 'SUPABASE_URL';
+  static const String supabaseAnon = 'SUPABASE_ANON';
+
   static const String developmentFlavor = 'Development';
   static const String stagingFlavor = 'Staging';
   static const String productionFlavor = 'Production';

@@ -57,7 +57,9 @@ class _SignInViewState extends State<SignInView> {
 
         if (value == AuthStatus.authenticated) {
           Log.printInfo(authController.currentState);
-          //TODO: add dashboard
+          Get.offAllNamed(
+            AppPages.selectAccount,
+          );
         }
       },
     );
@@ -423,11 +425,8 @@ class _SignInButtonState extends State<_SignInButton> {
             return;
           }
 
-          //TODO: add sign in function
+          signInController.signIn();
 
-          Get.offAllNamed(
-            AppPages.selectAccount,
-          );
           Log.printInfo(signInController.currentState);
         },
         child: Text('Sign'.tr),
@@ -445,12 +444,13 @@ class _SignInButtonState extends State<_SignInButton> {
       barrierDismissible: false,
       builder: (BuildContext context) {
         return PopScope(
-            canPop: false,
-            child: CustomAlertDialogWidget(
-              title: title,
-              message: message,
-              onPressed: () {},
-            ));
+          canPop: false,
+          child: CustomAlertDialogWidget(
+            title: title,
+            message: message,
+            onPressed: () {},
+          ),
+        );
       },
     );
   }
