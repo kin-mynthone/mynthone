@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:fl_country_code_picker/fl_country_code_picker.dart';
-
 import 'package:get/get.dart';
 
 import '../../../constants/app_numbers.dart';
@@ -142,7 +139,7 @@ class _BodyWidget extends GetView<SignInController> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      _MobileNumberTextFormField(),
+                      _EmailFormField(),
                       SizedBox(
                         height: 20,
                       ),
@@ -198,66 +195,26 @@ class _HeaderWidget extends StatelessWidget {
   }
 }
 
-class _MobileNumberTextFormField extends GetView<SignInController> {
-  const _MobileNumberTextFormField();
+class _EmailFormField extends GetView<SignInController> {
+  const _EmailFormField();
 
   @override
   Widget build(BuildContext context) {
-    const countryPicker = FlCountryCodePicker(
-      countryTextStyle: TextStyle(color: Colors.black),
-      dialCodeTextStyle: TextStyle(color: Colors.black),
-    );
-
     return FormBuilderTextField(
-      name: 'mobileNumber',
-      controller: controller.mobileNumberEditingController,
+      name: 'email_userId',
+      controller: controller.emailOrUsernameEditingController,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       validator: (String? value) {
         if (value == null || value.trim().isEmpty) {
-          return 'Mobile number is required'.tr;
+          return 'Email or User ID is required'.tr;
         }
-
         return null;
       },
-      keyboardType: TextInputType.number,
-      textInputAction: TextInputAction.next,
+      keyboardType: TextInputType.emailAddress,
+      textInputAction: TextInputAction.done,
       autocorrect: false,
-      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
       decoration: InputDecoration(
-        label: Text('Mobile Number'.tr),
-        prefixIcon: GestureDetector(
-          onTap: () async {
-            final country = await countryPicker.showPicker(
-              context: context,
-              barrierColor: AppColors.barrierColor,
-              scrollToDeviceLocale: true,
-            );
-
-            if (country == null) {
-              return;
-            }
-
-            final dialCode = country.dialCode;
-            final countryIsoCode = country.code;
-
-            Log.printInfo('Country ISO code: $countryIsoCode');
-            Log.printInfo('Country dial code: $dialCode');
-
-            controller.setDialCodeValue(dialCode);
-            controller.setCountryCodeValue(countryIsoCode);
-          },
-          child: Padding(
-            padding: const EdgeInsets.only(left: 5),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const Icon(Icons.arrow_drop_down),
-                Obx(() => Text(controller.dialCode)),
-                const SizedBox(width: 10),
-              ],
-            ),
-          ),
-        ),
+        label: Text('Email or User ID'.tr),
       ),
     );
   }
@@ -342,13 +299,13 @@ class _AppVersion extends GetView<SignInController> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const CustomTextWidget(
-          text: 'Powered by: Guilder Capital',
-          color: AppColors.h403E51,
-          fontWeight: FontWeight.w600,
-          fontSize: 15,
-        ),
-        const SizedBox(height: 10),
+        // const CustomTextWidget(
+        //   text: 'Powered by: Guilder Capital',
+        //   color: AppColors.h403E51,
+        //   fontWeight: FontWeight.w600,
+        //   fontSize: 15,
+        // ),
+        // const SizedBox(height: 10),
         Obx(
           () => CustomTextWidget(
             text: 'v ${controller.currentVersion}',
@@ -469,3 +426,69 @@ class _SignInButtonState extends State<_SignInButton> {
           //   countryCode: countryCode.trim(),
           //   dialCode: dialCode.trim(),
           // );
+
+
+          // class _MobileNumberTextFormField extends GetView<SignInController> {
+//   const _MobileNumberTextFormField();
+
+//   @override
+//   Widget build(BuildContext context) {
+//     const countryPicker = FlCountryCodePicker(
+//       countryTextStyle: TextStyle(color: Colors.black),
+//       dialCodeTextStyle: TextStyle(color: Colors.black),
+//     );
+
+//     return FormBuilderTextField(
+//       name: 'mobileNumber',
+//       controller: controller.mobileNumberEditingController,
+//       autovalidateMode: AutovalidateMode.onUserInteraction,
+//       validator: (String? value) {
+//         if (value == null || value.trim().isEmpty) {
+//           return 'Mobile number is required'.tr;
+//         }
+
+//         return null;
+//       },
+//       keyboardType: TextInputType.number,
+//       textInputAction: TextInputAction.next,
+//       autocorrect: false,
+//       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+//       decoration: InputDecoration(
+//         label: Text('Mobile Number'.tr),
+//         prefixIcon: GestureDetector(
+//           onTap: () async {
+//             final country = await countryPicker.showPicker(
+//               context: context,
+//               barrierColor: AppColors.barrierColor,
+//               scrollToDeviceLocale: true,
+//             );
+
+//             if (country == null) {
+//               return;
+//             }
+
+//             final dialCode = country.dialCode;
+//             final countryIsoCode = country.code;
+
+//             Log.printInfo('Country ISO code: $countryIsoCode');
+//             Log.printInfo('Country dial code: $dialCode');
+
+//             controller.setDialCodeValue(dialCode);
+//             controller.setCountryCodeValue(countryIsoCode);
+//           },
+//           child: Padding(
+//             padding: const EdgeInsets.only(left: 5),
+//             child: Row(
+//               mainAxisSize: MainAxisSize.min,
+//               children: [
+//                 const Icon(Icons.arrow_drop_down),
+//                 Obx(() => Text(controller.dialCode)),
+//                 const SizedBox(width: 10),
+//               ],
+//             ),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }

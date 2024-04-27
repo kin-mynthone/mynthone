@@ -5,6 +5,9 @@ final Map<String, String> _englishTranslationMap = {
   'Continue': 'Continue',
   'Next': 'Next',
   'Sign In': 'Sign In',
+  'Email or User ID': 'Email or User ID',
+  'Email': 'Email',
+  'User ID': 'User ID',
   'Mobile Number': 'Mobile Number',
   'Password': 'Password',
   'Forgot password?': 'Forgot password?',
@@ -16,6 +19,8 @@ final Map<String, String> _englishTranslationMap = {
   'Acct. no:': 'Acct. no:',
   'Statement': 'Statement',
   'Sign Out': 'Sign Out',
+  'An error occurred. Please try again later':
+      'An error occurred. Please try again later',
 
   // Introduction
   'The Digital wallet that connects global':
@@ -36,7 +41,10 @@ final Map<String, String> _englishTranslationMap = {
 
   // Sign In
   'Hi, Welcome Back': 'Hi, Welcome Back',
+  'Email or User ID is required': 'Email or User ID is required',
+  'Password is required': 'Password is required',
   'Please sign in to continue': 'Please sign in to continue',
+  'Invalid credentials': 'Invalid credentials',
 
   // Auth OTP
   'OTP Verification': 'OTP Verification',

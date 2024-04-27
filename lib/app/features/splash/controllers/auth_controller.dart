@@ -32,7 +32,6 @@ class AuthController extends GetxController {
 
   void _monitorSupabaseUser() {
     _supabaseUser = Rx<User?>(supabase.auth.currentUser);
-
     supabase.auth.onAuthStateChange.listen(
       (data) {
         if (data.session?.accessToken != null) {

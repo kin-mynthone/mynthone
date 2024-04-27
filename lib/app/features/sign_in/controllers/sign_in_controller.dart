@@ -6,7 +6,6 @@ import 'package:package_info_plus/package_info_plus.dart';
 import '../../../constants/app_strings.dart';
 import '../../../helpers/log_helper.dart';
 import '../../../instances/supabase_service_instances.dart';
-import '../../../utils/api_error_util.dart';
 
 enum SignInStatus { initial, loading, succeeded, error }
 
@@ -20,9 +19,9 @@ class SignInController extends GetxController {
   final GlobalKey<FormBuilderState> _formKey = GlobalKey<FormBuilderState>();
   GlobalKey<FormBuilderState> get formKey => _formKey;
 
-  late TextEditingController _mobileNumberEditingController;
-  TextEditingController get mobileNumberEditingController =>
-      _mobileNumberEditingController;
+  late TextEditingController _emailOrUsernameEditingController;
+  TextEditingController get emailOrUsernameEditingController =>
+      _emailOrUsernameEditingController;
 
   final _countryCode = AppStrings.defaultCountryCode.obs;
   String get countryCode => _countryCode.value;
@@ -50,13 +49,13 @@ class SignInController extends GetxController {
   void onInit() {
     super.onInit();
     _getAppVersion();
-    _mobileNumberEditingController = TextEditingController();
+    _emailOrUsernameEditingController = TextEditingController();
     _passwordEditingController = TextEditingController();
   }
 
   @override
   void onClose() {
-    _mobileNumberEditingController.dispose();
+    _emailOrUsernameEditingController.dispose();
     _passwordEditingController.dispose();
     super.onClose();
   }
@@ -75,10 +74,10 @@ class SignInController extends GetxController {
 
   bool validateForm() {
     final isValid = _formKey.currentState?.isValid ?? false;
-    final mobileNumber = _mobileNumberEditingController.text.trim();
+    final emailOrUsername = _emailOrUsernameEditingController.text.trim();
     final password = _passwordEditingController.text.trim();
     final countryCode = _countryCode.value.trim();
-    Log.printInfo('Credentials: $countryCode| $mobileNumber | $password');
+    Log.printInfo('Credentials: $countryCode| $emailOrUsername | $password');
     return isValid;
   }
 
@@ -88,20 +87,25 @@ class SignInController extends GetxController {
       Log.printInfo('Logging in');
 
       await supabase.auth.signInWithPassword(
-        email: 'sample@gmail.com',
-        password: 'password123',
+        email: emailOrUsernameEditingController.text,
+        password: passwordEditingController.text,
       );
 
       _status.value = SignInStatus.succeeded;
       Log.printInfo('Logged in successfully ${supabase.auth.currentUser?.id}');
-    } on ApiError catch (e) {
-      Log.printError(e);
-      final message = 'Mobile number or password is incorrect'.tr;
-      _errorMessage.value = message;
-      _status.value = SignInStatus.error;
+      // } on ApiError catch (e) {
+      //   Log.printError(e);
+      //   final message = 'Email/User ID or password is incorrect'.tr;
+      //   _errorMessage.value = message;
+      //   _status.value = SignInStatus.error;
     } catch (e) {
       Log.printError(e);
-      final message = 'An error occurred. Please try again later.'.tr;
+      String message = 'An error occurred. Please try again later.'.tr;
+
+      if (e.toString().contains('Invalid login credentials')) {
+        message = 'Invalid credentials'.tr;
+      }
+
       _errorMessage.value = message;
       _status.value = SignInStatus.error;
     }
