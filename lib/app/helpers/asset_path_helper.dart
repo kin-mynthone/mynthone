@@ -1,6 +1,7 @@
 class AssetPath {
   static const _imageMainPath = 'assets/images';
   static const _imageSvgPath = 'assets/svg';
+  static const _imageJsonPath = 'assets/json';
 
   // Common
   static const eye = '$_imageSvgPath/eye.svg';
@@ -13,6 +14,9 @@ class AssetPath {
   static const receive = '$_imageSvgPath/receive.svg';
   static const options = '$_imageSvgPath/options.svg';
   static const magnifier = '$_imageSvgPath/magnifier.svg';
+  static const signOut = '$_imageSvgPath/signout.svg';
+  static const edit = '$_imageSvgPath/edit.svg';
+  static const turn = '$_imageSvgPath/turn.svg';
 
   // Introduction
   static const introBg = '$_imageMainPath/intro_bg.png';
@@ -43,4 +47,7 @@ class AssetPath {
   static const qrScanner = '$_imageSvgPath/qr_scanner.svg';
   static const limits = '$_imageSvgPath/limits.svg';
   static const profileSettings = '$_imageSvgPath/profile_settings.svg';
+
+  //Lottie
+  static const noConnection = '$_imageJsonPath/no_connection.json';
 }

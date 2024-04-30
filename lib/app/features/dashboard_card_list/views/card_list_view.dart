@@ -106,22 +106,12 @@ class _DebitCardListTileWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         final args = CardInfoViewArgs(debitCard: debitCard);
-        Get.offAllNamed(AppPages.cardInfo, arguments: args);
+        Get.toNamed(AppPages.cardInfo, arguments: args);
       },
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-              colors: [
-                Color(int.parse(0xFFFBC3C5.toString())),
-                Color(int.parse(0xFFA9BCEB.toString())),
-              ],
-              stops: const [
-                0.1,
-                1
-              ]),
+          color: AppColors.h425AC2,
           borderRadius: BorderRadius.circular(15),
         ),
         child: Column(
@@ -134,10 +124,10 @@ class _DebitCardListTileWidget extends StatelessWidget {
                 AppColors.hF6F6F6,
                 BlendMode.modulate, // Blend mode
               ),
-              height: 12,
+              height: 15,
             ),
             const SizedBox(
-              height: 20,
+              height: 30,
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -148,6 +138,9 @@ class _DebitCardListTileWidget extends StatelessWidget {
                   color: AppColors.hF6F6F6,
                   fontWeight: FontWeight.w700,
                   fontSize: 13,
+                ),
+                const SizedBox(
+                  height: 5,
                 ),
                 CustomTextWidget(
                   text: '${debitCard.currency} ${debitCard.amount}',

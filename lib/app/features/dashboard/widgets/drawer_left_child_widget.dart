@@ -23,6 +23,7 @@ class _DrawerLeftChildWidget extends StatelessWidget {
             _GotoGenerateQrCode(),
             _GotoLimits(),
             _GotoProfileSettings(),
+            _SignOut()
           ],
         ),
       ),
@@ -42,12 +43,10 @@ class _DrawerHeaderWidget extends StatelessWidget {
         CircleAvatar(
           radius: 50,
           backgroundImage: const NetworkImage(
-            AppStrings.defaultProfile, // Sample image URL
+            AppStrings.defaultProfile,
           ),
-          backgroundColor:
-              Colors.transparent, // Make the background transparent
-          // Add a white border
-          foregroundColor: Colors.white, // Set the border color
+          backgroundColor: Colors.transparent,
+          foregroundColor: Colors.white,
           child: Container(
             decoration: BoxDecoration(
               shape: BoxShape.circle,
@@ -134,7 +133,7 @@ class _GotoAccounts extends StatelessWidget {
         AssetPath.accounts,
         colorFilter: const ColorFilter.mode(
           AppColors.hF6F6F6,
-          BlendMode.modulate, // Blend mode
+          BlendMode.modulate,
         ),
         height: 20,
       ),
@@ -162,13 +161,11 @@ class _GotoBeneficiary extends StatelessWidget {
         AssetPath.beneficiary,
         colorFilter: const ColorFilter.mode(
           AppColors.hF6F6F6,
-          BlendMode.modulate, // Blend mode
+          BlendMode.modulate,
         ),
         height: 20,
       ),
-      onTap: () {
-        // Handle option 1
-      },
+      onTap: () {},
     );
   }
 }
@@ -192,13 +189,11 @@ class _GotoGenerateQrCode extends StatelessWidget {
         AssetPath.qrScanner,
         colorFilter: const ColorFilter.mode(
           AppColors.hF6F6F6,
-          BlendMode.modulate, // Blend mode
+          BlendMode.modulate,
         ),
         height: 20,
       ),
-      onTap: () {
-        // Handle option 1
-      },
+      onTap: () {},
     );
   }
 }
@@ -222,13 +217,11 @@ class _GotoLimits extends StatelessWidget {
         AssetPath.limits,
         colorFilter: const ColorFilter.mode(
           AppColors.hF6F6F6,
-          BlendMode.modulate, // Blend mode
+          BlendMode.modulate,
         ),
         height: 20,
       ),
-      onTap: () {
-        // Handle option 1
-      },
+      onTap: () {},
     );
   }
 }
@@ -252,12 +245,40 @@ class _GotoProfileSettings extends StatelessWidget {
         AssetPath.profileSettings,
         colorFilter: const ColorFilter.mode(
           AppColors.hF6F6F6,
-          BlendMode.modulate, // Blend mode
+          BlendMode.modulate,
+        ),
+        height: 20,
+      ),
+      onTap: () {},
+    );
+  }
+}
+
+class _SignOut extends StatelessWidget {
+  const _SignOut();
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      title: CustomTextWidget(
+        text: 'Sign Out'.tr,
+        color: AppColors.hF6F6F6,
+        fontWeight: FontWeight.normal,
+        fontSize: 15,
+      ),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+      leading: SvgPicture.asset(
+        AssetPath.signOut,
+        colorFilter: const ColorFilter.mode(
+          AppColors.hF6F6F6,
+          BlendMode.modulate,
         ),
         height: 20,
       ),
       onTap: () {
-        // Handle option 1
+        DashboardController.find.signOut();
       },
     );
   }

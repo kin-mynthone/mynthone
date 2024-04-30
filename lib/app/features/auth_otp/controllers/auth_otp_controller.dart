@@ -40,7 +40,7 @@ class AuthOtpController extends GetxController {
   String get errorMessage => _errorMessage.value;
 
   String get currentState =>
-      'ForgotPasswordOTPController(status: ${_status.value} errorMessage: ${_errorMessage.value})';
+      'AuthOtpController(status: ${_status.value} errorMessage: ${_errorMessage.value})';
 
   @override
   void onInit() {

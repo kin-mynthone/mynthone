@@ -4,6 +4,7 @@ class DebitCard {
   final String accountNumber;
   final String currency;
   final String amount;
+  final String color;
   final String iconUrl;
   final String validity;
   final String cvv;
@@ -14,6 +15,7 @@ class DebitCard {
     required this.accountNumber,
     required this.currency,
     required this.amount,
+    required this.color,
     required this.iconUrl,
     required this.validity,
     required this.cvv,
@@ -26,6 +28,8 @@ class DebitCard {
       'accountNumber': accountNumber,
       'currency': currency,
       'amount': amount,
+      'color': color,
+      'iconUrl': iconUrl,
       'validity': validity,
       'cvv': cvv,
     };
@@ -38,6 +42,7 @@ class DebitCard {
       accountNumber: map['accountNumber'] as String,
       currency: map['currency'] as String,
       amount: map['amount'] as String,
+      color: map['color'] as String,
       iconUrl: map['iconUrl'] as String,
       validity: map['validity'] as String,
       cvv: map['cvv'] as String,
@@ -46,5 +51,5 @@ class DebitCard {
 
   @override
   String toString() =>
-      'Event(id: $id, name: $cardName, accountNumber: $accountNumber, currency: $currency, amount: $amount, iconUrl: $iconUrl, validity: $validity, cvv: $cvv)';
+      'Event(id: $id, name: $cardName, accountNumber: $accountNumber, currency: $currency, amount: $amount, color: $color, iconUrl: $iconUrl, validity: $validity, cvv: $cvv)';
 }

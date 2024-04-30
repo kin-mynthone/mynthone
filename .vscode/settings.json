@@ -14,10 +14,12 @@
       "autocorrect",
       "Autovalidate",
       "dotenv",
-      "Firestore",
       "Getx",
+      "kenjishiromajp",
       "RGBO",
+      "signout",
       "spinkit",
+      "supabase",
       "unfocus"
     ]
 }
