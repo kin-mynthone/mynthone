@@ -11,6 +11,7 @@ import '../../../themes/app_colors.dart';
 import '../../../widgets/custom_alert_dialog_widget.dart';
 import '../../../widgets/custom_text_widget.dart';
 import '../../../widgets/loading_overlay_widget.dart';
+import '../../../widgets/lost_connection_widget.dart';
 import '../../dashboard/views/dashboard_view.dart';
 import '../controllers/select_account_controller.dart';
 
@@ -23,6 +24,7 @@ class SelectAccountView extends StatefulWidget {
 
 class _SelectAccountViewState extends State<SelectAccountView> {
   final selectAccountController = SelectAccountController.find;
+  final networkController = NetworkController.find;
 
   late Worker _selectAccountWorker;
 
@@ -44,9 +46,14 @@ class _SelectAccountViewState extends State<SelectAccountView> {
       (value) {
         if (value == SelectAccountStatus.error) {
           Log.printInfo(selectAccountController.currentState);
+          Log.printInfo(networkController.currentState);
+
           final title = 'Select Account'.tr;
           final message = selectAccountController.errorMessage;
-          _showErrorDialog(context, title: title, message: message);
+
+          if (networkController.checkConnectivityResult) {
+            _showErrorDialog(context, title: title, message: message);
+          }
         }
         if (value == SelectAccountStatus.loading) {
           Log.printInfo(selectAccountController.currentState);
@@ -81,7 +88,7 @@ class _SelectAccountViewState extends State<SelectAccountView> {
                   ),
                   Obx(() => NetworkController.find.checkConnectivityResult
                       ? const _AccountsListView()
-                      : const Text("No Connection"))
+                      : const ConnectionLost())
                 ],
               ),
             ),
