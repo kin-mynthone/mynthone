@@ -5,7 +5,7 @@ class _StatementWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [_StatementHeaderWidget(), _StatementsListView()],
@@ -41,7 +41,7 @@ class _StatementHeaderWidget extends StatelessWidget {
               ),
             ],
           ),
-          Divider(
+          const Divider(
             thickness: 1,
             color: AppColors.hD0D0D0,
           ),

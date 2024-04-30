@@ -73,7 +73,7 @@ Future<void> _initializeSupabase() async {
       anonKey: supabaseAnon,
     );
 
-    Log.printInfo('Supabase App has been initialized. ${supabaseApp}');
+    Log.printInfo('Supabase App has been initialized. $supabaseApp');
   } catch (e) {
     Log.printError(e);
   }

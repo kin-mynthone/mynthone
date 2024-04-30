@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 
 import '../controllers/auth_controller.dart';
+import '../controllers/network_controller.dart';
 import '../controllers/splash_controller.dart';
 
 class SplashBinding extends Bindings {
@@ -8,5 +9,6 @@ class SplashBinding extends Bindings {
   void dependencies() {
     Get.put(SplashController());
     Get.put(AuthController(), permanent: true);
+    Get.put(NetworkController(), permanent: true);
   }
 }

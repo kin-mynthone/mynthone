@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:mynthone/app/constants/app_numbers.dart';
 import 'package:mynthone/app/features/dashboard/controllers/dashboard_controller.dart';
+import 'package:mynthone/app/features/dashboard/views/dashboard_view.dart';
 import 'package:mynthone/app/widgets/loading_indicator_widget.dart';
 
 import '../../../constants/app_strings.dart';
@@ -47,6 +48,9 @@ class HomeView extends GetView<HomeController> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _AnnouncementListWidget(),
+              // SizedBox(
+              //   height: 20,
+              // ),
               _CardsListWidget(),
               _ButtonsWidget(),
               _StatementWidget(),
@@ -63,6 +67,8 @@ class _HeaderTitleWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dashboardViewArgs = Get.arguments as DashboardViewArgs;
+
     return Row(
       children: [
         Padding(
@@ -77,8 +83,8 @@ class _HeaderTitleWidget extends StatelessWidget {
             ),
           ),
         ),
-        const CustomTextWidget(
-          text: 'Hi Kindred',
+        CustomTextWidget(
+          text: dashboardViewArgs.account.name,
           color: AppColors.h425AC2,
           fontSize: 20,
           fontWeight: FontWeight.w600,

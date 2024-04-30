@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 
 import '../../../models/account_model.dart';
+import '../../../repository/accounts_repository.dart';
 
 enum SelectAccountStatus { initial, loading, succeeded, error }
 
@@ -18,7 +19,7 @@ class SelectAccountController extends GetxController {
   List<Account> get accounts => _accounts;
 
   String get currentState =>
-      'ForgotPasswordOTPController(status: ${_status.value} errorMessage: ${_errorMessage.value}, accountsLength: ${_accounts.length})';
+      'SelectAccountController(status: ${_status.value} errorMessage: ${_errorMessage.value}, accountsLength: ${_accounts.length})';
 
   @override
   void onInit() {
@@ -30,27 +31,11 @@ class SelectAccountController extends GetxController {
     _status.value = SelectAccountStatus.loading;
     try {
       await Future.delayed(const Duration(seconds: 1));
-      final accountsFromServer = [
-        Account(
-            id: '1',
-            name: 'Account 1',
-            description: 'Description for Account 1',
-            profileUrl: ''),
-        Account(
-            id: '2',
-            name: 'Account 2',
-            description: 'Description for Account 2',
-            profileUrl: ''),
-        Account(
-            id: '3',
-            name: 'Account 3',
-            description: 'Description for Account 3',
-            profileUrl: ''),
-      ];
-      _accounts.value = accountsFromServer;
+
+      _accounts.value = await AccountRepository.fetchAccounts();
       _status.value = SelectAccountStatus.succeeded;
     } catch (e) {
-      _errorMessage.value = 'Error description here';
+      _errorMessage.value = e.toString();
       _status.value = SelectAccountStatus.error;
     }
   }

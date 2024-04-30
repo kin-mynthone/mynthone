@@ -15,7 +15,9 @@
       "Autovalidate",
       "dotenv",
       "Getx",
+      "kenjishiromajp",
       "RGBO",
+      "signout",
       "spinkit",
       "supabase",
       "unfocus"

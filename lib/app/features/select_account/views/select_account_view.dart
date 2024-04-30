@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:mynthone/app/features/splash/controllers/network_controller.dart';
 
 import '../../../constants/app_numbers.dart';
 import '../../../helpers/log_helper.dart';
@@ -63,10 +64,10 @@ class _SelectAccountViewState extends State<SelectAccountView> {
       canPop: selectAccountController.isLoading ? false : true,
       child: Stack(
         children: [
-          const Scaffold(
+          Scaffold(
             backgroundColor: AppColors.h425AC2,
             body: SafeArea(
-              minimum: EdgeInsets.symmetric(
+              minimum: const EdgeInsets.symmetric(
                 horizontal: AppNumbers.screenPadding,
                 vertical: AppNumbers.screenPadding,
               ),
@@ -74,11 +75,13 @@ class _SelectAccountViewState extends State<SelectAccountView> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  _HeaderWidget(),
-                  SizedBox(
+                  const _HeaderWidget(),
+                  const SizedBox(
                     height: 30,
                   ),
-                  _AccountsListView()
+                  Obx(() => NetworkController.find.checkConnectivityResult
+                      ? const _AccountsListView()
+                      : const Text("No Connection"))
                 ],
               ),
             ),
@@ -149,30 +152,27 @@ class _AccountListTileWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: CustomTextWidget(
-        text: account.name,
-        color: AppColors.h403E51,
-        fontWeight: FontWeight.w600,
-        fontSize: 18,
+    return Card(
+      child: ListTile(
+        title: CustomTextWidget(
+          text: account.name,
+          color: AppColors.h403E51,
+          fontWeight: FontWeight.w600,
+          fontSize: 18,
+        ),
+        onTap: () {
+          final args = DashboardViewArgs(account: account);
+          Get.offAllNamed(AppPages.dashboard, arguments: args);
+        },
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        trailing: const Icon(
+          Icons.arrow_forward_ios,
+          color: AppColors.hF87054,
+        ),
+        tileColor: AppColors.hF6F6F6,
       ),
-      subtitle: CustomTextWidget(
-        text: account.description,
-        color: AppColors.h8E8E8E,
-        fontSize: 15,
-      ),
-      onTap: () {
-        final args = DashboardViewArgs(account: account);
-        Get.offAllNamed(AppPages.dashboard, arguments: args);
-      },
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-      ),
-      trailing: const Icon(
-        Icons.arrow_forward_ios,
-        color: AppColors.hF87054,
-      ),
-      tileColor: AppColors.hF6F6F6,
     );
   }
 }

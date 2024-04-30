@@ -72,7 +72,7 @@ class _ButtonsWidget extends StatelessWidget {
               onPressed: () {},
               style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.h425AC2,
-                  padding: EdgeInsets.all(0)),
+                  padding: const EdgeInsets.all(0)),
               child: SvgPicture.asset(
                 AssetPath.options,
                 height: 20,

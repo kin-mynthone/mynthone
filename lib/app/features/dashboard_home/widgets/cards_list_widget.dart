@@ -34,7 +34,7 @@ class _CardsWidget extends GetView<HomeController> {
     return GestureDetector(
       onTap: () {
         final args = CardInfoViewArgs(debitCard: debitCard);
-        Get.offAllNamed(AppPages.cardInfo, arguments: args);
+        Get.toNamed(AppPages.cardInfo, arguments: args);
       },
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
@@ -65,10 +65,10 @@ class _CardsWidget extends GetView<HomeController> {
                   text: debitCard.cardName,
                   color: AppColors.hF6F6F6,
                   fontWeight: FontWeight.w700,
-                  fontSize: 13,
+                  fontSize: 15,
                 ),
                 const SizedBox(
-                  height: 5,
+                  height: 10,
                 ),
                 CustomTextWidget(
                   text: '${debitCard.currency} ${debitCard.amount}',
