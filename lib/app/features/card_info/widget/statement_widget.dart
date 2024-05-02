@@ -32,11 +32,12 @@ class _StatementHeaderWidget extends StatelessWidget {
             'Statement'.tr,
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
                   color: AppColors.h403E51,
-                  fontSize: 20,
+                  fontSize: 18,
                 ),
           ),
           const Divider(
             thickness: 1,
+            height: 0,
             color: AppColors.hD0D0D0,
           ),
         ],
@@ -83,16 +84,15 @@ class _StatementListTileWidget extends StatelessWidget {
           statement.senderName,
           style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 color: AppColors.h403E51,
-                fontSize: 18,
+                fontSize: 15,
               ),
         ),
         subtitle: Text(
           statement.note,
           maxLines: 2,
           overflow: null,
-          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                 color: AppColors.h8E8E8E,
-                fontSize: 13,
               ),
         ),
         trailing: statement.transactionType == 'Receive'
@@ -100,14 +100,14 @@ class _StatementListTileWidget extends StatelessWidget {
                 '+ ${statement.currency} ${statement.amount}',
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(
                       color: AppColors.h1BBE49,
-                      fontSize: 18,
+                      fontSize: 15,
                     ),
               )
             : Text(
                 '- ${statement.currency} ${statement.amount}',
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(
                       color: AppColors.hF14C4C,
-                      fontSize: 18,
+                      fontSize: 15,
                     ),
               ),
         shape: RoundedRectangleBorder(

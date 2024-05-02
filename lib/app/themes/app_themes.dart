@@ -15,7 +15,7 @@ class AppThemes {
     textTheme: TextTheme(
       titleLarge: GoogleFonts.poppins(
         textStyle: const TextStyle(
-            fontSize: 13,
+            fontSize: 11,
             fontWeight: FontWeight.w600,
             color: AppColors.h403E51,
             height: 1.2),
@@ -23,7 +23,7 @@ class AppThemes {
 
       titleMedium: GoogleFonts.poppins(
         textStyle: const TextStyle(
-            fontSize: 13,
+            fontSize: 11,
             fontWeight: FontWeight.normal,
             color: AppColors.h403E51,
             height: 1.2),
@@ -33,7 +33,7 @@ class AppThemes {
 
       bodyLarge: GoogleFonts.poppins(
         textStyle: const TextStyle(
-          fontSize: 13,
+          fontSize: 11,
           fontWeight: FontWeight.normal,
           color: AppColors.h403E51,
         ),
@@ -41,7 +41,7 @@ class AppThemes {
 
       bodyMedium: GoogleFonts.poppins(
         textStyle: const TextStyle(
-            fontSize: 13,
+            fontSize: 11,
             fontWeight: FontWeight.normal,
             color: AppColors.h403E51,
             height: 1.2),
@@ -49,7 +49,7 @@ class AppThemes {
 
       bodySmall: GoogleFonts.poppins(
         textStyle: const TextStyle(
-            fontSize: 13,
+            fontSize: 11,
             fontWeight: FontWeight.normal,
             color: AppColors.h403E51,
             height: 1.2),
@@ -61,11 +61,11 @@ class AppThemes {
       fillColor: AppColors.hF6F6F6,
       labelStyle: const TextStyle(
         color: AppColors.hBDBDBD,
-        fontSize: 13,
+        fontSize: 11,
       ),
       floatingLabelStyle: const TextStyle(
         color: AppColors.h2445D4,
-        fontSize: 13,
+        fontSize: 11,
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(AppNumbers.inputBorderRadius),
@@ -101,7 +101,7 @@ class AppThemes {
         textStyle: GoogleFonts.poppins(
           textStyle: const TextStyle(
             color: AppColors.hF6F6F6,
-            fontSize: 13,
+            fontSize: 11,
             fontWeight: FontWeight.w700,
           ),
         ),

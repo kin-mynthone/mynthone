@@ -16,9 +16,8 @@ class _BlockThisCardWidget extends GetView<CardInfoController> {
             ),
             label: Text(
               'Block this card'.tr,
-              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(
                     color: AppColors.h403E51,
-                    fontSize: 13,
                   ),
             ),
             icon: SvgPicture.asset(

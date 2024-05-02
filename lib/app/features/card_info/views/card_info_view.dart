@@ -42,11 +42,14 @@ class CardInfoView extends GetView<CardInfoController> {
                 iconColor: AppColors.h403E51,
               ),
               actions: [
-                IconButton(
-                  onPressed: () {},
-                  icon: SvgPicture.asset(
-                    AssetPath.edit,
-                    height: 28,
+                Padding(
+                  padding: const EdgeInsets.only(right: 5),
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: SvgPicture.asset(
+                      AssetPath.edit,
+                      height: 25,
+                    ),
                   ),
                 )
               ],
@@ -103,15 +106,14 @@ class _HeaderTitleWidget extends StatelessWidget {
           cardInfoViewArgs.debitCard.cardName,
           style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 color: AppColors.h2445D4,
-                fontSize: 20,
+                fontSize: 18,
               ),
         ),
         const SizedBox(height: 5),
         Text(
           'Euro Account',
-          style: Theme.of(context).textTheme.titleLarge?.copyWith(
+          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 color: AppColors.h403E51,
-                fontSize: 15,
               ),
         ),
       ],

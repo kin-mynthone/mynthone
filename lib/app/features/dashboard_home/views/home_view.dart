@@ -30,31 +30,32 @@ class HomeView extends GetView<HomeController> {
         title: const _HeaderTitleWidget(),
         centerTitle: false,
         actions: [
-          IconButton(
-            onPressed: () {},
-            icon: SvgPicture.asset(
-              AssetPath.notification,
-              height: 40,
+          Padding(
+            padding: const EdgeInsets.only(right: 5),
+            child: IconButton(
+              onPressed: () {},
+              icon: SvgPicture.asset(
+                AssetPath.notification,
+                height: 30,
+              ),
             ),
           )
         ],
         automaticallyImplyLeading: false,
       ),
       body: const SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _AnnouncementListWidget(),
-              // SizedBox(
-              //   height: 20,
-              // ),
-              _CardsListWidget(),
-              _ButtonsWidget(),
-              _StatementWidget(),
-            ],
-          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            //_AnnouncementListWidget(),
+            SizedBox(
+              height: 20,
+            ),
+            _CardsListWidget(),
+            _ButtonsWidget(),
+            _StatementWidget(),
+          ],
         ),
       ),
     );
@@ -71,11 +72,11 @@ class _HeaderTitleWidget extends StatelessWidget {
     return Row(
       children: [
         Padding(
-          padding: const EdgeInsets.only(right: 15),
+          padding: const EdgeInsets.only(right: 10),
           child: GestureDetector(
             onTap: () => DashboardController.find.toggleDrawer(),
             child: const CircleAvatar(
-              radius: 25,
+              radius: 18,
               backgroundImage: NetworkImage(
                 AppStrings.defaultProfile,
               ),
@@ -86,7 +87,7 @@ class _HeaderTitleWidget extends StatelessWidget {
           dashboardViewArgs.account.name,
           style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 color: AppColors.h2445D4,
-                fontSize: 20,
+                fontSize: 15,
               ),
           textAlign: TextAlign.center,
         ),

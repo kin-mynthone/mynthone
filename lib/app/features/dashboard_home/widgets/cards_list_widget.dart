@@ -63,15 +63,14 @@ class _CardsWidget extends GetView<HomeController> {
                   debitCard.cardName,
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
                         color: AppColors.hF6F6F6,
-                        fontSize: 15,
                       ),
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(height: 5),
                 Text(
                   '${debitCard.currency} ${debitCard.amount}',
                   style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         color: AppColors.hF6F6F6,
-                        fontSize: 30,
+                        fontSize: 20,
                       ),
                 ),
               ],

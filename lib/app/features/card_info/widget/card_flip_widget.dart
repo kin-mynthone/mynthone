@@ -51,7 +51,6 @@ class _FrontCardWidget extends GetView<CardInfoController> {
                 cardInfoViewArgs.debitCard.cardName,
                 style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                       color: AppColors.hF6F6F6,
-                      fontSize: 13,
                     ),
               ),
               const SizedBox(height: 5),
@@ -59,7 +58,7 @@ class _FrontCardWidget extends GetView<CardInfoController> {
                 '${cardInfoViewArgs.debitCard.currency} ${cardInfoViewArgs.debitCard.amount}',
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(
                       color: AppColors.hF6F6F6,
-                      fontSize: 30,
+                      fontSize: 25,
                     ),
               ),
             ],
@@ -106,9 +105,8 @@ class _BackCardWidget extends GetView<CardInfoController> {
             children: [
               Text(
                 'Acct. no:'.tr,
-                style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                       color: AppColors.hF6F6F6,
-                      fontSize: 12,
                     ),
               ),
               Text(
@@ -129,7 +127,6 @@ class _BackCardWidget extends GetView<CardInfoController> {
                     'Valid Thu:'.tr,
                     style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                           color: AppColors.hF6F6F6,
-                          fontSize: 15,
                         ),
                   ),
                   const SizedBox(width: 5),
@@ -148,7 +145,6 @@ class _BackCardWidget extends GetView<CardInfoController> {
                         'CVV:'.tr,
                         style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                               color: AppColors.hF6F6F6,
-                              fontSize: 15,
                             ),
                       ),
                       const SizedBox(width: 5),

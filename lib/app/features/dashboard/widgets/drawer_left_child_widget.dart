@@ -15,7 +15,7 @@ class _DrawerLeftChildWidget extends StatelessWidget {
           shrinkWrap: true,
           children: const [
             _DrawerHeaderWidget(),
-            SizedBox(height: 50),
+            SizedBox(height: 30),
             _GotoAccounts(),
             _GotoBeneficiary(),
             _GotoGenerateQrCode(),
@@ -39,7 +39,7 @@ class _DrawerHeaderWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         CircleAvatar(
-          radius: 50,
+          radius: 40,
           backgroundImage: const NetworkImage(
             AppStrings.defaultProfile,
           ),
@@ -50,7 +50,7 @@ class _DrawerHeaderWidget extends StatelessWidget {
               shape: BoxShape.circle,
               border: Border.all(
                 color: Colors.white,
-                width: 3,
+                width: 2,
               ),
             ),
           ),
@@ -60,7 +60,7 @@ class _DrawerHeaderWidget extends StatelessWidget {
           'Kindred Inocencio',
           style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 color: AppColors.hF6F6F6,
-                fontSize: 25,
+                fontSize: 18,
               ),
         ),
         const SizedBox(height: 10),
@@ -96,9 +96,9 @@ class _FullyVerifiedWidget extends StatelessWidget {
             const SizedBox(width: 10),
             Text(
               'Fully Verified',
-              style: Theme.of(context).textTheme.titleLarge?.copyWith(
+              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                     color: AppColors.hF6F6F6,
-                    fontSize: 11,
+                    fontSize: 10,
                   ),
             ),
           ],
@@ -118,7 +118,6 @@ class _GotoAccounts extends StatelessWidget {
         'Your Account'.tr,
         style: Theme.of(context).textTheme.bodyLarge?.copyWith(
               color: AppColors.hF6F6F6,
-              fontSize: 15,
             ),
       ),
       shape: RoundedRectangleBorder(
@@ -147,7 +146,6 @@ class _GotoBeneficiary extends StatelessWidget {
         'Beneficiaries'.tr,
         style: Theme.of(context).textTheme.bodyLarge?.copyWith(
               color: AppColors.hF6F6F6,
-              fontSize: 15,
             ),
       ),
       shape: RoundedRectangleBorder(
@@ -176,7 +174,6 @@ class _GotoGenerateQrCode extends StatelessWidget {
         'Generate QR code'.tr,
         style: Theme.of(context).textTheme.bodyLarge?.copyWith(
               color: AppColors.hF6F6F6,
-              fontSize: 15,
             ),
       ),
       shape: RoundedRectangleBorder(
@@ -205,7 +202,6 @@ class _GotoLimits extends StatelessWidget {
         'Limits'.tr,
         style: Theme.of(context).textTheme.bodyLarge?.copyWith(
               color: AppColors.hF6F6F6,
-              fontSize: 15,
             ),
       ),
       shape: RoundedRectangleBorder(
@@ -234,7 +230,6 @@ class _GotoProfileSettings extends StatelessWidget {
         'Profile Settings'.tr,
         style: Theme.of(context).textTheme.bodyLarge?.copyWith(
               color: AppColors.hF6F6F6,
-              fontSize: 15,
             ),
       ),
       shape: RoundedRectangleBorder(
@@ -263,7 +258,6 @@ class _SignOut extends StatelessWidget {
         'Sign Out'.tr,
         style: Theme.of(context).textTheme.bodyLarge?.copyWith(
               color: AppColors.hF6F6F6,
-              fontSize: 15,
             ),
       ),
       shape: RoundedRectangleBorder(

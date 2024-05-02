@@ -5,10 +5,12 @@ class _StatementWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [_StatementHeaderWidget(), _StatementsListView()],
+    return const Expanded(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [_StatementHeaderWidget(), _StatementsListView()],
+      ),
     );
   }
 }
@@ -30,20 +32,21 @@ class _StatementHeaderWidget extends StatelessWidget {
                 'Statement'.tr,
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(
                       color: AppColors.h403E51,
-                      fontSize: 20,
+                      fontSize: 15,
                     ),
               ),
               IconButton(
                 onPressed: () {},
                 icon: SvgPicture.asset(
                   AssetPath.magnifier,
-                  height: 20,
+                  height: 15,
                 ),
               ),
             ],
           ),
           const Divider(
             thickness: 1,
+            height: 0,
             color: AppColors.hD0D0D0,
           ),
         ],
@@ -58,8 +61,7 @@ class _StatementsListView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Obx(
-      () => SizedBox(
-        height: 200,
+      () => Expanded(
         child: ListView.builder(
           itemCount: controller.statement.length,
           itemBuilder: (context, index) {
@@ -91,16 +93,15 @@ class _StatementListTileWidget extends StatelessWidget {
           statement.senderName,
           style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 color: AppColors.h403E51,
-                fontSize: 18,
               ),
         ),
         subtitle: Text(
           statement.note,
           maxLines: 2,
           overflow: null,
-          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                 color: AppColors.h8E8E8E,
-                fontSize: 13,
+                fontSize: 11,
               ),
         ),
         trailing: statement.transactionType == 'Receive'
@@ -108,14 +109,12 @@ class _StatementListTileWidget extends StatelessWidget {
                 '+ ${statement.currency} ${statement.amount}',
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(
                       color: AppColors.h1BBE49,
-                      fontSize: 18,
                     ),
               )
             : Text(
                 '- ${statement.currency} ${statement.amount}',
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(
                       color: AppColors.hF14C4C,
-                      fontSize: 18,
                     ),
               ),
         shape: RoundedRectangleBorder(

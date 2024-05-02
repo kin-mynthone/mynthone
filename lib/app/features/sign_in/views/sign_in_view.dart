@@ -170,15 +170,14 @@ class _HeaderWidget extends StatelessWidget {
           'Hi, Welcome Back'.tr,
           style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 color: AppColors.hF6F6F6,
-                fontSize: 28,
+                fontSize: 25,
               ),
         ),
-        const SizedBox(height: 5),
+        const SizedBox(height: 2),
         Text(
           'Please sign in to continue'.tr,
           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 color: AppColors.hF6F6F6,
-                fontSize: 13,
               ),
           textAlign: TextAlign.center,
         ),
@@ -261,7 +260,6 @@ class _GotoForgotPassword extends StatelessWidget {
         'Forgot Password?'.tr,
         style: Theme.of(context).textTheme.bodyLarge?.copyWith(
               color: AppColors.h8E8E8E,
-              fontSize: 13,
             ),
       ),
     );
@@ -280,7 +278,6 @@ class _GotoRegistration extends StatelessWidget {
           'Open an account'.tr,
           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 color: AppColors.h8E8E8E,
-                fontSize: 13,
               ),
         ),
       ),
@@ -370,6 +367,7 @@ class _SignInButtonState extends State<_SignInButton> {
       padding: const EdgeInsets.symmetric(horizontal: 40),
       child: ElevatedButton(
           onPressed: () {
+            FocusScope.of(context).unfocus();
             final isValidForm = signInController.validateForm();
 
             if (!isValidForm) {

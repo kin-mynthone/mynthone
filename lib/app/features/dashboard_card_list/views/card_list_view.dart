@@ -10,7 +10,7 @@ import '../../../themes/app_colors.dart';
 import '../../card_info/views/card_info_view.dart';
 import '../controllers/card_list_controller.dart';
 
-class CardListView extends GetView<CardListController> {
+class CardListView extends StatelessWidget {
   const CardListView({super.key});
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class CardListView extends GetView<CardListController> {
   }
 }
 
-class _HeaderWidget extends StatelessWidget {
+class _HeaderWidget extends GetView<CardListController> {
   const _HeaderWidget();
 
   @override
@@ -41,16 +41,26 @@ class _HeaderWidget extends StatelessWidget {
                 'Your Cards'.tr,
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(
                       color: AppColors.h2445D4,
-                      fontSize: 20,
+                      fontSize: 15,
                     ),
               ),
               const SizedBox(height: 5),
-              Text(
-                'Total Cards:'.tr,
-                style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                      color: AppColors.h8E8E8E,
-                      fontSize: 15,
-                    ),
+              Row(
+                children: [
+                  Text(
+                    'Total Cards: ',
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          color: AppColors.h403E51,
+                        ),
+                  ),
+                  Text(
+                    '${controller.debitCards.length}',
+                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                          color: AppColors.h403E51,
+                          fontSize: 14,
+                        ),
+                  ),
+                ],
               ),
             ],
           ),
@@ -58,8 +68,8 @@ class _HeaderWidget extends StatelessWidget {
             onPressed: () {},
             icon: const Icon(
               Icons.add_outlined,
-              color: AppColors.h403E51,
-              size: 35,
+              color: AppColors.hE06144,
+              size: 25,
             ),
           ),
         ],
@@ -134,7 +144,6 @@ class _DebitCardListTileWidget extends StatelessWidget {
                   debitCard.cardName,
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                         color: AppColors.hF6F6F6,
-                        fontSize: 13,
                       ),
                 ),
                 const SizedBox(height: 5),
@@ -142,7 +151,7 @@ class _DebitCardListTileWidget extends StatelessWidget {
                   '${debitCard.currency} ${debitCard.amount}',
                   style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         color: AppColors.hF6F6F6,
-                        fontSize: 30,
+                        fontSize: 20,
                       ),
                 ),
               ],

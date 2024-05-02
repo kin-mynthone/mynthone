@@ -23,7 +23,7 @@ class GoBackButton extends StatelessWidget {
       icon: Icon(
         Icons.arrow_back,
         color: iconColor,
-        size: 30,
+        size: 25,
       ),
     );
   }

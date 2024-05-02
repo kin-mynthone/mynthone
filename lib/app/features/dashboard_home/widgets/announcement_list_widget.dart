@@ -24,6 +24,8 @@ class _AnnouncementListWidget extends GetView<HomeController> {
               margin: EdgeInsets.only(top: 90),
               builder: DotSwiperPaginationBuilder(
                 color: AppColors.hE8E8E8,
+                size: 8,
+                activeSize: 8,
                 activeColor: AppColors.hE06144,
               ),
             ),
@@ -62,8 +64,8 @@ class _AnnouncementCardWidget extends GetView<HomeController> {
         child: Row(
           children: [
             SizedBox(
-              height: 60,
-              width: 60,
+              height: 50,
+              width: 50,
               child: Image.network(
                 'https://firebasestorage.googleapis.com/v0/b/mynthone-dev.appspot.com/o/gift.png?alt=media&token=4abad1fe-9675-4bb1-a76c-dd3be63521d0', // Replace with your actual image URL
                 loadingBuilder: (BuildContext context, Widget child,
@@ -82,30 +84,29 @@ class _AnnouncementCardWidget extends GetView<HomeController> {
               ),
             ),
             const SizedBox(width: 10),
-            SizedBox(
-              width: 230,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Flexible(
+                  child: Text(
+                    maxLines: 3,
+                    overflow: null,
                     announcement.title,
                     style: Theme.of(context).textTheme.titleLarge?.copyWith(
                           color: AppColors.h403E51,
-                          fontSize: 13,
-                        ),
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: 5),
-                  Text(
-                    announcement.description,
-                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                          color: AppColors.h8E8E8E,
-                          fontSize: 10,
                         ),
                   ),
-                ],
-              ),
+                ),
+                const SizedBox(height: 5),
+                Text(
+                  announcement.description,
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                        color: AppColors.h8E8E8E,
+                        fontSize: 10,
+                      ),
+                ),
+              ],
             ),
           ],
         ),

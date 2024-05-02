@@ -119,14 +119,13 @@ class _HeaderWidget extends StatelessWidget {
           'Select your account'.tr,
           style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 color: AppColors.hF6F6F6,
-                fontSize: 22,
+                fontSize: 20,
               ),
         ),
         Text(
           'Please select one of your account to proceed'.tr,
           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 color: AppColors.hF6F6F6,
-                fontSize: 13,
               ),
         ),
       ],
@@ -147,7 +146,7 @@ class _AccountsListView extends GetView<SelectAccountController> {
             final account = controller.accounts[index];
             return _AccountListTileWidget(account: account);
           },
-          separatorBuilder: (context, index) => const SizedBox(height: 20),
+          separatorBuilder: (context, index) => const SizedBox(height: 15),
         ),
       ),
     );
@@ -169,7 +168,7 @@ class _AccountListTileWidget extends StatelessWidget {
           account.name,
           style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 color: AppColors.h403E51,
-                fontSize: 18,
+                fontSize: 15,
               ),
         ),
         onTap: () {
