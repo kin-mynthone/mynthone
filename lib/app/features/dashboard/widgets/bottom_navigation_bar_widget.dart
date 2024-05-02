@@ -47,7 +47,7 @@ class _BottomNavigationBarWidget extends GetView<DashboardController> {
                 activeIcon: SvgPicture.asset(
                   AssetPath.home,
                   colorFilter: const ColorFilter.mode(
-                    AppColors.hF87054,
+                    AppColors.hE06144,
                     BlendMode.modulate, // Blend mode
                   ),
                   height: 25,
@@ -66,7 +66,7 @@ class _BottomNavigationBarWidget extends GetView<DashboardController> {
                 activeIcon: SvgPicture.asset(
                   AssetPath.cards,
                   colorFilter: const ColorFilter.mode(
-                    AppColors.hF87054,
+                    AppColors.hE06144,
                     BlendMode.modulate, // Blend mode
                   ),
                   height: 25,
@@ -85,7 +85,7 @@ class _BottomNavigationBarWidget extends GetView<DashboardController> {
                 activeIcon: SvgPicture.asset(
                   AssetPath.statements,
                   colorFilter: const ColorFilter.mode(
-                    AppColors.hF87054,
+                    AppColors.hE06144,
                     BlendMode.modulate, // Blend mode
                   ),
                   height: 25,
@@ -104,7 +104,7 @@ class _BottomNavigationBarWidget extends GetView<DashboardController> {
                 activeIcon: SvgPicture.asset(
                   AssetPath.settings,
                   colorFilter: const ColorFilter.mode(
-                    AppColors.hF87054,
+                    AppColors.hE06144,
                     BlendMode.modulate, // Blend mode
                   ),
                   height: 25,

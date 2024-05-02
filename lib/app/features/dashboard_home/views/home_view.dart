@@ -3,18 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:get/get.dart';
-import 'package:mynthone/app/constants/app_numbers.dart';
-import 'package:mynthone/app/features/dashboard/controllers/dashboard_controller.dart';
-import 'package:mynthone/app/features/dashboard/views/dashboard_view.dart';
-import 'package:mynthone/app/widgets/loading_indicator_widget.dart';
 
+import '../../../constants/app_numbers.dart';
 import '../../../constants/app_strings.dart';
 import '../../../helpers/asset_path_helper.dart';
 import '../../../models/statement_model.dart';
 import '../../../routes/app_pages.dart';
 import '../../../themes/app_colors.dart';
-import '../../../widgets/custom_text_widget.dart';
+import '../../../widgets/loading_indicator_widget.dart';
 import '../../card_info/views/card_info_view.dart';
+import '../../dashboard/controllers/dashboard_controller.dart';
+import '../../dashboard/views/dashboard_view.dart';
 import '../controllers/home_controller.dart';
 
 part '../widgets/announcement_list_widget.dart';
@@ -83,12 +82,13 @@ class _HeaderTitleWidget extends StatelessWidget {
             ),
           ),
         ),
-        CustomTextWidget(
-          text: dashboardViewArgs.account.name,
-          color: AppColors.h425AC2,
-          fontSize: 20,
-          fontWeight: FontWeight.w600,
-          centerAlignment: true,
+        Text(
+          dashboardViewArgs.account.name,
+          style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                color: AppColors.h2445D4,
+                fontSize: 20,
+              ),
+          textAlign: TextAlign.center,
         ),
       ],
     );

@@ -19,21 +19,20 @@ class _OnboardingWidget extends StatelessWidget {
         vertical: AppNumbers.screenPadding,
       ),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           _ImageWidget(imagePath: imagePath),
-          const SizedBox(
-            height: 50,
-          ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _Title(title: title),
               const SizedBox(
-                height: 20,
+                height: 10,
               ),
               _Description(description: description),
             ],
           ),
+          const SizedBox()
         ],
       ),
     );
@@ -52,8 +51,8 @@ class _ImageWidget extends StatelessWidget {
     return Center(
       child: Image.asset(
         imagePath,
-        width: 300,
-        height: 400,
+        width: 250,
+        height: 350,
         fit: BoxFit.contain,
       ),
     );
@@ -69,11 +68,15 @@ class _Title extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomTextWidget(
-      text: title,
-      color: AppColors.hF6F6F6,
-      fontWeight: FontWeight.w700,
-      fontSize: 30,
+    return SizedBox(
+      width: 270,
+      child: Text(
+        title,
+        style: Theme.of(context).textTheme.titleLarge?.copyWith(
+              color: AppColors.hF6F6F6,
+              fontSize: 28,
+            ),
+      ),
     );
   }
 }
@@ -87,10 +90,12 @@ class _Description extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomTextWidget(
-      text: description,
-      color: AppColors.hF6F6F6,
-      fontSize: 15,
+    return Text(
+      description,
+      style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+            color: AppColors.hF6F6F6,
+            fontSize: 13,
+          ),
     );
   }
 }

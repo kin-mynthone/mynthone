@@ -2,14 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'package:get/get.dart';
-import 'package:mynthone/app/features/card_info/views/card_info_view.dart';
-
 import '../../../constants/app_numbers.dart';
 import '../../../helpers/asset_path_helper.dart';
 import '../../../models/debit_card_model.dart';
 import '../../../routes/app_pages.dart';
 import '../../../themes/app_colors.dart';
-import '../../../widgets/custom_text_widget.dart';
+import '../../card_info/views/card_info_view.dart';
 import '../controllers/card_list_controller.dart';
 
 class CardListView extends GetView<CardListController> {
@@ -39,19 +37,22 @@ class _HeaderWidget extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomTextWidget(
-                text: 'Your Cards'.tr,
-                color: AppColors.h425AC2,
-                fontWeight: FontWeight.w600,
-                fontSize: 20,
+              Text(
+                'Your Cards'.tr,
+                style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                      color: AppColors.h2445D4,
+                      fontSize: 20,
+                    ),
               ),
               const SizedBox(
                 height: 5,
               ),
-              CustomTextWidget(
-                text: 'Total Cards:'.tr,
-                color: AppColors.h8E8E8E,
-                fontSize: 15,
+              Text(
+                'Total Cards:'.tr,
+                style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                      color: AppColors.h8E8E8E,
+                      fontSize: 15,
+                    ),
               ),
             ],
           ),
@@ -111,7 +112,7 @@ class _DebitCardListTileWidget extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         decoration: BoxDecoration(
-          color: AppColors.h425AC2,
+          color: AppColors.h2445D4,
           borderRadius: BorderRadius.circular(15),
         ),
         child: Column(
@@ -133,36 +134,23 @@ class _DebitCardListTileWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomTextWidget(
-                  text: debitCard.cardName,
-                  color: AppColors.hF6F6F6,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 13,
+                Text(
+                  debitCard.cardName,
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                        color: AppColors.hF6F6F6,
+                        fontSize: 13,
+                      ),
                 ),
                 const SizedBox(
                   height: 5,
                 ),
-                CustomTextWidget(
-                  text: '${debitCard.currency} ${debitCard.amount}',
-                  color: AppColors.hF6F6F6,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 30,
+                Text(
+                  '${debitCard.currency} ${debitCard.amount}',
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        color: AppColors.hF6F6F6,
+                        fontSize: 30,
+                      ),
                 ),
-                // const SizedBox(
-                //   height: 10,
-                // ),
-                // CustomTextWidget(
-                //   text: 'Acct. no:'.tr,
-                //   color: AppColors.hF6F6F6,
-                //   fontWeight: FontWeight.normal,
-                //   fontSize: 12,
-                // ),
-                // CustomTextWidget(
-                //   text: debitCards.accountNumber,
-                //   color: AppColors.hF6F6F6,
-                //   fontWeight: FontWeight.w600,
-                //   fontSize: 15,
-                // ),
               ],
             ),
           ],

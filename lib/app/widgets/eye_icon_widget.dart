@@ -10,7 +10,19 @@ class EyeIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return SvgPicture.asset(
       AssetPath.eye,
-      height: 30,
+      height: 25,
+    );
+  }
+}
+
+class SlashEyeIcon extends StatelessWidget {
+  const SlashEyeIcon({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SvgPicture.asset(
+      AssetPath.eyeSlash,
+      height: 25,
     );
   }
 }

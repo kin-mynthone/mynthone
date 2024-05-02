@@ -26,11 +26,12 @@ class _StatementHeaderWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              CustomTextWidget(
-                text: 'Statement'.tr,
-                color: AppColors.h403E51,
-                fontWeight: FontWeight.w500,
-                fontSize: 20,
+              Text(
+                'Statement'.tr,
+                style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                      color: AppColors.h403E51,
+                      fontSize: 20,
+                    ),
               ),
               IconButton(
                 onPressed: () {},
@@ -86,30 +87,36 @@ class _StatementListTileWidget extends StatelessWidget {
       color: Colors.transparent,
       elevation: 0,
       child: ListTile(
-        title: CustomTextWidget(
-          text: statement.senderName,
-          color: AppColors.h403E51,
-          fontWeight: FontWeight.w600,
-          fontSize: 18,
+        title: Text(
+          statement.senderName,
+          style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                color: AppColors.h403E51,
+                fontSize: 18,
+              ),
         ),
-        subtitle: CustomTextWidget(
-          text: statement.note,
-          overflow: false,
-          color: AppColors.h8E8E8E,
-          fontSize: 13,
+        subtitle: Text(
+          statement.note,
+          maxLines: 2,
+          overflow: null,
+          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                color: AppColors.h8E8E8E,
+                fontSize: 13,
+              ),
         ),
         trailing: statement.transactionType == 'Receive'
-            ? CustomTextWidget(
-                text: '+ ${statement.currency} ${statement.amount}',
-                color: AppColors.h7CD0AD,
-                fontWeight: FontWeight.w700,
-                fontSize: 18,
+            ? Text(
+                '+ ${statement.currency} ${statement.amount}',
+                style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                      color: AppColors.h1BBE49,
+                      fontSize: 18,
+                    ),
               )
-            : CustomTextWidget(
-                text: '- ${statement.currency} ${statement.amount}',
-                color: AppColors.hF05C5C,
-                fontWeight: FontWeight.w700,
-                fontSize: 18,
+            : Text(
+                '- ${statement.currency} ${statement.amount}',
+                style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                      color: AppColors.hF14C4C,
+                      fontSize: 18,
+                    ),
               ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),

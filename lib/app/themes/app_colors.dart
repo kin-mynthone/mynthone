@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const Color hF87054 = Color(0xFFF87054); //primary
+  static const Color hE06144 = Color(0xFFE06144); //primary
   static const Color hFFF8F8 = Color(0xFFFFF8F8); //primary light
-  static const Color h425AC2 = Color(0xFF425AC2); //secondary
+  static const Color h2445D4 = Color(0xFF2445D4); //secondary
   static const Color hA4B8EA = Color(0xFFA4B8EA); //secondary light
 
   static const Color h403E51 = Color(0xFF403E51); //text
@@ -15,8 +15,8 @@ class AppColors {
   static const Color hE8E8E8 = Color(0xFFE8E8E8); //page indicator
   static const Color hF2F4FE = Color(0xFFF2F4FE); //announcement cards
 
-  static const Color hF05C5C = Color(0xFFF05C5C); //negative
-  static const Color h7CD0AD = Color(0xFF7CD0AD); //positive
+  static const Color hF14C4C = Color(0xFFF14C4C); //negative
+  static const Color h1BBE49 = Color(0xFF1BBE49); //positive
 
   static const Color hE5EAFF = Color(0xFFE5EAFF); //navbar inactive
 
@@ -36,5 +36,5 @@ class AppColors {
   };
 
   static const MaterialColor materialSteelBlue =
-      MaterialColor(0xFFF87054, _steelBlueColorMap);
+      MaterialColor(0xFFE06144, _steelBlueColorMap);
 }

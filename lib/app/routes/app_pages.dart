@@ -1,13 +1,12 @@
 import 'package:get/get.dart';
-import 'package:mynthone/app/features/card_info/bindings/card_info_binding.dart';
-import 'package:mynthone/app/features/card_info/views/card_info_view.dart';
-import 'package:mynthone/app/features/dashboard_card_list/bindings/card_list_binding.dart';
-import 'package:mynthone/app/features/dashboard_card_list/views/card_list_view.dart';
-
 import '../features/auth_otp/bindings/auth_otp_binding.dart';
 import '../features/auth_otp/views/auth_otp_view.dart';
+import '../features/card_info/bindings/card_info_binding.dart';
+import '../features/card_info/views/card_info_view.dart';
 import '../features/dashboard/bindings/dashboard_binding.dart';
 import '../features/dashboard/views/dashboard_view.dart';
+import '../features/dashboard_card_list/bindings/card_list_binding.dart';
+import '../features/dashboard_card_list/views/card_list_view.dart';
 import '../features/dashboard_home/bindings/home_binding.dart';
 import '../features/dashboard_home/views/home_view.dart';
 import '../features/introduction/bindings/introduction_binding.dart';
