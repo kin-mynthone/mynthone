@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:mynthone/app/features/splash/controllers/network_controller.dart';
-
 import '../../../constants/app_numbers.dart';
 import '../../../helpers/log_helper.dart';
 import '../../../models/account_model.dart';
 import '../../../routes/app_pages.dart';
 import '../../../themes/app_colors.dart';
 import '../../../widgets/custom_alert_dialog_widget.dart';
-import '../../../widgets/custom_text_widget.dart';
 import '../../../widgets/loading_overlay_widget.dart';
 import '../../../widgets/lost_connection_widget.dart';
 import '../../dashboard/views/dashboard_view.dart';
+import '../../splash/controllers/network_controller.dart';
 import '../controllers/select_account_controller.dart';
 
 class SelectAccountView extends StatefulWidget {
@@ -72,7 +70,7 @@ class _SelectAccountViewState extends State<SelectAccountView> {
       child: Stack(
         children: [
           Scaffold(
-            backgroundColor: AppColors.h425AC2,
+            backgroundColor: AppColors.h2445D4,
             body: SafeArea(
               minimum: const EdgeInsets.symmetric(
                 horizontal: AppNumbers.screenPadding,
@@ -114,16 +112,19 @@ class _HeaderWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        CustomTextWidget(
-          text: 'Select your account'.tr,
-          color: AppColors.hF6F6F6,
-          fontWeight: FontWeight.w700,
-          fontSize: 22,
+        Text(
+          'Select your account'.tr,
+          style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                color: AppColors.hF6F6F6,
+                fontSize: 22,
+              ),
         ),
-        CustomTextWidget(
-          text: 'Please select one of your account to proceed'.tr,
-          color: AppColors.hF6F6F6,
-          fontSize: 13,
+        Text(
+          'Please select one of your account to proceed'.tr,
+          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                color: AppColors.hF6F6F6,
+                fontSize: 13,
+              ),
         ),
       ],
     );
@@ -161,11 +162,12 @@ class _AccountListTileWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
-        title: CustomTextWidget(
-          text: account.name,
-          color: AppColors.h403E51,
-          fontWeight: FontWeight.w600,
-          fontSize: 18,
+        title: Text(
+          account.name,
+          style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                color: AppColors.h403E51,
+                fontSize: 18,
+              ),
         ),
         onTap: () {
           final args = DashboardViewArgs(account: account);
@@ -176,7 +178,7 @@ class _AccountListTileWidget extends StatelessWidget {
         ),
         trailing: const Icon(
           Icons.arrow_forward_ios,
-          color: AppColors.hF87054,
+          color: AppColors.hE06144,
         ),
         tileColor: AppColors.hF6F6F6,
       ),

@@ -9,10 +9,8 @@ import '../../../helpers/log_helper.dart';
 import '../../../routes/app_pages.dart';
 import '../../../themes/app_colors.dart';
 import '../../../widgets/custom_alert_dialog_widget.dart';
-import '../../../widgets/custom_text_widget.dart';
 import '../../../widgets/eye_icon_widget.dart';
 import '../../../widgets/loading_overlay_widget.dart';
-import '../../../widgets/slash_eye_icon_widget.dart';
 import '../../splash/controllers/auth_controller.dart';
 import '../controllers/sign_in_controller.dart';
 
@@ -88,6 +86,9 @@ class _SignInViewState extends State<SignInView> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  SizedBox(
+                    height: 15,
+                  ),
                   Padding(
                     padding: EdgeInsets.symmetric(
                         horizontal: AppNumbers.screenPadding),
@@ -175,20 +176,23 @@ class _HeaderWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        CustomTextWidget(
-          text: 'Hi, Welcome Back'.tr,
-          color: AppColors.hF6F6F6,
-          fontWeight: FontWeight.w700,
-          fontSize: 28,
+        Text(
+          'Hi, Welcome Back'.tr,
+          style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                color: AppColors.hF6F6F6,
+                fontSize: 28,
+              ),
         ),
         const SizedBox(
-          height: 8,
+          height: 5,
         ),
-        CustomTextWidget(
-          text: 'Please sign in to continue'.tr,
-          color: AppColors.hF6F6F6,
-          fontSize: 15,
-          centerAlignment: true,
+        Text(
+          'Please sign in to continue'.tr,
+          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                color: AppColors.hF6F6F6,
+                fontSize: 13,
+              ),
+          textAlign: TextAlign.center,
         ),
       ],
     );
@@ -213,8 +217,9 @@ class _EmailFormField extends GetView<SignInController> {
       keyboardType: TextInputType.emailAddress,
       textInputAction: TextInputAction.done,
       autocorrect: false,
+      style: const TextStyle(fontSize: 13),
       decoration: InputDecoration(
-        label: Text('Email or User ID'.tr),
+        labelText: 'Email or User ID'.tr,
       ),
     );
   }
@@ -242,6 +247,7 @@ class _PasswordTextFormField extends GetView<SignInController> {
         obscuringCharacter: AppStrings.obscuringCharacter,
         textInputAction: TextInputAction.done,
         autocorrect: false,
+        style: const TextStyle(fontSize: 13),
         decoration: InputDecoration(
           suffixIcon: IconButton(
             onPressed: () => controller.toggleObscuredPassword(),
@@ -249,7 +255,7 @@ class _PasswordTextFormField extends GetView<SignInController> {
                 ? const EyeIcon()
                 : const SlashEyeIcon(),
           ),
-          label: Text('Password'.tr),
+          labelText: 'Password'.tr,
         ),
       ),
     );
@@ -263,11 +269,12 @@ class _GotoForgotPassword extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {},
-      child: CustomTextWidget(
-        text: 'Forgot Password?'.tr,
-        color: AppColors.h8E8E8E,
-        fontWeight: FontWeight.normal,
-        fontSize: 13,
+      child: Text(
+        'Forgot Password?'.tr,
+        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+              color: AppColors.h8E8E8E,
+              fontSize: 13,
+            ),
       ),
     );
   }
@@ -281,11 +288,12 @@ class _GotoRegistration extends StatelessWidget {
     return Center(
       child: TextButton(
         onPressed: () {},
-        child: CustomTextWidget(
-          text: 'Open an account'.tr,
-          color: AppColors.h8E8E8E,
-          fontWeight: FontWeight.normal,
-          fontSize: 15,
+        child: Text(
+          'Open an account'.tr,
+          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                color: AppColors.h8E8E8E,
+                fontSize: 13,
+              ),
         ),
       ),
     );
@@ -299,19 +307,22 @@ class _AppVersion extends GetView<SignInController> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        // const CustomTextWidget(
-        //   text: 'Powered by: Guilder Capital',
-        //   color: AppColors.h403E51,
-        //   fontWeight: FontWeight.w600,
-        //   fontSize: 15,
+        // Text(
+        //   'Powered by: Guilder Capital',
+        //   style: Theme.of(context).textTheme.titleLarge?.copyWith(
+        //         color: AppColors.h403E51,
+        //
+        //         fontSize: 15,
+        //       ),
         // ),
-        // const SizedBox(height: 10),
+        const SizedBox(height: 10),
         Obx(
-          () => CustomTextWidget(
-            text: 'v ${controller.currentVersion}',
-            color: AppColors.h8E8E8E,
-            fontWeight: FontWeight.normal,
-            fontSize: 12,
+          () => Text(
+            'v ${controller.currentVersion}',
+            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                  color: AppColors.h8E8E8E,
+                  fontSize: 12,
+                ),
           ),
         ),
       ],
@@ -370,24 +381,25 @@ class _SignInButtonState extends State<_SignInButton> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 40),
       child: ElevatedButton(
-        onPressed: () {
-          final isValidForm = signInController.validateForm();
+          onPressed: () {
+            final isValidForm = signInController.validateForm();
 
-          if (!isValidForm) {
-            Log.printWarning('Invalid SignIn Form');
-            final title = 'SignIn Error'.tr;
-            final message = 'Ensure that the form is properly filled in.'.tr;
-            _showErrorDialog(context, title: title, message: message);
+            if (!isValidForm) {
+              Log.printWarning('Invalid SignIn Form');
+              final title = 'SignIn Error'.tr;
+              final message = 'Ensure that the form is properly filled in.'.tr;
+              _showErrorDialog(context, title: title, message: message);
 
-            return;
-          }
+              return;
+            }
 
-          signInController.signIn();
+            signInController.signIn();
 
-          Log.printInfo(signInController.currentState);
-        },
-        child: Text('Sign'.tr),
-      ),
+            Log.printInfo(signInController.currentState);
+          },
+          child: Text(
+            'Sign In'.tr,
+          )),
     );
   }
 
@@ -413,22 +425,19 @@ class _SignInButtonState extends State<_SignInButton> {
   }
 }
 
+// final mobileNumber =
+//     signInController.mobileNumberEditingController.text;
+// final countryCode = signInController.countryCode;
+// final dialCode = signInController.dialCode;
 
+// final args = AuthOtpViewArgs(
+//   otp: '1234',
+//   mobileNumber: mobileNumber.trim(),
+//   countryCode: countryCode.trim(),
+//   dialCode: dialCode.trim(),
+// );
 
-  // final mobileNumber =
-          //     signInController.mobileNumberEditingController.text;
-          // final countryCode = signInController.countryCode;
-          // final dialCode = signInController.dialCode;
-
-          // final args = AuthOtpViewArgs(
-          //   otp: '1234',
-          //   mobileNumber: mobileNumber.trim(),
-          //   countryCode: countryCode.trim(),
-          //   dialCode: dialCode.trim(),
-          // );
-
-
-          // class _MobileNumberTextFormField extends GetView<SignInController> {
+// class _MobileNumberTextFormField extends GetView<SignInController> {
 //   const _MobileNumberTextFormField();
 
 //   @override

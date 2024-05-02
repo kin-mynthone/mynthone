@@ -60,14 +60,15 @@ class _DrawerHeaderWidget extends StatelessWidget {
         const SizedBox(
           height: 15,
         ),
-        const CustomTextWidget(
-          text: 'Kindred Inocencio',
-          color: AppColors.hF6F6F6,
-          fontWeight: FontWeight.w600,
-          fontSize: 25,
+        Text(
+          'Kindred Inocencio',
+          style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                color: AppColors.hF6F6F6,
+                fontSize: 25,
+              ),
         ),
         const SizedBox(
-          height: 5,
+          height: 10,
         ),
         const _FullyVerifiedWidget(),
       ],
@@ -85,7 +86,7 @@ class _FullyVerifiedWidget extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 15),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          color: AppColors.hF87054,
+          color: AppColors.hE06144,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -101,11 +102,12 @@ class _FullyVerifiedWidget extends StatelessWidget {
             const SizedBox(
               width: 10,
             ),
-            const CustomTextWidget(
-              text: 'Fully Verified',
-              color: AppColors.hF6F6F6,
-              fontWeight: FontWeight.w600,
-              fontSize: 11,
+            Text(
+              'Fully Verified',
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                    color: AppColors.hF6F6F6,
+                    fontSize: 11,
+                  ),
             ),
           ],
         ),
@@ -120,11 +122,12 @@ class _GotoAccounts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: CustomTextWidget(
-        text: 'Your Account'.tr,
-        color: AppColors.hF6F6F6,
-        fontWeight: FontWeight.normal,
-        fontSize: 15,
+      title: Text(
+        'Your Account'.tr,
+        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+              color: AppColors.hF6F6F6,
+              fontSize: 15,
+            ),
       ),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
@@ -148,11 +151,12 @@ class _GotoBeneficiary extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: CustomTextWidget(
-        text: 'Beneficiaries'.tr,
-        color: AppColors.hF6F6F6,
-        fontWeight: FontWeight.normal,
-        fontSize: 15,
+      title: Text(
+        'Beneficiaries'.tr,
+        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+              color: AppColors.hF6F6F6,
+              fontSize: 15,
+            ),
       ),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
@@ -176,11 +180,12 @@ class _GotoGenerateQrCode extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: CustomTextWidget(
-        text: 'Generate QR code'.tr,
-        color: AppColors.hF6F6F6,
-        fontWeight: FontWeight.normal,
-        fontSize: 15,
+      title: Text(
+        'Generate QR code'.tr,
+        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+              color: AppColors.hF6F6F6,
+              fontSize: 15,
+            ),
       ),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
@@ -204,11 +209,12 @@ class _GotoLimits extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: CustomTextWidget(
-        text: 'Limits'.tr,
-        color: AppColors.hF6F6F6,
-        fontWeight: FontWeight.normal,
-        fontSize: 15,
+      title: Text(
+        'Limits'.tr,
+        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+              color: AppColors.hF6F6F6,
+              fontSize: 15,
+            ),
       ),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
@@ -232,11 +238,12 @@ class _GotoProfileSettings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: CustomTextWidget(
-        text: 'Profile Settings'.tr,
-        color: AppColors.hF6F6F6,
-        fontWeight: FontWeight.normal,
-        fontSize: 15,
+      title: Text(
+        'Profile Settings'.tr,
+        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+              color: AppColors.hF6F6F6,
+              fontSize: 15,
+            ),
       ),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
@@ -260,11 +267,12 @@ class _SignOut extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: CustomTextWidget(
-        text: 'Sign Out'.tr,
-        color: AppColors.hF6F6F6,
-        fontWeight: FontWeight.normal,
-        fontSize: 15,
+      title: Text(
+        'Sign Out'.tr,
+        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+              color: AppColors.hF6F6F6,
+              fontSize: 15,
+            ),
       ),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),

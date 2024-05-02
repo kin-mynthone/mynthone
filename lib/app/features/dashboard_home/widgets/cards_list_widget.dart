@@ -39,7 +39,7 @@ class _CardsWidget extends GetView<HomeController> {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         decoration: BoxDecoration(
-          color: AppColors.h425AC2,
+          color: AppColors.h2445D4,
           borderRadius: BorderRadius.circular(15),
         ),
         child: Column(
@@ -61,36 +61,23 @@ class _CardsWidget extends GetView<HomeController> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomTextWidget(
-                  text: debitCard.cardName,
-                  color: AppColors.hF6F6F6,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 15,
+                Text(
+                  debitCard.cardName,
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        color: AppColors.hF6F6F6,
+                        fontSize: 15,
+                      ),
                 ),
                 const SizedBox(
                   height: 10,
                 ),
-                CustomTextWidget(
-                  text: '${debitCard.currency} ${debitCard.amount}',
-                  color: AppColors.hF6F6F6,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 30,
+                Text(
+                  '${debitCard.currency} ${debitCard.amount}',
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        color: AppColors.hF6F6F6,
+                        fontSize: 30,
+                      ),
                 ),
-                // const SizedBox(
-                //   height: 10,
-                // ),
-                // CustomTextWidget(
-                //   text: 'Acct. no:'.tr,
-                //   color: AppColors.hF6F6F6,
-                //   fontWeight: FontWeight.normal,
-                //   fontSize: 12,
-                // ),
-                // CustomTextWidget(
-                //   text: debitCard.accountNumber,
-                //   color: AppColors.hF6F6F6,
-                //   fontWeight: FontWeight.w600,
-                //   fontSize: 15,
-                // ),
               ],
             ),
           ],

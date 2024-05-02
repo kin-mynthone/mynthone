@@ -7,7 +7,6 @@ import '../../../helpers/asset_path_helper.dart';
 import '../../../helpers/log_helper.dart';
 import '../../../routes/app_pages.dart';
 import '../../../themes/app_colors.dart';
-import '../../../widgets/custom_text_widget.dart';
 import '../../../widgets/loading_overlay_widget.dart';
 import '../controllers/onboarding_controller.dart';
 
@@ -69,7 +68,7 @@ class _OnboardingViewState extends State<OnboardingView> {
       ),
       _OnboardingWidget(
         imagePath: AssetPath.onboarding2,
-        title: 'Seamless Account Setup',
+        title: 'Simplified Account Setup',
         description:
             'Effortlessly set up your account in just a few easy steps. Enjoy the convenience of managing your finances with our intuitive interface.'
                 .tr,
@@ -88,7 +87,7 @@ class _OnboardingViewState extends State<OnboardingView> {
       child: Stack(
         children: [
           Scaffold(
-            backgroundColor: AppColors.h425AC2,
+            backgroundColor: AppColors.h2445D4,
             body: SafeArea(
               child: Stack(
                 alignment: AlignmentDirectional.bottomCenter,
@@ -143,9 +142,9 @@ class _BottomPageNavigationWidget extends StatelessWidget {
               controller: onboardingController.pageController,
               count: onboardingWidgets.length,
               effect: const ExpandingDotsEffect(
-                dotHeight: 12,
-                dotWidth: 12,
-                activeDotColor: AppColors.hF87054,
+                dotHeight: 10,
+                dotWidth: 10,
+                activeDotColor: AppColors.hE06144,
               ),
             ),
             _NextButton(),
@@ -163,18 +162,23 @@ class _NextButton extends GetView<OnboardingController> {
       onPressed: () => controller.goToNextView(),
       child: Row(
         children: [
-          Obx(() => CustomTextWidget(
-                text: controller.currentPage != 2 ? 'Next' : 'Continue',
-                color: AppColors.hF6F6F6,
-                fontWeight: FontWeight.w700,
-                fontSize: 20,
-              )),
+          Obx(
+            () => Text(
+              controller.currentPage != 2 ? 'Next' : 'Continue',
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                    color: AppColors.hF6F6F6,
+                    fontSize: 15,
+                  ),
+              textAlign: TextAlign.center,
+            ),
+          ),
           const SizedBox(
             width: 5,
           ),
           const Icon(
             Icons.arrow_forward,
             color: AppColors.hF6F6F6,
+            size: 20,
           ),
         ],
       ),

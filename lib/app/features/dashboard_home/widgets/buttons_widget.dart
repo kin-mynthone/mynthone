@@ -24,11 +24,12 @@ class _ButtonsWidget extends StatelessWidget {
                     AssetPath.transfer,
                     height: 20,
                   ),
-                  CustomTextWidget(
-                    text: 'Transfer'.tr,
-                    color: AppColors.h403E51,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 13,
+                  Text(
+                    'Transfer'.tr,
+                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                          color: AppColors.h403E51,
+                          fontSize: 13,
+                        ),
                   ),
                 ],
               ),
@@ -52,11 +53,12 @@ class _ButtonsWidget extends StatelessWidget {
                     AssetPath.receive,
                     height: 20,
                   ),
-                  CustomTextWidget(
-                    text: 'Request'.tr,
-                    color: AppColors.h403E51,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 13,
+                  Text(
+                    'Request'.tr,
+                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                          color: AppColors.h403E51,
+                          fontSize: 13,
+                        ),
                   ),
                 ],
               ),
@@ -71,7 +73,7 @@ class _ButtonsWidget extends StatelessWidget {
             child: ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.h425AC2,
+                  backgroundColor: AppColors.h2445D4,
                   padding: const EdgeInsets.all(0)),
               child: SvgPicture.asset(
                 AssetPath.options,

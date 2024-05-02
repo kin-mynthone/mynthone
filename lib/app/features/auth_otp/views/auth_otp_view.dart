@@ -8,7 +8,6 @@ import '../../../helpers/asset_path_helper.dart';
 import '../../../helpers/log_helper.dart';
 import '../../../themes/app_colors.dart';
 import '../../../widgets/custom_alert_dialog_widget.dart';
-import '../../../widgets/custom_text_widget.dart';
 import '../../../widgets/go_back_button_widget.dart';
 import '../../../widgets/loading_overlay_widget.dart';
 import '../controllers/auth_otp_controller.dart';
@@ -86,7 +85,7 @@ class _AuthOtpViewState extends State<AuthOtpView> {
                 automaticallyImplyLeading: false,
                 leading: GoBackButton(
                   onPressed: () => Get.back(closeOverlays: true),
-                  iconColor: AppColors.h425AC2,
+                  iconColor: AppColors.h2445D4,
                 ),
               ),
               body: SafeArea(
@@ -102,12 +101,13 @@ class _AuthOtpViewState extends State<AuthOtpView> {
                       const SizedBox(
                         height: 30,
                       ),
-                      CustomTextWidget(
-                        text: 'OTP Verification'.tr,
-                        color: AppColors.h425AC2,
-                        fontWeight: FontWeight.w700,
-                        fontSize: 25,
-                        centerAlignment: true,
+                      Text(
+                        'OTP Verification'.tr,
+                        style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                              color: AppColors.h2445D4,
+                              fontSize: 25,
+                            ),
+                        textAlign: TextAlign.center,
                       ),
                       _UserMobileNumber(
                           dialCode: dialCode, mobileNumber: mobileNumber),
@@ -144,20 +144,24 @@ class _UserMobileNumber extends StatelessWidget {
         const SizedBox(
           height: 10,
         ),
-        const CustomTextWidget(
-          text: 'Please enter the OTP code sent to',
-          color: AppColors.h8E8E8E,
-          fontSize: 18,
-          centerAlignment: true,
+        Text(
+          'Please enter the OTP code sent to',
+          style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                color: AppColors.h8E8E8E,
+                fontSize: 18,
+              ),
+          textAlign: TextAlign.center,
         ),
         const SizedBox(
           height: 5,
         ),
-        CustomTextWidget(
-          text: '$dialCode $mobileNumber',
-          color: AppColors.hF87054,
-          fontSize: 18,
-          centerAlignment: true,
+        Text(
+          '$dialCode $mobileNumber',
+          style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                color: AppColors.hE06144,
+                fontSize: 18,
+              ),
+          textAlign: TextAlign.center,
         ),
       ],
     );
@@ -220,13 +224,25 @@ class _ResendOtpButton extends GetView<AuthOtpController> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text("Didn't receive OTP?".tr),
+        Text(
+          "Didn't receive OTP?".tr,
+          style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                color: AppColors.h2445D4,
+                fontSize: 15,
+              ),
+        ),
         TextButton(
           onPressed: () {
             FocusScope.of(context).unfocus();
             controller.requestOtp();
           },
-          child: Text('Resend OTP'.tr),
+          child: Text(
+            'Resend OTP'.tr,
+            style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                  color: AppColors.hF6F6F6,
+                  fontSize: 15,
+                ),
+          ),
         ),
       ],
     );
@@ -240,7 +256,12 @@ class _ResendOtpRemainingSeconds extends GetView<AuthOtpController> {
   Widget build(BuildContext context) {
     return Obx(
       () => Text(
-          '${'Resend OTP in'.tr} ${(controller.secondsRemaining)} ${'seconds'.tr}'),
+        '${'Resend OTP in'.tr} ${(controller.secondsRemaining)} ${'seconds'.tr}',
+        style: Theme.of(context).textTheme.titleLarge?.copyWith(
+              color: AppColors.hF6F6F6,
+              fontSize: 15,
+            ),
+      ),
     );
   }
 }

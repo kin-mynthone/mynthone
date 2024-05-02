@@ -3,15 +3,13 @@ import 'package:flutter_inner_drawer/inner_drawer.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:get/get.dart';
-import 'package:mynthone/app/features/dashboard_card_list/views/card_list_view.dart';
-
 import '../../../constants/app_strings.dart';
 import '../../../helpers/asset_path_helper.dart';
 import '../../../helpers/log_helper.dart';
 import '../../../models/account_model.dart';
 import '../../../routes/app_pages.dart';
 import '../../../themes/app_colors.dart';
-import '../../../widgets/custom_text_widget.dart';
+import '../../dashboard_card_list/views/card_list_view.dart';
 import '../../dashboard_home/views/home_view.dart';
 import '../../splash/controllers/auth_controller.dart';
 import '../controllers/dashboard_controller.dart';
@@ -80,14 +78,14 @@ class _DashboardViewState extends State<DashboardView> {
       key: dashboardController.innerDrawerKey,
       onTapClose: true,
       swipe: true,
-      colorTransitionChild: AppColors.h425AC2,
+      colorTransitionChild: AppColors.h2445D4,
       colorTransitionScaffold: Colors.transparent,
       offset: const IDOffset.only(bottom: 0.0, right: 0.0, left: 0.7),
       scale: const IDOffset.horizontal(0.8),
       proportionalChildArea: true,
       borderRadius: 30,
       leftAnimationType: InnerDrawerAnimation.static,
-      backgroundDecoration: const BoxDecoration(color: AppColors.h425AC2),
+      backgroundDecoration: const BoxDecoration(color: AppColors.h2445D4),
       leftChild: const _DrawerLeftChildWidget(),
       scaffold: const Scaffold(
         body: _BodyWidget(),

@@ -8,7 +8,6 @@ import '../../../constants/app_numbers.dart';
 import '../../../helpers/asset_path_helper.dart';
 import '../../../models/debit_card_model.dart';
 import '../../../themes/app_colors.dart';
-import '../../../widgets/custom_text_widget.dart';
 import '../../../widgets/go_back_button_widget.dart';
 import '../../../widgets/loading_overlay_widget.dart';
 import '../controllers/card_info_controller.dart';
@@ -89,20 +88,22 @@ class _HeaderTitleWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        CustomTextWidget(
-          text: cardInfoViewArgs.debitCard.cardName,
-          color: AppColors.h425AC2,
-          fontSize: 20,
-          fontWeight: FontWeight.w600,
+        Text(
+          cardInfoViewArgs.debitCard.cardName,
+          style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                color: AppColors.h2445D4,
+                fontSize: 20,
+              ),
         ),
         const SizedBox(
           height: 5,
         ),
-        const CustomTextWidget(
-          text: 'Euro Account',
-          color: AppColors.h403E51,
-          fontSize: 15,
-          fontWeight: FontWeight.w400,
+        Text(
+          'Euro Account',
+          style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                color: AppColors.h403E51,
+                fontSize: 15,
+              ),
         ),
       ],
     );
@@ -136,7 +137,7 @@ class _FrontCardWidget extends GetView<CardInfoController> {
       width: MediaQuery.of(context).size.width,
       height: 180,
       decoration: BoxDecoration(
-        color: AppColors.h425AC2,
+        color: AppColors.h2445D4,
         borderRadius: BorderRadius.circular(15),
       ),
       child: Column(
@@ -158,21 +159,22 @@ class _FrontCardWidget extends GetView<CardInfoController> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomTextWidget(
-                text: cardInfoViewArgs.debitCard.cardName,
-                color: AppColors.hF6F6F6,
-                fontWeight: FontWeight.w700,
-                fontSize: 13,
+              Text(
+                cardInfoViewArgs.debitCard.cardName,
+                style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                      color: AppColors.hF6F6F6,
+                      fontSize: 13,
+                    ),
               ),
               const SizedBox(
                 height: 5,
               ),
-              CustomTextWidget(
-                text:
-                    '${cardInfoViewArgs.debitCard.currency} ${cardInfoViewArgs.debitCard.amount}',
-                color: AppColors.hF6F6F6,
-                fontWeight: FontWeight.w700,
-                fontSize: 30,
+              Text(
+                '${cardInfoViewArgs.debitCard.currency} ${cardInfoViewArgs.debitCard.amount}',
+                style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                      color: AppColors.hF6F6F6,
+                      fontSize: 30,
+                    ),
               ),
             ],
           ),
@@ -205,7 +207,7 @@ class _BackCardWidget extends GetView<CardInfoController> {
       width: MediaQuery.of(context).size.width,
       height: 180,
       decoration: BoxDecoration(
-        color: AppColors.h425AC2,
+        color: AppColors.h2445D4,
         borderRadius: BorderRadius.circular(15),
       ),
       child: Column(
@@ -216,17 +218,19 @@ class _BackCardWidget extends GetView<CardInfoController> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomTextWidget(
-                text: 'Acct. no:'.tr,
-                color: AppColors.hF6F6F6,
-                fontWeight: FontWeight.normal,
-                fontSize: 12,
+              Text(
+                'Acct. no:'.tr,
+                style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                      color: AppColors.hF6F6F6,
+                      fontSize: 12,
+                    ),
               ),
-              CustomTextWidget(
-                text: cardInfoViewArgs.debitCard.accountNumber,
-                color: AppColors.hF6F6F6,
-                fontWeight: FontWeight.w600,
-                fontSize: 20,
+              Text(
+                cardInfoViewArgs.debitCard.accountNumber,
+                style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                      color: AppColors.hF6F6F6,
+                      fontSize: 20,
+                    ),
               ),
             ],
           ),
@@ -235,30 +239,33 @@ class _BackCardWidget extends GetView<CardInfoController> {
             children: [
               Row(
                 children: [
-                  CustomTextWidget(
-                    text: 'Valid Thu:'.tr,
-                    color: AppColors.hF6F6F6,
-                    fontWeight: FontWeight.normal,
-                    fontSize: 15,
+                  Text(
+                    'Valid Thu:'.tr,
+                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                          color: AppColors.hF6F6F6,
+                          fontSize: 15,
+                        ),
                   ),
                   const SizedBox(
                     width: 5,
                   ),
-                  CustomTextWidget(
-                    text: cardInfoViewArgs.debitCard.validity,
-                    color: AppColors.hF6F6F6,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 15,
+                  Text(
+                    cardInfoViewArgs.debitCard.validity,
+                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                          color: AppColors.hF6F6F6,
+                          fontSize: 15,
+                        ),
                   ),
                 ],
               ),
               Obx(() => Row(
                     children: [
-                      CustomTextWidget(
-                        text: 'CVV:'.tr,
-                        color: AppColors.hF6F6F6,
-                        fontWeight: FontWeight.normal,
-                        fontSize: 15,
+                      Text(
+                        'CVV:'.tr,
+                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                              color: AppColors.hF6F6F6,
+                              fontSize: 15,
+                            ),
                       ),
                       const SizedBox(
                         width: 5,
@@ -268,23 +275,31 @@ class _BackCardWidget extends GetView<CardInfoController> {
                         width: 80,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
-                          color: AppColors.hF87054,
+                          color: AppColors.hE06144,
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             CardInfoController.find.obscuredCvv
-                                ? const CustomTextWidget(
-                                    text: '•••',
-                                    color: AppColors.hF6F6F6,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 18,
+                                ? Text(
+                                    '•••',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .titleLarge
+                                        ?.copyWith(
+                                          color: AppColors.hF6F6F6,
+                                          fontSize: 18,
+                                        ),
                                   )
-                                : CustomTextWidget(
-                                    text: cardInfoViewArgs.debitCard.cvv,
-                                    color: AppColors.hF6F6F6,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 15,
+                                : Text(
+                                    cardInfoViewArgs.debitCard.cvv,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .titleLarge
+                                        ?.copyWith(
+                                          color: AppColors.hF6F6F6,
+                                          fontSize: 15,
+                                        ),
                                   ),
                             const SizedBox(width: 10),
                             GestureDetector(

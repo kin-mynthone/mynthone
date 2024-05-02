@@ -24,7 +24,7 @@ class _AnnouncementListWidget extends GetView<HomeController> {
               margin: EdgeInsets.only(top: 90),
               builder: DotSwiperPaginationBuilder(
                 color: AppColors.hE8E8E8,
-                activeColor: AppColors.hF87054,
+                activeColor: AppColors.hE06144,
               ),
             ),
             onTap: (index) {},
@@ -75,7 +75,7 @@ class _AnnouncementCardWidget extends GetView<HomeController> {
                     height: 25,
                     width: 25,
                     child: LoadingIndicator(
-                      color: AppColors.hF87054,
+                      color: AppColors.hE06144,
                     ),
                   );
                 },
@@ -90,20 +90,23 @@ class _AnnouncementCardWidget extends GetView<HomeController> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  CustomTextWidget(
-                    text: announcement.title,
-                    color: AppColors.h403E51,
-                    fontWeight: FontWeight.w700,
-                    fontSize: 13,
+                  Text(
+                    announcement.title,
+                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                          color: AppColors.h403E51,
+                          fontSize: 13,
+                        ),
+                    textAlign: TextAlign.center,
                   ),
                   const SizedBox(
                     height: 5,
                   ),
-                  CustomTextWidget(
-                    text: announcement.description,
-                    color: AppColors.h8E8E8E,
-                    fontWeight: FontWeight.normal,
-                    fontSize: 10,
+                  Text(
+                    announcement.description,
+                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                          color: AppColors.h8E8E8E,
+                          fontSize: 10,
+                        ),
                   ),
                 ],
               ),
