@@ -64,9 +64,7 @@ class _SplashViewState extends State<SplashView> {
               AssetPath.mynthLogo,
               height: 50,
             ),
-            const SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
             const LoadingIndicator(),
           ],
         ),

@@ -81,9 +81,7 @@ class _AnnouncementCardWidget extends GetView<HomeController> {
                 },
               ),
             ),
-            const SizedBox(
-              width: 10,
-            ),
+            const SizedBox(width: 10),
             SizedBox(
               width: 230,
               child: Column(
@@ -98,9 +96,7 @@ class _AnnouncementCardWidget extends GetView<HomeController> {
                         ),
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(
-                    height: 5,
-                  ),
+                  const SizedBox(height: 5),
                   Text(
                     announcement.description,
                     style: Theme.of(context).textTheme.bodyLarge?.copyWith(

@@ -80,9 +80,12 @@ class _SelectAccountViewState extends State<SelectAccountView> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  const SizedBox(
+                    height: 20,
+                  ),
                   const _HeaderWidget(),
                   const SizedBox(
-                    height: 30,
+                    height: 20,
                   ),
                   Obx(() => NetworkController.find.checkConnectivityResult
                       ? const _AccountsListView()

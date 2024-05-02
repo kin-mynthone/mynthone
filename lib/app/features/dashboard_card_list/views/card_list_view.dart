@@ -44,9 +44,7 @@ class _HeaderWidget extends StatelessWidget {
                       fontSize: 20,
                     ),
               ),
-              const SizedBox(
-                height: 5,
-              ),
+              const SizedBox(height: 5),
               Text(
                 'Total Cards:'.tr,
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(
@@ -127,9 +125,7 @@ class _DebitCardListTileWidget extends StatelessWidget {
               ),
               height: 15,
             ),
-            const SizedBox(
-              height: 30,
-            ),
+            const SizedBox(height: 30),
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -141,9 +137,7 @@ class _DebitCardListTileWidget extends StatelessWidget {
                         fontSize: 13,
                       ),
                 ),
-                const SizedBox(
-                  height: 5,
-                ),
+                const SizedBox(height: 5),
                 Text(
                   '${debitCard.currency} ${debitCard.amount}',
                   style: Theme.of(context).textTheme.titleLarge?.copyWith(

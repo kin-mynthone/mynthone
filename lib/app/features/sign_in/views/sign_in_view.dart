@@ -86,17 +86,13 @@ class _SignInViewState extends State<SignInView> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
-                    height: 15,
-                  ),
+                  SizedBox(height: 15),
                   Padding(
                     padding: EdgeInsets.symmetric(
                         horizontal: AppNumbers.screenPadding),
                     child: _HeaderWidget(),
                   ),
-                  SizedBox(
-                    height: 25,
-                  ),
+                  SizedBox(height: 25),
                   _BodyWidget(),
                 ],
               ),
@@ -141,18 +137,12 @@ class _BodyWidget extends GetView<SignInController> {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       _EmailFormField(),
-                      SizedBox(
-                        height: 20,
-                      ),
+                      SizedBox(height: 20),
                       _PasswordTextFormField(),
                       _GotoForgotPassword(),
-                      SizedBox(
-                        height: 40,
-                      ),
+                      SizedBox(height: 40),
                       _SignInButton(),
-                      SizedBox(
-                        height: 5,
-                      ),
+                      SizedBox(height: 5),
                       _GotoRegistration(),
                     ],
                   ),
@@ -183,9 +173,7 @@ class _HeaderWidget extends StatelessWidget {
                 fontSize: 28,
               ),
         ),
-        const SizedBox(
-          height: 5,
-        ),
+        const SizedBox(height: 5),
         Text(
           'Please sign in to continue'.tr,
           style: Theme.of(context).textTheme.bodyLarge?.copyWith(

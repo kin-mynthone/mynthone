@@ -26,9 +26,7 @@ class _OnboardingWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _Title(title: title),
-              const SizedBox(
-                height: 10,
-              ),
+              const SizedBox(height: 10),
               _Description(description: description),
             ],
           ),

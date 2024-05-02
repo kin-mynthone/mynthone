@@ -15,9 +15,7 @@ class _DrawerLeftChildWidget extends StatelessWidget {
           shrinkWrap: true,
           children: const [
             _DrawerHeaderWidget(),
-            SizedBox(
-              height: 50,
-            ),
+            SizedBox(height: 50),
             _GotoAccounts(),
             _GotoBeneficiary(),
             _GotoGenerateQrCode(),
@@ -57,9 +55,7 @@ class _DrawerHeaderWidget extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(
-          height: 15,
-        ),
+        const SizedBox(height: 15),
         Text(
           'Kindred Inocencio',
           style: Theme.of(context).textTheme.titleLarge?.copyWith(
@@ -67,9 +63,7 @@ class _DrawerHeaderWidget extends StatelessWidget {
                 fontSize: 25,
               ),
         ),
-        const SizedBox(
-          height: 10,
-        ),
+        const SizedBox(height: 10),
         const _FullyVerifiedWidget(),
       ],
     );
@@ -99,9 +93,7 @@ class _FullyVerifiedWidget extends StatelessWidget {
               ),
               height: 15,
             ),
-            const SizedBox(
-              width: 10,
-            ),
+            const SizedBox(width: 10),
             Text(
               'Fully Verified',
               style: Theme.of(context).textTheme.titleLarge?.copyWith(

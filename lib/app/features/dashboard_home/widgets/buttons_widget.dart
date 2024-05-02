@@ -35,9 +35,7 @@ class _ButtonsWidget extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(
-            width: 10,
-          ),
+          const SizedBox(width: 10),
           SizedBox(
             width: 130,
             height: 45,
@@ -64,9 +62,7 @@ class _ButtonsWidget extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(
-            width: 20,
-          ),
+          const SizedBox(width: 20),
           SizedBox(
             width: 60,
             height: 45,

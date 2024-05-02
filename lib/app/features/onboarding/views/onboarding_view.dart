@@ -172,9 +172,7 @@ class _NextButton extends GetView<OnboardingController> {
               textAlign: TextAlign.center,
             ),
           ),
-          const SizedBox(
-            width: 5,
-          ),
+          const SizedBox(width: 5),
           const Icon(
             Icons.arrow_forward,
             color: AppColors.hF6F6F6,

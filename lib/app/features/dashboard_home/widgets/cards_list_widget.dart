@@ -54,9 +54,7 @@ class _CardsWidget extends GetView<HomeController> {
               ),
               height: 12,
             ),
-            const SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -68,9 +66,7 @@ class _CardsWidget extends GetView<HomeController> {
                         fontSize: 15,
                       ),
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
+                const SizedBox(height: 10),
                 Text(
                   '${debitCard.currency} ${debitCard.amount}',
                   style: Theme.of(context).textTheme.titleLarge?.copyWith(
