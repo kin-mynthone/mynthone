@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:shimmer/shimmer.dart';
 import '../../../constants/app_numbers.dart';
 import '../../../helpers/log_helper.dart';
 import '../../../models/account_model.dart';
@@ -12,6 +13,8 @@ import '../../../widgets/lost_connection_widget.dart';
 import '../../dashboard/views/dashboard_view.dart';
 import '../../splash/controllers/network_controller.dart';
 import '../controllers/select_account_controller.dart';
+
+part '../Widget/shimmer_list_widget.dart';
 
 class SelectAccountView extends StatefulWidget {
   const SelectAccountView({super.key});
@@ -87,14 +90,16 @@ class _SelectAccountViewState extends State<SelectAccountView> {
                   const SizedBox(
                     height: 20,
                   ),
-                  Obx(() => NetworkController.find.checkConnectivityResult
-                      ? const _AccountsListView()
-                      : const ConnectionLost())
+                  Obx(() => selectAccountController.isLoading
+                      ? _ShimmerListWidget()
+                      : NetworkController.find.checkConnectivityResult
+                          ? const _AccountsListView()
+                          : const ConnectionLost())
                 ],
               ),
             ),
           ),
-          _buildLoadingOverlay(),
+          // _buildLoadingOverlay(),
         ],
       ),
     );

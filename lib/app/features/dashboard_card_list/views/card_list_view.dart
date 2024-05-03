@@ -53,13 +53,13 @@ class _HeaderWidget extends GetView<CardListController> {
                           color: AppColors.h403E51,
                         ),
                   ),
-                  Text(
-                    '${controller.debitCards.length}',
-                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                          color: AppColors.h403E51,
-                          fontSize: 14,
-                        ),
-                  ),
+                  Obx(() => Text(
+                        '${controller.debitCards.length}',
+                        style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                              color: AppColors.h403E51,
+                              fontSize: 14,
+                            ),
+                      )),
                 ],
               ),
             ],
