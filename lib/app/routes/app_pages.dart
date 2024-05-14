@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 import '../features/auth_otp/bindings/auth_otp_binding.dart';
 import '../features/auth_otp/views/auth_otp_view.dart';
+import '../features/beneficiaries/bindings/beneficiaries_binding.dart';
+import '../features/beneficiaries/views/beneficiaries_view.dart';
 import '../features/card_info/bindings/card_info_binding.dart';
 import '../features/card_info/views/card_info_view.dart';
 import '../features/dashboard/bindings/dashboard_binding.dart';
@@ -38,6 +40,7 @@ class AppPages {
   static const cardList = _Routes.cardList;
   static const statement = _Routes.statement;
   static const cardInfo = _Routes.cardInfo;
+  static const beneficiaries = _Routes.beneficiaries;
 
   static final routes = [
     GetPage(
@@ -94,6 +97,11 @@ class AppPages {
       name: _Paths.cardInfo,
       page: () => const CardInfoView(),
       binding: CardInfoBinding(),
+    ),
+    GetPage(
+      name: _Paths.beneficiaries,
+      page: () => const BeneficiariesView(),
+      binding: BeneficiariesBinding(),
     ),
   ];
 }

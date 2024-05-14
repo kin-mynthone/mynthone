@@ -1,13 +1,13 @@
 part of '../views/dashboard_view.dart';
 
-class _BodyWidget extends GetView<DashboardController> {
-  const _BodyWidget();
+class _DashboardBodyWidget extends GetView<DashboardController> {
+  const _DashboardBodyWidget();
 
   @override
   Widget build(BuildContext context) {
     return Obx(
       () => _IndexStackWithFadeAnimation(
-        index: controller.currentIndex,
+        index: controller.bottomNavCurrentIndex,
         children: const [
           Center(child: HomeView()),
           Center(child: CardListView()),

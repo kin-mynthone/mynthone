@@ -2,10 +2,10 @@ import 'dart:convert';
 
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
-import 'package:mynthone/app/helpers/env_helper.dart';
-import 'package:mynthone/app/models/statement_model.dart';
 
+import '../helpers/env_helper.dart';
 import '../helpers/persistent_storage_helper.dart';
+import '../models/statement_model.dart';
 
 final apiUrl = dotenv.get(Env.transactionApiEndpoint, fallback: '');
 

@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
-import 'package:mynthone/app/repository/statement_repository.dart';
 
 import '../../../models/announcement_model.dart';
 import '../../../models/debit_card_model.dart';
 import '../../../models/statement_model.dart';
+import '../../../repository/statement_repository.dart';
 
 enum HomeStatus { initial, loading, succeeded, error }
 

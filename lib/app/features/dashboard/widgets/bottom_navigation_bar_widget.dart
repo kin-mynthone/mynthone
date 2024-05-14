@@ -31,9 +31,9 @@ class _BottomNavigationBarWidget extends GetView<DashboardController> {
             showUnselectedLabels: false,
             elevation: 0,
             backgroundColor: Colors.white,
-            currentIndex: controller.currentIndex,
+            currentIndex: controller.bottomNavCurrentIndex,
             type: BottomNavigationBarType.fixed,
-            onTap: (index) => controller.setCurrentIndexValue(index),
+            onTap: (index) => controller.setBottomNavCurrentIndexValue(index),
             items: [
               BottomNavigationBarItem(
                 icon: SvgPicture.asset(

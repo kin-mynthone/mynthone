@@ -1,7 +1,15 @@
-part of '../views/dashboard_view.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
-class _DrawerLeftChildWidget extends StatelessWidget {
-  const _DrawerLeftChildWidget();
+import '../constants/app_strings.dart';
+import '../features/dashboard/controllers/dashboard_controller.dart';
+import '../helpers/asset_path_helper.dart';
+import '../routes/app_pages.dart';
+import '../themes/app_colors.dart';
+
+class DrawerLeftChildWidget extends StatelessWidget {
+  const DrawerLeftChildWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -159,7 +167,11 @@ class _GotoBeneficiary extends StatelessWidget {
         ),
         height: 20,
       ),
-      onTap: () {},
+      onTap: () async {
+        DashboardController.find.toggleDrawer();
+        await Future.delayed(const Duration(milliseconds: 200));
+        Get.toNamed(AppPages.beneficiaries);
+      },
     );
   }
 }
@@ -187,7 +199,11 @@ class _GotoGenerateQrCode extends StatelessWidget {
         ),
         height: 20,
       ),
-      onTap: () {},
+      onTap: () {
+        Get.toNamed(
+          AppPages.beneficiaries,
+        );
+      },
     );
   }
 }

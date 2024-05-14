@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
-import 'package:mynthone/app/helpers/env_helper.dart';
 
+import '../helpers/env_helper.dart';
 import '../helpers/persistent_storage_helper.dart';
 import '../models/account_model.dart';
 
