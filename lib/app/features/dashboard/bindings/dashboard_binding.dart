@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import '../../dashboard_card_list/controllers/card_list_controller.dart';
 import '../../dashboard_home/controllers/home_controller.dart';
+import '../../dashboard_statements/controllers/statements_controller.dart';
 import '../controllers/dashboard_controller.dart';
 
 class DashboardBinding extends Bindings {
@@ -9,5 +10,6 @@ class DashboardBinding extends Bindings {
     Get.put(DashboardController());
     Get.put(HomeController());
     Get.put(CardListController());
+    Get.put(StatementController());
   }
 }

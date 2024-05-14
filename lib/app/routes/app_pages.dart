@@ -9,6 +9,8 @@ import '../features/dashboard_card_list/bindings/card_list_binding.dart';
 import '../features/dashboard_card_list/views/card_list_view.dart';
 import '../features/dashboard_home/bindings/home_binding.dart';
 import '../features/dashboard_home/views/home_view.dart';
+import '../features/dashboard_statements/bindings/statements_binding.dart';
+import '../features/dashboard_statements/views/statements_view.dart';
 import '../features/introduction/bindings/introduction_binding.dart';
 import '../features/introduction/views/introduction_view.dart';
 import '../features/onboarding/bindings/onboarding_binding.dart';
@@ -34,6 +36,7 @@ class AppPages {
   static const dashboard = _Routes.dashboard;
   static const home = _Routes.home;
   static const cardList = _Routes.cardList;
+  static const statement = _Routes.statement;
   static const cardInfo = _Routes.cardInfo;
 
   static final routes = [
@@ -81,6 +84,11 @@ class AppPages {
       name: _Paths.cardList,
       page: () => const CardListView(),
       binding: CardListBinding(),
+    ),
+    GetPage(
+      name: _Paths.statement,
+      page: () => const StatementView(),
+      binding: StatementBinding(),
     ),
     GetPage(
       name: _Paths.cardInfo,

@@ -11,7 +11,7 @@ class _BodyWidget extends GetView<DashboardController> {
         children: const [
           Center(child: HomeView()),
           Center(child: CardListView()),
-          Center(child: Text('page3')),
+          Center(child: StatementView()),
           Center(child: Text('page4')),
         ],
       ),

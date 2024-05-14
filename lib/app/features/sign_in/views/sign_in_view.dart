@@ -344,7 +344,7 @@ class _SignInButtonState extends State<_SignInButton> {
       signInController.status,
       (value) {
         if (value == SignInStatus.error) {
-          Log.printInfo(signInController.currentState);
+          Log.printError(signInController.currentState);
           final title = 'SignIn Error'.tr;
           final message = signInController.errorMessage;
           _showErrorDialog(context, title: title, message: message);

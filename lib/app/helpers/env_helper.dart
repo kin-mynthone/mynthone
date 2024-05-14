@@ -10,7 +10,7 @@ class Env {
   static const String stagingFlavor = 'Staging';
   static const String productionFlavor = 'Production';
 
-  static const String signInApiEndpoint = 'SIGNIN_API_ENDPOINT';
+  static const String signInApiEndpoint = 'SIGN_IN_API_ENDPOINT';
   static const String registerApiEndpoint = 'REGISTER_API_ENDPOINT';
   static const String forgotPasswordApiEndpoint =
       'FORGOT_PASSWORD_API_ENDPOINT';

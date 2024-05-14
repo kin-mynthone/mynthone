@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_inner_drawer/inner_drawer.dart';
 import 'package:get/get.dart';
 
-import '../../../instances/supabase_service_instances.dart';
+import '../../../helpers/persistent_storage_helper.dart';
 
 class DashboardController extends GetxController {
   static DashboardController get find => Get.find();
@@ -26,6 +26,8 @@ class DashboardController extends GetxController {
   }
 
   Future<void> signOut() async {
-    await supabase.auth.signOut();
+    // await supabase.auth.signOut();
+
+    await PersistentStorage.clearLoginCredentials();
   }
 }
