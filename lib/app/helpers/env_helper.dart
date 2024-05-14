@@ -14,4 +14,6 @@ class Env {
   static const String registerApiEndpoint = 'REGISTER_API_ENDPOINT';
   static const String forgotPasswordApiEndpoint =
       'FORGOT_PASSWORD_API_ENDPOINT';
+
+  static const String AccountApiEndpoint = 'ACCOUNTS_API_ENDPOINT';
 }

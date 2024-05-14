@@ -63,6 +63,7 @@ class AuthController extends GetxController {
 
       await PersistentStorage.setAccessToken(
         accessToken: signInAccount.accessToken,
+        tokenType: signInAccount.tokenType,
       );
 
       _status.value = AuthStatus.authenticated;

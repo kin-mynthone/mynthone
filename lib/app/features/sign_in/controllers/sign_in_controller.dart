@@ -104,6 +104,7 @@ class SignInController extends GetxController {
 
       await PersistentStorage.setAccessToken(
         accessToken: signInAccount.accessToken,
+        tokenType: signInAccount.tokenType,
       );
 
       _status.value = SignInStatus.succeeded;

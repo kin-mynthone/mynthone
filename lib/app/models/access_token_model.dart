@@ -7,18 +7,18 @@ class SignInResponse {
     required this.tokenType,
   });
 
-  factory SignInResponse.fromJson(Map<String, dynamic> json) {
-    return SignInResponse(
-      accessToken: json['access_token'],
-      tokenType: json['token_type'],
-    );
-  }
-
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'access_token': accessToken,
       'token_type': tokenType,
     };
+  }
+
+  factory SignInResponse.fromJson(Map<String, dynamic> json) {
+    return SignInResponse(
+      accessToken: json['access_token'],
+      tokenType: json['token_type'],
+    );
   }
 
   factory SignInResponse.fromMap(Map<String, dynamic> map) {

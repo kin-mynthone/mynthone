@@ -84,7 +84,7 @@ class _HeaderTitleWidget extends StatelessWidget {
           ),
         ),
         Text(
-          dashboardViewArgs.account.name,
+          dashboardViewArgs.account.alias,
           style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 color: AppColors.h2445D4,
                 fontSize: 15,

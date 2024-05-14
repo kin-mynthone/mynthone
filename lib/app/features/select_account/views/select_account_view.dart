@@ -170,7 +170,7 @@ class _AccountListTileWidget extends StatelessWidget {
     return Card(
       child: ListTile(
         title: Text(
-          account.name,
+          account.alias,
           style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 color: AppColors.h403E51,
                 fontSize: 15,

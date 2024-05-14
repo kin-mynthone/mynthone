@@ -11,6 +11,7 @@ class PersistentStorage {
   static const _signedInPassword = 'password';
 
   static const _accessToken = 'accessToken';
+  static const _tokenType = 'tokenType';
 
 //Onboarding
   static bool getIsDoneWithOnboardingValue() {
@@ -51,10 +52,18 @@ class PersistentStorage {
     return value;
   }
 
-  static Future<void> setAccessToken({required String accessToken}) async {
-    await _box.write(_accessToken, accessToken);
+  static String getAccessTokenType() {
+    final value = _box.read(_tokenType) ?? 'no_account';
+    Log.printInfo('$_tokenType: $value');
+    return value;
+  }
 
-    Log.printInfo('$_accessToken: $accessToken,');
+  static Future<void> setAccessToken(
+      {required String accessToken, required String tokenType}) async {
+    await _box.write(_accessToken, accessToken);
+    await _box.write(_tokenType, tokenType);
+
+    Log.printInfo('$_accessToken: $accessToken, $_tokenType, $tokenType');
   }
 
   static Future<void> clearLoginCredentials() async {

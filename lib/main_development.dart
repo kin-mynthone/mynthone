@@ -17,7 +17,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await _logAppInfo();
   await _loadEnv();
-  await _initializeSupabase();
+  // await _initializeSupabase();
   String flavor = _getFlavor();
   await _initializePersistentStorage();
   runApp(
