@@ -15,5 +15,8 @@ class Env {
   static const String forgotPasswordApiEndpoint =
       'FORGOT_PASSWORD_API_ENDPOINT';
 
-  static const String AccountApiEndpoint = 'ACCOUNTS_API_ENDPOINT';
+  static const String accountApiEndpoint = 'ACCOUNTS_API_ENDPOINT';
+  static const String transactionApiEndpoint = 'TRANSACTION_API_ENDPOINT';
+  static const String cardApiEndpoint = 'CARD_API_ENDPOINT';
+  static const String beneficiaryApiEndpoint = 'BENEFICIARIES_API_ENDPOINT';
 }

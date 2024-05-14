@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../models/statement_model.dart';
+import '../../../repository/statement_repository.dart';
 
 enum CardInfoStatus { initial, loading, succeeded, error }
 
@@ -47,59 +48,8 @@ class CardInfoController extends GetxController {
     _status.value = CardInfoStatus.loading;
     try {
       await Future.delayed(const Duration(seconds: 1));
-      final previousStatementFromServer = [
-        Statement(
-            id: '1',
-            senderName: 'Ymes Galido',
-            senderAccountNumber: '2942 1953',
-            receiverName: 'Kindred Inocencio',
-            receiverAccountNumber: '3829 0407',
-            currency: '€',
-            amount: '20,000.00',
-            transactionType: 'Receive',
-            note: 'Transfer to savings card'),
-        Statement(
-            id: '2',
-            senderName: 'Ymes Galido',
-            senderAccountNumber: '2942 1953',
-            receiverName: 'Kindred Inocencio',
-            receiverAccountNumber: '3829 0407',
-            currency: '€',
-            amount: '20,000.00',
-            transactionType: 'Transfer',
-            note: 'Transfer to savings card'),
-        Statement(
-            id: '3',
-            senderName: 'Ymes Galido',
-            senderAccountNumber: '2942 1953',
-            receiverName: 'Kindred Inocencio',
-            receiverAccountNumber: '3829 0407',
-            currency: '€',
-            amount: '20,000.00',
-            transactionType: 'Receive',
-            note: 'Transfer to savings card'),
-        Statement(
-            id: '4',
-            senderName: 'Ymes Galido',
-            senderAccountNumber: '2942 1953',
-            receiverName: 'Kindred Inocencio',
-            receiverAccountNumber: '3829 0407',
-            currency: '€',
-            amount: '20,000.00',
-            transactionType: 'Receive',
-            note: 'Transfer to savings card'),
-        Statement(
-            id: '5',
-            senderName: 'Ymes Galido',
-            senderAccountNumber: '2942 1953',
-            receiverName: 'Kindred Inocencio',
-            receiverAccountNumber: '3829 0407',
-            currency: '€',
-            amount: '20,000.00',
-            transactionType: 'Transfer',
-            note: 'Transfer to savings card'),
-      ];
-      _statement.value = previousStatementFromServer;
+      _statement.value = await StatementRepository.fetchStatements();
+
       _status.value = CardInfoStatus.succeeded;
     } catch (e) {
       _errorMessage.value = 'Error description here';

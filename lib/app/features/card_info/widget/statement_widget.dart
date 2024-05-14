@@ -76,38 +76,38 @@ class _StatementListTileWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final formatBalance = NumberFormat("#,##0.00", "en_US");
+
     return Card(
       color: Colors.transparent,
       elevation: 0,
       child: ListTile(
         title: Text(
-          statement.senderName,
+          statement.sender.name,
           style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 color: AppColors.h403E51,
-                fontSize: 15,
               ),
         ),
         subtitle: Text(
-          statement.note,
+          statement.reference,
           maxLines: 2,
           overflow: null,
           style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                 color: AppColors.h8E8E8E,
+                fontSize: 11,
               ),
         ),
-        trailing: statement.transactionType == 'Receive'
+        trailing: statement.reference == 'Receive'
             ? Text(
-                '+ ${statement.currency} ${statement.amount}',
+                '+ ${statement.currency} ${formatBalance.format(double.parse(statement.amount))}',
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(
                       color: AppColors.h1BBE49,
-                      fontSize: 15,
                     ),
               )
             : Text(
-                '- ${statement.currency} ${statement.amount}',
+                '- ${statement.currency} ${formatBalance.format(double.parse(statement.amount))}',
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(
                       color: AppColors.hF14C4C,
-                      fontSize: 15,
                     ),
               ),
         shape: RoundedRectangleBorder(
