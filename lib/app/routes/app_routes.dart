@@ -13,7 +13,7 @@ abstract class _Routes {
   static const statement = _Paths.statement;
   static const cardList = _Paths.cardList;
   static const cardInfo = _Paths.cardInfo;
-  static const beneficiaries = _Paths.beneficiaries;
+  static const beneficiary = _Paths.beneficiary;
   static const statementInfo = _Paths.statementInfo;
 }
 
@@ -30,6 +30,6 @@ abstract class _Paths {
   static const statement = '/statement';
   static const cardList = '/card-list';
   static const cardInfo = '/card-info';
-  static const beneficiaries = '/beneficiaries';
+  static const beneficiary = '/beneficiary';
   static const statementInfo = '/statement-info';
 }

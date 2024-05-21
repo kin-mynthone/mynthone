@@ -7,7 +7,7 @@ import '../helpers/env_helper.dart';
 import '../helpers/persistent_storage_helper.dart';
 import '../models/statement_model.dart';
 
-final apiUrl = dotenv.get(Env.transactionApiEndpoint, fallback: '');
+final apiUrl = dotenv.get(Env.statementApiEndpoint, fallback: '');
 
 class StatementRepository {
   static Future<List<Statement>> fetchAllStatements() async {

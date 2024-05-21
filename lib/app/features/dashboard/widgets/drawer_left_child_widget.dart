@@ -151,7 +151,7 @@ class _GotoBeneficiary extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(
-        'Beneficiaries'.tr,
+        'Beneficiary'.tr,
         style: Theme.of(context).textTheme.bodyLarge?.copyWith(
               color: AppColors.hF6F6F6,
             ),
@@ -170,7 +170,7 @@ class _GotoBeneficiary extends StatelessWidget {
       onTap: () async {
         DashboardController.find.toggleDrawer();
         await Future.delayed(const Duration(milliseconds: 200));
-        Get.toNamed(AppPages.beneficiaries);
+        Get.toNamed(AppPages.beneficiary);
       },
     );
   }
@@ -201,7 +201,7 @@ class _GotoGenerateQrCode extends StatelessWidget {
       ),
       onTap: () {
         Get.toNamed(
-          AppPages.beneficiaries,
+          AppPages.beneficiary,
         );
       },
     );

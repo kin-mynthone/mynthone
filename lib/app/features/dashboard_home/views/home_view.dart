@@ -23,7 +23,7 @@ part '../widgets/announcement_list_widget.dart';
 part '../widgets/cards_list_widget.dart';
 part '../widgets/buttons_widget.dart';
 part '../widgets/statement_widget.dart';
-part '../widgets/card_flip_widget.dart';
+part '../widgets/front_card_widget.dart';
 
 class HomeView extends GetView<HomeController> {
   const HomeView({super.key});
@@ -57,7 +57,7 @@ class HomeView extends GetView<HomeController> {
               height: 20,
             ),
             // _CardsListWidget(),
-            _CardFlipWidget(),
+            _FrontCardWidget(),
             _ButtonsWidget(),
             _StatementWidget(),
           ],

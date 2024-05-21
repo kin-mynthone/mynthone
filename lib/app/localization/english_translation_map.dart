@@ -58,7 +58,7 @@ final Map<String, String> _englishTranslationMap = {
 
   // Drawer
   'Your Accounts': 'Your Accounts',
-  'Beneficiaries': 'Beneficiaries',
+  'Beneficiary': 'Beneficiary',
   'Generate QR code': 'Generate QR code',
   'Limits': 'Limits',
   'Profile Settings': 'Profile Settings',

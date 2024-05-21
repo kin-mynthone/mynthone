@@ -1,15 +1,8 @@
 part of '../views/home_view.dart';
 
-class _CardFlipWidget extends GetView<HomeController> {
-  const _CardFlipWidget();
-
-  @override
-  Widget build(BuildContext context) {
-    return _FrontCardWidget();
-  }
-}
-
 class _FrontCardWidget extends GetView<HomeController> {
+  const _FrontCardWidget();
+
   @override
   Widget build(BuildContext context) {
     final dashboardViewArgs = Get.arguments as DashboardViewArgs;
