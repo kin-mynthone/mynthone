@@ -1,7 +1,45 @@
 part of '../views/home_view.dart';
 
-class _StatementWidget extends StatelessWidget {
+class _StatementWidget extends StatefulWidget {
   const _StatementWidget();
+
+  @override
+  State<_StatementWidget> createState() => _StatementWidgetState();
+}
+
+class _StatementWidgetState extends State<_StatementWidget> {
+  final homeStatementController = HomeStatementController.find;
+
+  late Worker _homeStatementWorker;
+
+  @override
+  void initState() {
+    super.initState();
+    _setUpAuthStatusWorker();
+  }
+
+  @override
+  void dispose() {
+    _homeStatementWorker.dispose();
+    super.dispose();
+  }
+
+  void _setUpAuthStatusWorker() {
+    _homeStatementWorker = ever(
+      homeStatementController.status,
+      (value) {
+        if (value == HomeStatementStatus.error) {
+          Log.printInfo(homeStatementController.currentState);
+        }
+        if (value == HomeStatementStatus.loading) {
+          Log.printInfo(homeStatementController.currentState);
+        }
+        if (value == HomeStatementStatus.succeeded) {
+          Log.printInfo(homeStatementController.currentState);
+        }
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +50,7 @@ class _StatementWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const _StatementHeaderWidget(),
-            HomeController.find.isLoading
+            HomeStatementController.find.isLoading
                 ? _ShimmerListWidget()
                 : const _StatementsListView()
           ],
@@ -62,7 +100,7 @@ class _StatementHeaderWidget extends StatelessWidget {
   }
 }
 
-class _StatementsListView extends GetView<HomeController> {
+class _StatementsListView extends GetView<HomeStatementController> {
   const _StatementsListView();
 
   @override

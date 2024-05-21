@@ -9,6 +9,7 @@ import 'package:shimmer/shimmer.dart';
 import '../../../constants/app_numbers.dart';
 import '../../../constants/app_strings.dart';
 import '../../../helpers/asset_path_helper.dart';
+import '../../../helpers/log_helper.dart';
 import '../../../models/statement_model.dart';
 import '../../../routes/app_pages.dart';
 import '../../../themes/app_colors.dart';
@@ -18,6 +19,7 @@ import '../../dashboard/controllers/dashboard_controller.dart';
 import '../../dashboard/views/dashboard_view.dart';
 import '../../statement_info/views/statement_info_view.dart';
 import '../controllers/home_controller.dart';
+import '../controllers/home_statement_controller.dart';
 
 part '../widgets/announcement_list_widget.dart';
 part '../widgets/cards_list_widget.dart';

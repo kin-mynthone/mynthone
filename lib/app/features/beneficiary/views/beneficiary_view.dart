@@ -1,12 +1,52 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../helpers/log_helper.dart';
 import '../../../models/beneficiary_model.dart';
 import '../../../themes/app_colors.dart';
 import '../controllers/beneficiary_controller.dart';
 
-class BeneficiaryView extends GetView<BeneficiaryController> {
+class BeneficiaryView extends StatefulWidget {
   const BeneficiaryView({super.key});
+
+  @override
+  State<BeneficiaryView> createState() => _BeneficiaryViewState();
+}
+
+class _BeneficiaryViewState extends State<BeneficiaryView> {
+  final beneficiaryController = BeneficiaryController.find;
+
+  late Worker _beneficiaryWorker;
+
+  @override
+  void initState() {
+    super.initState();
+    _setUpAuthStatusWorker();
+  }
+
+  @override
+  void dispose() {
+    _beneficiaryWorker.dispose();
+    super.dispose();
+  }
+
+  void _setUpAuthStatusWorker() {
+    _beneficiaryWorker = ever(
+      beneficiaryController.status,
+      (value) {
+        if (value == BeneficiaryStatus.error) {
+          Log.printInfo(beneficiaryController.currentState);
+        }
+        if (value == BeneficiaryStatus.loading) {
+          Log.printInfo(beneficiaryController.currentState);
+        }
+        if (value == BeneficiaryStatus.succeeded) {
+          Log.printInfo(beneficiaryController.currentState);
+        }
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return const Scaffold(

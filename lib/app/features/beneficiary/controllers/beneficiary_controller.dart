@@ -19,15 +19,15 @@ class BeneficiaryController extends GetxController {
   String get errorMessage => _errorMessage.value;
 
   String get currentState =>
-      'BeneficiaryController(status: ${_status.value} errorMessage: ${_errorMessage.value}, BeneficiaryLength: ${_beneficiary.length})';
+      'BeneficiaryController(status: ${_status.value} errorMessage: ${_errorMessage.value}, beneficiaryLength: ${_beneficiary.length})';
 
   @override
   void onInit() {
     super.onInit();
-    _fetchCardBeneficiary();
+    _fetchBeneficiary();
   }
 
-  Future<void> _fetchCardBeneficiary() async {
+  Future<void> _fetchBeneficiary() async {
     _status.value = BeneficiaryStatus.loading;
     try {
       await Future.delayed(const Duration(seconds: 1));

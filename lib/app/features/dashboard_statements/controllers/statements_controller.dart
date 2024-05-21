@@ -24,10 +24,10 @@ class StatementController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    _fetchCardStatement();
+    _fetchStatement();
   }
 
-  Future<void> _fetchCardStatement() async {
+  Future<void> _fetchStatement() async {
     _status.value = StatementStatus.loading;
     try {
       await Future.delayed(const Duration(seconds: 1));

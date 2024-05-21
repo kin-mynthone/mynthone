@@ -4,14 +4,54 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import '../../../constants/app_numbers.dart';
 import '../../../helpers/asset_path_helper.dart';
+import '../../../helpers/log_helper.dart';
 import '../../../models/debit_card_model.dart';
 import '../../../routes/app_pages.dart';
 import '../../../themes/app_colors.dart';
 import '../../card_info/views/card_info_view.dart';
 import '../controllers/card_list_controller.dart';
 
-class CardListView extends StatelessWidget {
+class CardListView extends StatefulWidget {
   const CardListView({super.key});
+
+  @override
+  State<CardListView> createState() => _CardListViewState();
+}
+
+class _CardListViewState extends State<CardListView> {
+  final cardListController = CardListController.find;
+
+  late Worker _cardListWorker;
+
+  @override
+  void initState() {
+    super.initState();
+    _setUpAuthStatusWorker();
+  }
+
+  @override
+  void dispose() {
+    _cardListWorker.dispose();
+    super.dispose();
+  }
+
+  void _setUpAuthStatusWorker() {
+    _cardListWorker = ever(
+      cardListController.status,
+      (value) {
+        if (value == CardListStatus.error) {
+          Log.printInfo(cardListController.currentState);
+        }
+        if (value == CardListStatus.loading) {
+          Log.printInfo(cardListController.currentState);
+        }
+        if (value == CardListStatus.succeeded) {
+          Log.printInfo(cardListController.currentState);
+        }
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return const Scaffold(

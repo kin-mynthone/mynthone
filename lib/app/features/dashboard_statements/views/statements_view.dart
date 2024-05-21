@@ -4,13 +4,53 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 import '../../../helpers/asset_path_helper.dart';
+import '../../../helpers/log_helper.dart';
 import '../../../models/statement_model.dart';
 import '../../../themes/app_colors.dart';
 import '../../statement_info/views/statement_info_view.dart';
 import '../controllers/statements_controller.dart';
 
-class StatementView extends GetView<StatementController> {
+class StatementView extends StatefulWidget {
   const StatementView({super.key});
+
+  @override
+  State<StatementView> createState() => _StatementViewState();
+}
+
+class _StatementViewState extends State<StatementView> {
+  final statementController = StatementController.find;
+
+  late Worker _statementWorker;
+
+  @override
+  void initState() {
+    super.initState();
+    _setUpAuthStatusWorker();
+  }
+
+  @override
+  void dispose() {
+    _statementWorker.dispose();
+    super.dispose();
+  }
+
+  void _setUpAuthStatusWorker() {
+    _statementWorker = ever(
+      statementController.status,
+      (value) {
+        if (value == StatementStatus.error) {
+          Log.printInfo(statementController.currentState);
+        }
+        if (value == StatementStatus.loading) {
+          Log.printInfo(statementController.currentState);
+        }
+        if (value == StatementStatus.succeeded) {
+          Log.printInfo(statementController.currentState);
+        }
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
