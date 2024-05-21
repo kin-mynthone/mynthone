@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
 
 import 'package:get/get.dart';
+import 'package:shimmer/shimmer.dart';
 
 import '../../../constants/app_numbers.dart';
 import '../../../constants/app_strings.dart';
@@ -15,12 +16,14 @@ import '../../../widgets/loading_indicator_widget.dart';
 import '../../card_info/views/card_info_view.dart';
 import '../../dashboard/controllers/dashboard_controller.dart';
 import '../../dashboard/views/dashboard_view.dart';
+import '../../statement_info/views/statement_info_view.dart';
 import '../controllers/home_controller.dart';
 
 part '../widgets/announcement_list_widget.dart';
 part '../widgets/cards_list_widget.dart';
 part '../widgets/buttons_widget.dart';
 part '../widgets/statement_widget.dart';
+part '../widgets/card_flip_widget.dart';
 
 class HomeView extends GetView<HomeController> {
   const HomeView({super.key});
@@ -53,7 +56,8 @@ class HomeView extends GetView<HomeController> {
             SizedBox(
               height: 20,
             ),
-            _CardsListWidget(),
+            // _CardsListWidget(),
+            _CardFlipWidget(),
             _ButtonsWidget(),
             _StatementWidget(),
           ],

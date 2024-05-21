@@ -31,7 +31,7 @@ class StatementController extends GetxController {
     _status.value = StatementStatus.loading;
     try {
       await Future.delayed(const Duration(seconds: 1));
-      _statement.value = await StatementRepository.fetchStatements();
+      _statement.value = await StatementRepository.fetchAllStatements();
       _status.value = StatementStatus.succeeded;
     } catch (e) {
       _errorMessage.value = 'Error description here';

@@ -52,27 +52,27 @@ class _BottomNavigationBarWidget extends GetView<DashboardController> {
                   ),
                   height: 25,
                 ),
-                label: 'Page1',
+                label: 'Home',
               ),
-              BottomNavigationBarItem(
-                icon: SvgPicture.asset(
-                  AssetPath.cards,
-                  colorFilter: const ColorFilter.mode(
-                    AppColors.hE5EAFF,
-                    BlendMode.modulate, // Blend mode
-                  ),
-                  height: 25,
-                ),
-                activeIcon: SvgPicture.asset(
-                  AssetPath.cards,
-                  colorFilter: const ColorFilter.mode(
-                    AppColors.hE06144,
-                    BlendMode.modulate, // Blend mode
-                  ),
-                  height: 25,
-                ),
-                label: 'Page1',
-              ),
+              // BottomNavigationBarItem(
+              //   icon: SvgPicture.asset(
+              //     AssetPath.cards,
+              //     colorFilter: const ColorFilter.mode(
+              //       AppColors.hE5EAFF,
+              //       BlendMode.modulate, // Blend mode
+              //     ),
+              //     height: 25,
+              //   ),
+              //   activeIcon: SvgPicture.asset(
+              //     AssetPath.cards,
+              //     colorFilter: const ColorFilter.mode(
+              //       AppColors.hE06144,
+              //       BlendMode.modulate, // Blend mode
+              //     ),
+              //     height: 25,
+              //   ),
+              //   label: 'Cards',
+              // ),
               BottomNavigationBarItem(
                 icon: SvgPicture.asset(
                   AssetPath.statements,
@@ -90,7 +90,7 @@ class _BottomNavigationBarWidget extends GetView<DashboardController> {
                   ),
                   height: 25,
                 ),
-                label: 'Page1',
+                label: 'Statement',
               ),
               BottomNavigationBarItem(
                 icon: SvgPicture.asset(
@@ -109,7 +109,7 @@ class _BottomNavigationBarWidget extends GetView<DashboardController> {
                   ),
                   height: 25,
                 ),
-                label: 'Page1',
+                label: 'Settings',
               ),
             ],
           ),

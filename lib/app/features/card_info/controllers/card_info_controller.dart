@@ -48,7 +48,7 @@ class CardInfoController extends GetxController {
     _status.value = CardInfoStatus.loading;
     try {
       await Future.delayed(const Duration(seconds: 1));
-      _statement.value = await StatementRepository.fetchStatements();
+      _statement.value = await StatementRepository.fetchAllStatements();
 
       _status.value = CardInfoStatus.succeeded;
     } catch (e) {

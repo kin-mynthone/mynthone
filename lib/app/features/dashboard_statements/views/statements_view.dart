@@ -5,7 +5,9 @@ import 'package:intl/intl.dart';
 
 import '../../../helpers/asset_path_helper.dart';
 import '../../../models/statement_model.dart';
+import '../../../routes/app_pages.dart';
 import '../../../themes/app_colors.dart';
+import '../../statement_info/views/statement_info_view.dart';
 import '../controllers/statements_controller.dart';
 
 part '../widget/statement_widget.dart';

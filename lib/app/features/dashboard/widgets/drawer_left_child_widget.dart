@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-import '../constants/app_strings.dart';
-import '../features/dashboard/controllers/dashboard_controller.dart';
-import '../helpers/asset_path_helper.dart';
-import '../routes/app_pages.dart';
-import '../themes/app_colors.dart';
+import '../../../constants/app_strings.dart';
+import '../../../helpers/asset_path_helper.dart';
+import '../../../routes/app_pages.dart';
+import '../../../themes/app_colors.dart';
+import '../controllers/dashboard_controller.dart';
 
 class DrawerLeftChildWidget extends StatelessWidget {
   const DrawerLeftChildWidget({super.key});
@@ -27,8 +27,8 @@ class DrawerLeftChildWidget extends StatelessWidget {
             _GotoAccounts(),
             _GotoBeneficiary(),
             _GotoGenerateQrCode(),
-            _GotoLimits(),
-            _GotoProfileSettings(),
+            // _GotoLimits(),
+            // _GotoProfileSettings(),
             _SignOut()
           ],
         ),

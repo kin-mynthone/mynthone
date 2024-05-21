@@ -8,7 +8,6 @@ import '../../../models/account_model.dart';
 import '../../../routes/app_pages.dart';
 import '../../../themes/app_colors.dart';
 import '../../../widgets/custom_alert_dialog_widget.dart';
-import '../../../widgets/loading_overlay_widget.dart';
 import '../../../widgets/lost_connection_widget.dart';
 import '../../dashboard/views/dashboard_view.dart';
 import '../../splash/controllers/network_controller.dart';
@@ -105,10 +104,10 @@ class _SelectAccountViewState extends State<SelectAccountView> {
     );
   }
 
-  Obx _buildLoadingOverlay() {
-    return Obx(
-        () => LoadingOverlay(isLoading: selectAccountController.isLoading));
-  }
+  // Obx _buildLoadingOverlay() {
+  //   return Obx(
+  //       () => LoadingOverlay(isLoading: selectAccountController.isLoading));
+  // }
 }
 
 class _HeaderWidget extends StatelessWidget {
@@ -172,6 +171,13 @@ class _AccountListTileWidget extends StatelessWidget {
         title: Text(
           account.alias,
           style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                color: AppColors.h403E51,
+                fontSize: 15,
+              ),
+        ),
+        subtitle: Text(
+          'Business Account',
+          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 color: AppColors.h403E51,
                 fontSize: 15,
               ),

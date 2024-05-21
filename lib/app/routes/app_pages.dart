@@ -23,6 +23,7 @@ import '../features/sign_in/bindings/sign_in_binding.dart';
 import '../features/sign_in/views/sign_in_view.dart';
 import '../features/splash/bindings/splash_binding.dart';
 import '../features/splash/views/splash_view.dart';
+import '../features/statement_info/views/statement_info_view.dart';
 
 part 'app_routes.dart';
 
@@ -41,6 +42,7 @@ class AppPages {
   static const statement = _Routes.statement;
   static const cardInfo = _Routes.cardInfo;
   static const beneficiaries = _Routes.beneficiaries;
+  static const statementInfo = _Routes.statementInfo;
 
   static final routes = [
     GetPage(
@@ -103,5 +105,9 @@ class AppPages {
       page: () => const BeneficiariesView(),
       binding: BeneficiariesBinding(),
     ),
+    GetPage(
+        name: _Paths.statementInfo,
+        page: () => const StatementInfoView(),
+        binding: StatementBinding())
   ];
 }

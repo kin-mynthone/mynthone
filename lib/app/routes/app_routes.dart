@@ -14,6 +14,7 @@ abstract class _Routes {
   static const cardList = _Paths.cardList;
   static const cardInfo = _Paths.cardInfo;
   static const beneficiaries = _Paths.beneficiaries;
+  static const statementInfo = _Paths.statementInfo;
 }
 
 abstract class _Paths {
@@ -30,4 +31,5 @@ abstract class _Paths {
   static const cardList = '/card-list';
   static const cardInfo = '/card-info';
   static const beneficiaries = '/beneficiaries';
+  static const statementInfo = '/statement-info';
 }

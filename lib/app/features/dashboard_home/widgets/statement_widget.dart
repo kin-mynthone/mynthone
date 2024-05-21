@@ -5,11 +5,18 @@ class _StatementWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Expanded(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [_StatementHeaderWidget(), _StatementsListView()],
+    return Expanded(
+      child: Obx(
+        () => Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const _StatementHeaderWidget(),
+            HomeController.find.isLoading
+                ? _ShimmerListWidget()
+                : const _StatementsListView()
+          ],
+        ),
       ),
     );
   }
@@ -106,7 +113,7 @@ class _StatementListTileWidget extends StatelessWidget {
                 fontSize: 11,
               ),
         ),
-        trailing: statement.reference == 'Receive'
+        trailing: statement.received
             ? Text(
                 '+ ${statement.currency} ${formatBalance.format(double.parse(statement.amount))}',
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(
@@ -122,8 +129,66 @@ class _StatementListTileWidget extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),
-        onTap: () {},
+        onTap: () {
+          final args = StatementInfoViewArgs(statement: statement);
+          //  Get.toNamed(AppPages.statementInfo, arguments: args);
+        },
       ),
+    );
+  }
+}
+
+class _ShimmerListWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 20),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const SizedBox(height: 40),
+          _ShimmerItemWidget(),
+          _ShimmerItemWidget(),
+          _ShimmerItemWidget(),
+        ],
+      ),
+    );
+  }
+}
+
+class _ShimmerItemWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Shimmer.fromColors(
+          baseColor: AppColors.hE8E8E8,
+          highlightColor: AppColors.hF6F6F6,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(5),
+            child: Container(
+              width: 250,
+              height: 15,
+              color: Colors.white,
+            ),
+          ),
+        ),
+        const SizedBox(height: 10),
+        Shimmer.fromColors(
+          baseColor: AppColors.hE8E8E8,
+          highlightColor: AppColors.hF6F6F6,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(5),
+            child: Container(
+              width: 120,
+              height: 15,
+              color: Colors.white,
+            ),
+          ),
+        ),
+        const SizedBox(height: 40),
+      ],
     );
   }
 }

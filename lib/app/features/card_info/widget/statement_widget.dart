@@ -97,7 +97,7 @@ class _StatementListTileWidget extends StatelessWidget {
                 fontSize: 11,
               ),
         ),
-        trailing: statement.reference == 'Receive'
+        trailing: statement.received
             ? Text(
                 '+ ${statement.currency} ${formatBalance.format(double.parse(statement.amount))}',
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(

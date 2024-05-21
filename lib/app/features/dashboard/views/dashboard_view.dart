@@ -8,12 +8,11 @@ import '../../../helpers/log_helper.dart';
 import '../../../models/account_model.dart';
 import '../../../routes/app_pages.dart';
 import '../../../themes/app_colors.dart';
-import '../../../widgets/drawer_left_child_widget.dart';
-import '../../dashboard_card_list/views/card_list_view.dart';
 import '../../dashboard_home/views/home_view.dart';
 import '../../dashboard_statements/views/statements_view.dart';
 import '../../splash/controllers/auth_controller.dart';
 import '../controllers/dashboard_controller.dart';
+import '../widgets/drawer_left_child_widget.dart';
 
 part '../widgets/dashboard_body_widget.dart';
 part '../widgets/bottom_navigation_bar_widget.dart';
