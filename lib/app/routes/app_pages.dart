@@ -7,8 +7,8 @@ import '../features/card_info/bindings/card_info_binding.dart';
 import '../features/card_info/views/card_info_view.dart';
 import '../features/dashboard/bindings/dashboard_binding.dart';
 import '../features/dashboard/views/dashboard_view.dart';
-import '../features/dashboard_card_list/bindings/card_list_binding.dart';
-import '../features/dashboard_card_list/views/card_list_view.dart';
+import '../features/dashboard_card/bindings/card_binding.dart';
+import '../features/dashboard_card/views/card_view.dart';
 import '../features/dashboard_home/bindings/home_binding.dart';
 import '../features/dashboard_home/views/home_view.dart';
 import '../features/dashboard_statements/bindings/statements_binding.dart';
@@ -87,8 +87,8 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.cardList,
-      page: () => const CardListView(),
-      binding: CardListBinding(),
+      page: () => const CardView(),
+      binding: CardBinding(),
     ),
     GetPage(
       name: _Paths.statement,

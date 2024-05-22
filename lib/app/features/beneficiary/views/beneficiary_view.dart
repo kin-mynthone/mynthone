@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
+import '../../../helpers/asset_path_helper.dart';
 import '../../../helpers/log_helper.dart';
 import '../../../models/beneficiary_model.dart';
 import '../../../themes/app_colors.dart';
+import '../../../widgets/go_back_button_widget.dart';
 import '../controllers/beneficiary_controller.dart';
 
 class BeneficiaryView extends StatefulWidget {
@@ -64,26 +67,65 @@ class _HeaderWidget extends GetView<BeneficiaryController> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.fromLTRB(20, 60, 20, 20),
+      padding: const EdgeInsets.fromLTRB(0, 60, 5, 20),
       color: AppColors.hF2F4FE,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Beneficiary'.tr,
-            style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                  color: AppColors.h2445D4,
-                  fontSize: 15,
+          Row(
+            children: [
+              GoBackButton(
+                onPressed: () => Get.back(closeOverlays: true),
+                iconColor: AppColors.h403E51,
+              ),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Beneficiary'.tr,
+                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                            color: AppColors.h2445D4,
+                            fontSize: 15,
+                          ),
+                    ),
+                    const SizedBox(height: 5),
+                    Row(
+                      children: [
+                        Text(
+                          'Total Beneficiary: ',
+                          style:
+                              Theme.of(context).textTheme.bodyMedium?.copyWith(
+                                    color: AppColors.h403E51,
+                                  ),
+                        ),
+                        Obx(() => Text(
+                              '${controller.beneficiary.length}',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleLarge
+                                  ?.copyWith(
+                                    color: AppColors.h403E51,
+                                    fontSize: 14,
+                                  ),
+                            )),
+                      ],
+                    ),
+                  ],
                 ),
-          ),
-          const SizedBox(height: 5),
-          Text(
-            'Your previous beneficiary are listed here',
-            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: AppColors.h403E51,
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.add_outlined,
+                  color: AppColors.hE06144,
+                  size: 25,
                 ),
+              ),
+            ],
           ),
-          const SizedBox(height: 10),
+
+          //  const _SearchFormField(),
         ],
       ),
     );

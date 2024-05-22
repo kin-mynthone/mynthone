@@ -95,7 +95,7 @@ class _HeaderWidget extends GetView<StatementController> {
   }
 }
 
-class _SearchFormField extends GetView<StatementController> {
+class _SearchFormField extends StatelessWidget {
   const _SearchFormField();
 
   @override

@@ -10,7 +10,7 @@ class _DashboardBodyWidget extends GetView<DashboardController> {
         index: controller.bottomNavCurrentIndex,
         children: const [
           Center(child: HomeView()),
-          //  Center(child: CardListView()),
+          //  Center(child: CardView()),
           Center(child: StatementView()),
           Center(child: Text('page4')),
         ],

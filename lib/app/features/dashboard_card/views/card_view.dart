@@ -9,17 +9,17 @@ import '../../../models/debit_card_model.dart';
 import '../../../routes/app_pages.dart';
 import '../../../themes/app_colors.dart';
 import '../../card_info/views/card_info_view.dart';
-import '../controllers/card_list_controller.dart';
+import '../controllers/card_controller.dart';
 
-class CardListView extends StatefulWidget {
-  const CardListView({super.key});
+class CardView extends StatefulWidget {
+  const CardView({super.key});
 
   @override
-  State<CardListView> createState() => _CardListViewState();
+  State<CardView> createState() => _CardViewState();
 }
 
-class _CardListViewState extends State<CardListView> {
-  final cardListController = CardListController.find;
+class _CardViewState extends State<CardView> {
+  final cardListController = CardController.find;
 
   late Worker _cardListWorker;
 
@@ -63,7 +63,7 @@ class _CardListViewState extends State<CardListView> {
   }
 }
 
-class _HeaderWidget extends GetView<CardListController> {
+class _HeaderWidget extends GetView<CardController> {
   const _HeaderWidget();
 
   @override
@@ -118,7 +118,7 @@ class _HeaderWidget extends GetView<CardListController> {
   }
 }
 
-class _DebitCardsListView extends GetView<CardListController> {
+class _DebitCardsListView extends GetView<CardController> {
   const _DebitCardsListView();
 
   @override

@@ -4,8 +4,8 @@ import '../../../models/debit_card_model.dart';
 
 enum CardListStatus { initial, loading, succeeded, error }
 
-class CardListController extends GetxController {
-  static CardListController get find => Get.find();
+class CardController extends GetxController {
+  static CardController get find => Get.find();
 
   final _status = CardListStatus.initial.obs;
   Rx<CardListStatus> get status => _status;
@@ -18,7 +18,7 @@ class CardListController extends GetxController {
   List<DebitCard> get debitCards => _debitCard;
 
   String get currentState =>
-      'CardListController(status: ${_status.value},  errorMessage: ${_errorMessage.value}, debitCardLength: ${_debitCard.length}, )';
+      'CardController(status: ${_status.value},  errorMessage: ${_errorMessage.value}, debitCardLength: ${_debitCard.length}, )';
 
   @override
   void onInit() {

@@ -12,7 +12,7 @@ class DashboardBinding extends Bindings {
     Get.put(HomeController());
     Get.put(HomeStatementController());
     // Get.put(HomeCardsController());
-    // Get.put(CardListController());
+    // Get.put(CardController());
     Get.put(StatementController());
     Get.put(BeneficiaryController());
   }
