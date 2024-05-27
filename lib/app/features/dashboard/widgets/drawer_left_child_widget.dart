@@ -26,7 +26,7 @@ class DrawerLeftChildWidget extends StatelessWidget {
             SizedBox(height: 30),
             _GotoAccounts(),
             _GotoBeneficiary(),
-            _GotoGenerateQrCode(),
+            //  _GotoGenerateQrCode(),
             // _GotoLimits(),
             // _GotoProfileSettings(),
             _SignOut()
