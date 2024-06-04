@@ -12,6 +12,7 @@ class Statement {
   final String currency;
   final Beneficiary beneficiary;
   final Sender sender;
+  final String createdAt;
 
   Statement({
     required this.id,
@@ -27,6 +28,7 @@ class Statement {
     required this.currency,
     required this.beneficiary,
     required this.sender,
+    required this.createdAt,
   });
 
   factory Statement.fromJson(Map<String, dynamic> json) {
@@ -44,6 +46,7 @@ class Statement {
       currency: json['currency'],
       beneficiary: Beneficiary.fromJson(json['beneficiary']),
       sender: Sender.fromJson(json['sender']),
+      createdAt: json['created_at'],
     );
   }
 
@@ -62,6 +65,7 @@ class Statement {
       'currency': currency,
       'beneficiary': beneficiary.toJson(),
       'sender': sender.toJson(),
+      'created_at': createdAt,
     };
   }
 }
@@ -69,37 +73,19 @@ class Statement {
 class Account {
   final String id;
   final AccountNumber accountNumber;
-  final String balance;
   final String alias;
-  final String icon;
-  final String color;
-  final String isPrimary;
-  final String status;
-  final String createdAt;
 
   Account({
     required this.id,
     required this.accountNumber,
-    required this.balance,
     required this.alias,
-    required this.icon,
-    required this.color,
-    required this.isPrimary,
-    required this.status,
-    required this.createdAt,
   });
 
   factory Account.fromJson(Map<String, dynamic> json) {
     return Account(
       id: json['id'],
       accountNumber: AccountNumber.fromJson(json['account_number']),
-      balance: json['balance'],
       alias: json['alias'],
-      icon: json['icon'],
-      color: json['color'],
-      isPrimary: json['is_primary'],
-      status: json['status'],
-      createdAt: json['created_at'],
     );
   }
 
@@ -107,13 +93,7 @@ class Account {
     return {
       'id': id,
       'account_number': accountNumber.toJson(),
-      'balance': balance,
       'alias': alias,
-      'icon': icon,
-      'color': color,
-      'is_primary': isPrimary,
-      'status': status,
-      'created_at': createdAt,
     };
   }
 }
@@ -150,6 +130,7 @@ class Beneficiary {
   final String type;
   final String alias;
   final String name;
+  final Address address;
   final String email;
   final BeneficiaryAccountNumber accountNumber;
 
@@ -157,6 +138,7 @@ class Beneficiary {
     required this.type,
     required this.alias,
     required this.name,
+    required this.address,
     required this.email,
     required this.accountNumber,
   });
@@ -166,6 +148,7 @@ class Beneficiary {
       type: json['type'],
       alias: json['alias'],
       name: json['name'],
+      address: Address.fromJson(json['address']),
       email: json['email'],
       accountNumber: BeneficiaryAccountNumber.fromJson(json['account_number']),
     );
@@ -176,8 +159,53 @@ class Beneficiary {
       'type': type,
       'alias': alias,
       'name': name,
+      'address': address.toJson(),
       'email': email,
       'account_number': accountNumber.toJson(),
+    };
+  }
+}
+
+class Address {
+  final String address;
+  final String? address2;
+  final String city;
+  final String? state;
+  final String zipcode;
+  final String country;
+  final String? number;
+
+  Address({
+    required this.address,
+    this.address2,
+    required this.city,
+    this.state,
+    required this.zipcode,
+    required this.country,
+    this.number,
+  });
+
+  factory Address.fromJson(Map<String, dynamic> json) {
+    return Address(
+      address: json['address'],
+      address2: json['address2'],
+      city: json['city'],
+      state: json['state'],
+      zipcode: json['zipcode'],
+      country: json['country'],
+      number: json['number'],
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'address': address,
+      'address2': address2,
+      'city': city,
+      'state': state,
+      'zipcode': zipcode,
+      'country': country,
+      'number': number,
     };
   }
 }
@@ -214,13 +242,15 @@ class Sender {
   final String? type;
   final String? alias;
   final String name;
+  final Address? address;
   final String? email;
-  final String accountNumber;
+  final dynamic accountNumber;
 
   Sender({
     this.type,
     this.alias,
     required this.name,
+    this.address,
     this.email,
     required this.accountNumber,
   });
@@ -230,8 +260,10 @@ class Sender {
       type: json['type'],
       alias: json['alias'],
       name: json['name'],
+      address:
+          json['address'] != null ? Address.fromJson(json['address']) : null,
       email: json['email'],
-      accountNumber: json['account_number'].toString(),
+      accountNumber: json['account_number'],
     );
   }
 
@@ -240,6 +272,7 @@ class Sender {
       'type': type,
       'alias': alias,
       'name': name,
+      'address': address?.toJson(),
       'email': email,
       'account_number': accountNumber,
     };

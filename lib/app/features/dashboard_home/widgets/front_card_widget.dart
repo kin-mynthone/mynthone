@@ -53,12 +53,14 @@ class _FrontCardWidget extends GetView<HomeController> {
               ),
               const SizedBox(height: 5),
               Text(
-                '${dashboardViewArgs.account.currency.symbolPrefix} ${formatBalance.format(double.parse(dashboardViewArgs.account.balance))}',
-                style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                  '${dashboardViewArgs.account.currency.symbolPrefix} ${formatBalance.format(double.parse(dashboardViewArgs.account.balance))}',
+                  style: GoogleFonts.firaCode(
+                    textStyle: const TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.w600,
                       color: AppColors.hF6F6F6,
-                      fontSize: 25,
                     ),
-              ),
+                  )),
             ],
           ),
         ],

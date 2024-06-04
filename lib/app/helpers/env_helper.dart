@@ -19,4 +19,5 @@ class Env {
   static const String statementApiEndpoint = 'STATEMENT_API_ENDPOINT';
   static const String cardApiEndpoint = 'CARD_API_ENDPOINT';
   static const String beneficiaryApiEndpoint = 'BENEFICIARIES_API_ENDPOINT';
+  static const String transferApiEndpoint = 'TRANSFER_API_ENDPOINT';
 }

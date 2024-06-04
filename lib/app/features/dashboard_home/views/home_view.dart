@@ -1,6 +1,7 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
 import 'package:get/get.dart';
@@ -18,6 +19,7 @@ import '../../card_info/views/card_info_view.dart';
 import '../../dashboard/controllers/dashboard_controller.dart';
 import '../../dashboard/views/dashboard_view.dart';
 import '../../statement_info/views/statement_info_view.dart';
+import '../../transfer_fund/views/transfer_fund_view.dart';
 import '../controllers/home_controller.dart';
 import '../controllers/home_statement_controller.dart';
 

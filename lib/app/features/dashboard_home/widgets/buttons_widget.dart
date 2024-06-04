@@ -5,6 +5,7 @@ class _ButtonsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dashboardViewArgs = Get.arguments as DashboardViewArgs;
     return Padding(
       padding: const EdgeInsets.all(AppNumbers.screenPadding),
       child: Row(
@@ -14,7 +15,11 @@ class _ButtonsWidget extends StatelessWidget {
             width: 120,
             height: 45,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                final args =
+                    TransferFundViewArgs(account: dashboardViewArgs.account);
+                Get.toNamed(AppPages.transferFund, arguments: args);
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.hF2F4FE,
               ),
