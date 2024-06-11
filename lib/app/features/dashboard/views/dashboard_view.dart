@@ -3,20 +3,19 @@ import 'package:flutter_inner_drawer/inner_drawer.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:get/get.dart';
-import '../../../constants/app_strings.dart';
 import '../../../helpers/asset_path_helper.dart';
 import '../../../helpers/log_helper.dart';
 import '../../../models/account_model.dart';
 import '../../../routes/app_pages.dart';
 import '../../../themes/app_colors.dart';
-import '../../dashboard_card_list/views/card_list_view.dart';
 import '../../dashboard_home/views/home_view.dart';
+import '../../dashboard_statements/views/statements_view.dart';
 import '../../splash/controllers/auth_controller.dart';
 import '../controllers/dashboard_controller.dart';
+import '../widgets/drawer_left_child_widget.dart';
 
-part '../widgets/body_widget.dart';
+part '../widgets/dashboard_body_widget.dart';
 part '../widgets/bottom_navigation_bar_widget.dart';
-part '../widgets/drawer_left_child_widget.dart';
 
 class DashboardViewArgs {
   final Account account;
@@ -86,9 +85,9 @@ class _DashboardViewState extends State<DashboardView> {
       borderRadius: 30,
       leftAnimationType: InnerDrawerAnimation.static,
       backgroundDecoration: const BoxDecoration(color: AppColors.h2445D4),
-      leftChild: const _DrawerLeftChildWidget(),
+      leftChild: const DrawerLeftChildWidget(),
       scaffold: const Scaffold(
-        body: _BodyWidget(),
+        body: _DashboardBodyWidget(),
         bottomNavigationBar: _BottomNavigationBarWidget(),
       ),
     );

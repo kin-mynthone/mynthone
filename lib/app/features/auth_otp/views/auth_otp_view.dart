@@ -98,9 +98,7 @@ class _AuthOtpViewState extends State<AuthOtpView> {
                         height: 230,
                         fit: BoxFit.contain,
                       ),
-                      const SizedBox(
-                        height: 30,
-                      ),
+                      const SizedBox(height: 30),
                       Text(
                         'OTP Verification'.tr,
                         style: Theme.of(context).textTheme.titleLarge?.copyWith(
@@ -141,9 +139,7 @@ class _UserMobileNumber extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const SizedBox(
-          height: 10,
-        ),
+        const SizedBox(height: 10),
         Text(
           'Please enter the OTP code sent to',
           style: Theme.of(context).textTheme.titleLarge?.copyWith(
@@ -152,9 +148,7 @@ class _UserMobileNumber extends StatelessWidget {
               ),
           textAlign: TextAlign.center,
         ),
-        const SizedBox(
-          height: 5,
-        ),
+        const SizedBox(height: 5),
         Text(
           '$dialCode $mobileNumber',
           style: Theme.of(context).textTheme.titleLarge?.copyWith(

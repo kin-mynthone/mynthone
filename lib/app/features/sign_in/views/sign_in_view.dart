@@ -86,17 +86,13 @@ class _SignInViewState extends State<SignInView> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
-                    height: 15,
-                  ),
+                  SizedBox(height: 15),
                   Padding(
                     padding: EdgeInsets.symmetric(
                         horizontal: AppNumbers.screenPadding),
                     child: _HeaderWidget(),
                   ),
-                  SizedBox(
-                    height: 25,
-                  ),
+                  SizedBox(height: 25),
                   _BodyWidget(),
                 ],
               ),
@@ -141,18 +137,12 @@ class _BodyWidget extends GetView<SignInController> {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       _EmailFormField(),
-                      SizedBox(
-                        height: 20,
-                      ),
+                      SizedBox(height: 20),
                       _PasswordTextFormField(),
                       _GotoForgotPassword(),
-                      SizedBox(
-                        height: 40,
-                      ),
+                      SizedBox(height: 40),
                       _SignInButton(),
-                      SizedBox(
-                        height: 5,
-                      ),
+                      SizedBox(height: 5),
                       _GotoRegistration(),
                     ],
                   ),
@@ -180,17 +170,14 @@ class _HeaderWidget extends StatelessWidget {
           'Hi, Welcome Back'.tr,
           style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 color: AppColors.hF6F6F6,
-                fontSize: 28,
+                fontSize: 25,
               ),
         ),
-        const SizedBox(
-          height: 5,
-        ),
+        const SizedBox(height: 2),
         Text(
           'Please sign in to continue'.tr,
           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 color: AppColors.hF6F6F6,
-                fontSize: 13,
               ),
           textAlign: TextAlign.center,
         ),
@@ -273,7 +260,6 @@ class _GotoForgotPassword extends StatelessWidget {
         'Forgot Password?'.tr,
         style: Theme.of(context).textTheme.bodyLarge?.copyWith(
               color: AppColors.h8E8E8E,
-              fontSize: 13,
             ),
       ),
     );
@@ -292,7 +278,6 @@ class _GotoRegistration extends StatelessWidget {
           'Open an account'.tr,
           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 color: AppColors.h8E8E8E,
-                fontSize: 13,
               ),
         ),
       ),
@@ -359,7 +344,7 @@ class _SignInButtonState extends State<_SignInButton> {
       signInController.status,
       (value) {
         if (value == SignInStatus.error) {
-          Log.printInfo(signInController.currentState);
+          Log.printError(signInController.currentState);
           final title = 'SignIn Error'.tr;
           final message = signInController.errorMessage;
           _showErrorDialog(context, title: title, message: message);
@@ -382,6 +367,7 @@ class _SignInButtonState extends State<_SignInButton> {
       padding: const EdgeInsets.symmetric(horizontal: 40),
       child: ElevatedButton(
           onPressed: () {
+            FocusScope.of(context).unfocus();
             final isValidForm = signInController.validateForm();
 
             if (!isValidForm) {

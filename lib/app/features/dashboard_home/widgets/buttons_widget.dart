@@ -5,15 +5,21 @@ class _ButtonsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dashboardViewArgs = Get.arguments as DashboardViewArgs;
     return Padding(
       padding: const EdgeInsets.all(AppNumbers.screenPadding),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(
-            width: 130,
+            width: 120,
             height: 45,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                final args =
+                    TransferFundViewArgs(account: dashboardViewArgs.account);
+                Get.toNamed(AppPages.transferFund, arguments: args);
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.hF2F4FE,
               ),
@@ -26,20 +32,18 @@ class _ButtonsWidget extends StatelessWidget {
                   ),
                   Text(
                     'Transfer'.tr,
-                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
                           color: AppColors.h403E51,
-                          fontSize: 13,
+                          fontSize: 12,
                         ),
                   ),
                 ],
               ),
             ),
           ),
-          const SizedBox(
-            width: 10,
-          ),
+          const SizedBox(width: 10),
           SizedBox(
-            width: 130,
+            width: 120,
             height: 45,
             child: ElevatedButton(
               onPressed: () {},
@@ -55,20 +59,18 @@ class _ButtonsWidget extends StatelessWidget {
                   ),
                   Text(
                     'Request'.tr,
-                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
                           color: AppColors.h403E51,
-                          fontSize: 13,
+                          fontSize: 12,
                         ),
                   ),
                 ],
               ),
             ),
           ),
-          const SizedBox(
-            width: 20,
-          ),
+          const SizedBox(width: 15),
           SizedBox(
-            width: 60,
+            width: 50,
             height: 45,
             child: ElevatedButton(
               onPressed: () {},

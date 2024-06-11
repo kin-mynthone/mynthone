@@ -2,23 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_inner_drawer/inner_drawer.dart';
 import 'package:get/get.dart';
 
-import '../../../instances/supabase_service_instances.dart';
+import '../../../helpers/persistent_storage_helper.dart';
 
 class DashboardController extends GetxController {
   static DashboardController get find => Get.find();
 
-  final _currentIndex = 0.obs;
-  int get currentIndex => _currentIndex.value;
+  final _bottomNavCurrentIndex = 0.obs;
+  int get bottomNavCurrentIndex => _bottomNavCurrentIndex.value;
 
   final GlobalKey<InnerDrawerState> _innerDrawerKey =
       GlobalKey<InnerDrawerState>();
   GlobalKey<InnerDrawerState> get innerDrawerKey => _innerDrawerKey;
 
-  void setCurrentIndexValue(int index) {
-    if (index == _currentIndex.value) {
+  void setBottomNavCurrentIndexValue(int index) {
+    if (index == _bottomNavCurrentIndex.value) {
       return;
     }
-    _currentIndex.value = index;
+    _bottomNavCurrentIndex.value = index;
   }
 
   void toggleDrawer() {
@@ -26,6 +26,8 @@ class DashboardController extends GetxController {
   }
 
   Future<void> signOut() async {
-    await supabase.auth.signOut();
+    // await supabase.auth.signOut();
+
+    await PersistentStorage.clearLoginCredentials();
   }
 }

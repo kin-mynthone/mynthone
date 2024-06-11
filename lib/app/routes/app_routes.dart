@@ -10,8 +10,14 @@ abstract class _Routes {
   static const selectAccount = _Paths.selectAccount;
   static const dashboard = _Paths.dashboard;
   static const home = _Paths.home;
+  static const statement = _Paths.statement;
   static const cardList = _Paths.cardList;
   static const cardInfo = _Paths.cardInfo;
+  static const beneficiary = _Paths.beneficiary;
+  static const statementInfo = _Paths.statementInfo;
+  static const transferFund = _Paths.transferFund;
+  static const transferConfirmation = _Paths.transferConfirmation;
+  static const transferSummary = _Paths.transferSummary;
 }
 
 abstract class _Paths {
@@ -24,6 +30,12 @@ abstract class _Paths {
   static const selectAccount = '/select-account';
   static const dashboard = '/dashboard';
   static const home = '/home';
+  static const statement = '/statement';
   static const cardList = '/card-list';
   static const cardInfo = '/card-info';
+  static const beneficiary = '/beneficiary';
+  static const statementInfo = '/statement-info';
+  static const transferFund = '/transfer-fund';
+  static const transferConfirmation = '/transfer-confirmation';
+  static const transferSummary = '/transfer-summary';
 }

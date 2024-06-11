@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:shimmer/shimmer.dart';
 import '../../../constants/app_numbers.dart';
 import '../../../helpers/log_helper.dart';
 import '../../../models/account_model.dart';
 import '../../../routes/app_pages.dart';
 import '../../../themes/app_colors.dart';
 import '../../../widgets/custom_alert_dialog_widget.dart';
-import '../../../widgets/loading_overlay_widget.dart';
 import '../../../widgets/lost_connection_widget.dart';
 import '../../dashboard/views/dashboard_view.dart';
 import '../../splash/controllers/network_controller.dart';
 import '../controllers/select_account_controller.dart';
+
+part '../Widget/shimmer_list_widget.dart';
 
 class SelectAccountView extends StatefulWidget {
   const SelectAccountView({super.key});
@@ -80,27 +82,32 @@ class _SelectAccountViewState extends State<SelectAccountView> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  const SizedBox(
+                    height: 20,
+                  ),
                   const _HeaderWidget(),
                   const SizedBox(
-                    height: 30,
+                    height: 20,
                   ),
-                  Obx(() => NetworkController.find.checkConnectivityResult
-                      ? const _AccountsListView()
-                      : const ConnectionLost())
+                  Obx(() => selectAccountController.isLoading
+                      ? _ShimmerListWidget()
+                      : NetworkController.find.checkConnectivityResult
+                          ? const _AccountsListView()
+                          : const ConnectionLost())
                 ],
               ),
             ),
           ),
-          _buildLoadingOverlay(),
+          // _buildLoadingOverlay(),
         ],
       ),
     );
   }
 
-  Obx _buildLoadingOverlay() {
-    return Obx(
-        () => LoadingOverlay(isLoading: selectAccountController.isLoading));
-  }
+  // Obx _buildLoadingOverlay() {
+  //   return Obx(
+  //       () => LoadingOverlay(isLoading: selectAccountController.isLoading));
+  // }
 }
 
 class _HeaderWidget extends StatelessWidget {
@@ -116,14 +123,13 @@ class _HeaderWidget extends StatelessWidget {
           'Select your account'.tr,
           style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 color: AppColors.hF6F6F6,
-                fontSize: 22,
+                fontSize: 20,
               ),
         ),
         Text(
           'Please select one of your account to proceed'.tr,
           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 color: AppColors.hF6F6F6,
-                fontSize: 13,
               ),
         ),
       ],
@@ -144,7 +150,7 @@ class _AccountsListView extends GetView<SelectAccountController> {
             final account = controller.accounts[index];
             return _AccountListTileWidget(account: account);
           },
-          separatorBuilder: (context, index) => const SizedBox(height: 20),
+          separatorBuilder: (context, index) => const SizedBox(height: 15),
         ),
       ),
     );
@@ -163,10 +169,17 @@ class _AccountListTileWidget extends StatelessWidget {
     return Card(
       child: ListTile(
         title: Text(
-          account.name,
+          account.alias,
           style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 color: AppColors.h403E51,
-                fontSize: 18,
+                fontSize: 15,
+              ),
+        ),
+        subtitle: Text(
+          'Business Account',
+          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                color: AppColors.h403E51,
+                fontSize: 15,
               ),
         ),
         onTap: () {

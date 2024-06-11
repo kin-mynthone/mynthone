@@ -26,9 +26,7 @@ class _OnboardingWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _Title(title: title),
-              const SizedBox(
-                height: 10,
-              ),
+              const SizedBox(height: 10),
               _Description(description: description),
             ],
           ),
@@ -74,7 +72,7 @@ class _Title extends StatelessWidget {
         title,
         style: Theme.of(context).textTheme.titleLarge?.copyWith(
               color: AppColors.hF6F6F6,
-              fontSize: 28,
+              fontSize: 25,
             ),
       ),
     );
@@ -94,7 +92,6 @@ class _Description extends StatelessWidget {
       description,
       style: Theme.of(context).textTheme.bodyLarge?.copyWith(
             color: AppColors.hF6F6F6,
-            fontSize: 13,
           ),
     );
   }

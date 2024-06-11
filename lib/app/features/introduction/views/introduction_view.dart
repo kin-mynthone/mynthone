@@ -35,9 +35,7 @@ class IntroductionView extends StatelessWidget {
                       ),
                   textAlign: TextAlign.center,
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
+                const SizedBox(height: 10),
                 Text(
                   'Banking Beyond, Welcome to the super experience'.tr,
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
@@ -45,9 +43,7 @@ class IntroductionView extends StatelessWidget {
                       ),
                   textAlign: TextAlign.center,
                 ),
-                const SizedBox(
-                  height: 30,
-                ),
+                const SizedBox(height: 30),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 80),
                   child: ElevatedButton(

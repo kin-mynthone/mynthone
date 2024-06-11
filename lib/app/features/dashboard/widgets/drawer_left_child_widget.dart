@@ -1,7 +1,15 @@
-part of '../views/dashboard_view.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
-class _DrawerLeftChildWidget extends StatelessWidget {
-  const _DrawerLeftChildWidget();
+import '../../../constants/app_strings.dart';
+import '../../../helpers/asset_path_helper.dart';
+import '../../../routes/app_pages.dart';
+import '../../../themes/app_colors.dart';
+import '../controllers/dashboard_controller.dart';
+
+class DrawerLeftChildWidget extends StatelessWidget {
+  const DrawerLeftChildWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,14 +23,12 @@ class _DrawerLeftChildWidget extends StatelessWidget {
           shrinkWrap: true,
           children: const [
             _DrawerHeaderWidget(),
-            SizedBox(
-              height: 50,
-            ),
+            SizedBox(height: 30),
             _GotoAccounts(),
             _GotoBeneficiary(),
-            _GotoGenerateQrCode(),
-            _GotoLimits(),
-            _GotoProfileSettings(),
+            //  _GotoGenerateQrCode(),
+            // _GotoLimits(),
+            // _GotoProfileSettings(),
             _SignOut()
           ],
         ),
@@ -41,7 +47,7 @@ class _DrawerHeaderWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         CircleAvatar(
-          radius: 50,
+          radius: 40,
           backgroundImage: const NetworkImage(
             AppStrings.defaultProfile,
           ),
@@ -52,24 +58,20 @@ class _DrawerHeaderWidget extends StatelessWidget {
               shape: BoxShape.circle,
               border: Border.all(
                 color: Colors.white,
-                width: 3,
+                width: 2,
               ),
             ),
           ),
         ),
-        const SizedBox(
-          height: 15,
-        ),
+        const SizedBox(height: 15),
         Text(
           'Kindred Inocencio',
           style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 color: AppColors.hF6F6F6,
-                fontSize: 25,
+                fontSize: 18,
               ),
         ),
-        const SizedBox(
-          height: 10,
-        ),
+        const SizedBox(height: 10),
         const _FullyVerifiedWidget(),
       ],
     );
@@ -99,14 +101,12 @@ class _FullyVerifiedWidget extends StatelessWidget {
               ),
               height: 15,
             ),
-            const SizedBox(
-              width: 10,
-            ),
+            const SizedBox(width: 10),
             Text(
               'Fully Verified',
-              style: Theme.of(context).textTheme.titleLarge?.copyWith(
+              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                     color: AppColors.hF6F6F6,
-                    fontSize: 11,
+                    fontSize: 10,
                   ),
             ),
           ],
@@ -126,7 +126,6 @@ class _GotoAccounts extends StatelessWidget {
         'Your Account'.tr,
         style: Theme.of(context).textTheme.bodyLarge?.copyWith(
               color: AppColors.hF6F6F6,
-              fontSize: 15,
             ),
       ),
       shape: RoundedRectangleBorder(
@@ -152,10 +151,9 @@ class _GotoBeneficiary extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(
-        'Beneficiaries'.tr,
+        'Beneficiary'.tr,
         style: Theme.of(context).textTheme.bodyLarge?.copyWith(
               color: AppColors.hF6F6F6,
-              fontSize: 15,
             ),
       ),
       shape: RoundedRectangleBorder(
@@ -169,7 +167,11 @@ class _GotoBeneficiary extends StatelessWidget {
         ),
         height: 20,
       ),
-      onTap: () {},
+      onTap: () async {
+        DashboardController.find.toggleDrawer();
+        await Future.delayed(const Duration(milliseconds: 200));
+        Get.toNamed(AppPages.beneficiary);
+      },
     );
   }
 }
@@ -184,7 +186,6 @@ class _GotoGenerateQrCode extends StatelessWidget {
         'Generate QR code'.tr,
         style: Theme.of(context).textTheme.bodyLarge?.copyWith(
               color: AppColors.hF6F6F6,
-              fontSize: 15,
             ),
       ),
       shape: RoundedRectangleBorder(
@@ -198,7 +199,11 @@ class _GotoGenerateQrCode extends StatelessWidget {
         ),
         height: 20,
       ),
-      onTap: () {},
+      onTap: () {
+        Get.toNamed(
+          AppPages.beneficiary,
+        );
+      },
     );
   }
 }
@@ -213,7 +218,6 @@ class _GotoLimits extends StatelessWidget {
         'Limits'.tr,
         style: Theme.of(context).textTheme.bodyLarge?.copyWith(
               color: AppColors.hF6F6F6,
-              fontSize: 15,
             ),
       ),
       shape: RoundedRectangleBorder(
@@ -242,7 +246,6 @@ class _GotoProfileSettings extends StatelessWidget {
         'Profile Settings'.tr,
         style: Theme.of(context).textTheme.bodyLarge?.copyWith(
               color: AppColors.hF6F6F6,
-              fontSize: 15,
             ),
       ),
       shape: RoundedRectangleBorder(
@@ -271,7 +274,6 @@ class _SignOut extends StatelessWidget {
         'Sign Out'.tr,
         style: Theme.of(context).textTheme.bodyLarge?.copyWith(
               color: AppColors.hF6F6F6,
-              fontSize: 15,
             ),
       ),
       shape: RoundedRectangleBorder(

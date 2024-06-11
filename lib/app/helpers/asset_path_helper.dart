@@ -17,6 +17,9 @@ class AssetPath {
   static const signOut = '$_imageSvgPath/signout.svg';
   static const edit = '$_imageSvgPath/edit.svg';
   static const turn = '$_imageSvgPath/turn.svg';
+  static const info = '$_imageSvgPath/info.svg';
+  static const block = '$_imageSvgPath/block.svg';
+  static const filter = '$_imageSvgPath/filter.svg';
 
   // Introduction
   static const introBg = '$_imageMainPath/intro_bg.png';

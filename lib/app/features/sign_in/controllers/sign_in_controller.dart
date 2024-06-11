@@ -5,7 +5,10 @@ import 'package:package_info_plus/package_info_plus.dart';
 
 import '../../../constants/app_strings.dart';
 import '../../../helpers/log_helper.dart';
+import '../../../helpers/persistent_storage_helper.dart';
 import '../../../instances/supabase_service_instances.dart';
+import '../../../repository/sign_in_repository.dart';
+import '../../../utils/api_error_util.dart';
 
 enum SignInStatus { initial, loading, succeeded, error }
 
@@ -86,18 +89,32 @@ class SignInController extends GetxController {
     try {
       Log.printInfo('Logging in');
 
-      await supabase.auth.signInWithPassword(
-        email: emailOrUsernameEditingController.text,
-        password: passwordEditingController.text,
+      // await supabase.auth.signInWithPassword(
+      //   email: emailOrUsernameEditingController.text,
+      //   password: passwordEditingController.text,
+      // );
+
+      final signInAccount = await SignInRepository.signInAccount(
+          email: emailOrUsernameEditingController.text,
+          password: passwordEditingController.text);
+
+      await PersistentStorage.setSignedCredentials(
+          email: emailOrUsernameEditingController.text,
+          password: passwordEditingController.text);
+
+      await PersistentStorage.setAccessToken(
+        accessToken: signInAccount.accessToken,
+        tokenType: signInAccount.tokenType,
       );
 
       _status.value = SignInStatus.succeeded;
+
       Log.printInfo('Logged in successfully ${supabase.auth.currentUser?.id}');
-      // } on ApiError catch (e) {
-      //   Log.printError(e);
-      //   final message = 'Email/User ID or password is incorrect'.tr;
-      //   _errorMessage.value = message;
-      //   _status.value = SignInStatus.error;
+    } on ApiError catch (e) {
+      Log.printError(e);
+      final message = 'Email/User ID or password is incorrect'.tr;
+      _errorMessage.value = message;
+      _status.value = SignInStatus.error;
     } catch (e) {
       Log.printError(e);
       String message = 'An error occurred. Please try again later.'.tr;
