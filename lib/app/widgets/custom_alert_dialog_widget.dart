@@ -23,8 +23,11 @@ class CustomAlertDialogWidget extends StatelessWidget {
         content: Text(message),
         actions: [
           TextButton(
-            onPressed: () => Navigator.of(context).pop(),
-            child: Text('Got it'.tr),
+            onPressed: () {
+              Navigator.of(context).pop();
+              onPressed();
+            },
+            child: Text('Continue'.tr),
           ),
         ],
       ),

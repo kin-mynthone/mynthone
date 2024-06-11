@@ -24,8 +24,12 @@ import '../features/sign_in/views/sign_in_view.dart';
 import '../features/splash/bindings/splash_binding.dart';
 import '../features/splash/views/splash_view.dart';
 import '../features/statement_info/views/statement_info_view.dart';
+import '../features/transfer_confirmation/bindings/transfer_confirmation_binding.dart';
+import '../features/transfer_confirmation/views/transfer_confirmation_view.dart';
 import '../features/transfer_fund/bindings/transfer_fund_binding.dart';
 import '../features/transfer_fund/views/transfer_fund_view.dart';
+import '../features/transfer_summary/bindings/transfer_summary_binding.dart';
+import '../features/transfer_summary/views/transfer_summary_view.dart';
 
 part 'app_routes.dart';
 
@@ -46,6 +50,8 @@ class AppPages {
   static const beneficiary = _Routes.beneficiary;
   static const statementInfo = _Routes.statementInfo;
   static const transferFund = _Routes.transferFund;
+  static const transferConfirmation = _Routes.transferConfirmation;
+  static const transferSummary = _Routes.transferSummary;
 
   static final routes = [
     GetPage(
@@ -115,6 +121,14 @@ class AppPages {
     GetPage(
         name: _Paths.transferFund,
         page: () => const TransferFundView(),
-        binding: TransferFundBinding())
+        binding: TransferFundBinding()),
+    GetPage(
+        name: _Paths.transferConfirmation,
+        page: () => const TransferConfirmationView(),
+        binding: TransferConfirmationBinding()),
+    GetPage(
+        name: _Paths.transferSummary,
+        page: () => const TransferSummaryView(),
+        binding: TransferSummaryBinding()),
   ];
 }

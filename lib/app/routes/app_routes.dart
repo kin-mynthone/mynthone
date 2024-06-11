@@ -16,6 +16,8 @@ abstract class _Routes {
   static const beneficiary = _Paths.beneficiary;
   static const statementInfo = _Paths.statementInfo;
   static const transferFund = _Paths.transferFund;
+  static const transferConfirmation = _Paths.transferConfirmation;
+  static const transferSummary = _Paths.transferSummary;
 }
 
 abstract class _Paths {
@@ -34,4 +36,6 @@ abstract class _Paths {
   static const beneficiary = '/beneficiary';
   static const statementInfo = '/statement-info';
   static const transferFund = '/transfer-fund';
+  static const transferConfirmation = '/transfer-confirmation';
+  static const transferSummary = '/transfer-summary';
 }

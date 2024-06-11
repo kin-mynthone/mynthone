@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 
@@ -22,18 +20,19 @@ class TransferFundRepository {
       'Authorization': 'Bearer${PersistentStorage.getAccessToken()}'
     };
 
-    final body = jsonEncode({
+    final body = {
       'amount_send': amountSend,
       'reference': reference,
       'beneficiary_id': beneficiaryId,
       'account_id': accountId,
-    });
+    };
 
     final response = await http.post(url, headers: headers, body: body);
 
     if (response.statusCode == 200) {
-      Log.printError('Response data: ${response.body}');
+      Log.printInfo('Response data: ${response.body}');
     } else {
+      Log.printInfo('Response data: ${response.body}');
       throw Exception('Failed to load data from API');
     }
   }
