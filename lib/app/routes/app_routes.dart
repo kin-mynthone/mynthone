@@ -18,6 +18,8 @@ abstract class _Routes {
   static const transferFund = _Paths.transferFund;
   static const transferConfirmation = _Paths.transferConfirmation;
   static const transferSummary = _Paths.transferSummary;
+  static const otherModules = _Paths.otherModules;
+  static const merchants = _Paths.merchants;
 }
 
 abstract class _Paths {
@@ -38,4 +40,6 @@ abstract class _Paths {
   static const transferFund = '/transfer-fund';
   static const transferConfirmation = '/transfer-confirmation';
   static const transferSummary = '/transfer-summary';
+  static const otherModules = '/other-modules';
+  static const merchants = '/merchants';
 }

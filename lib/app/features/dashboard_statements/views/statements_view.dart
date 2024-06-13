@@ -7,7 +7,6 @@ import '../../../helpers/asset_path_helper.dart';
 import '../../../helpers/log_helper.dart';
 import '../../../models/statement_model.dart';
 import '../../../themes/app_colors.dart';
-import '../../statement_info/views/statement_info_view.dart';
 import '../controllers/statements_controller.dart';
 
 class StatementView extends StatefulWidget {
@@ -209,7 +208,7 @@ class _StatementListTileWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
         ),
         onTap: () {
-          final args = StatementInfoViewArgs(statement: statement);
+          // final args = StatementInfoViewArgs(statement: statement);
           // Get.toNamed(AppPages.statementInfo, arguments: args);
         },
       ),

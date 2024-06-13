@@ -73,7 +73,11 @@ class _ButtonsWidget extends StatelessWidget {
             width: 50,
             height: 45,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                final args =
+                    OtherModulesViewArgs(account: dashboardViewArgs.account);
+                Get.toNamed(AppPages.otherModules, arguments: args);
+              },
               style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.h2445D4,
                   padding: const EdgeInsets.all(0)),
