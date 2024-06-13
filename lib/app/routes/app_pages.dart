@@ -1,6 +1,9 @@
 import 'package:get/get.dart';
+
 import '../features/auth_otp/bindings/auth_otp_binding.dart';
 import '../features/auth_otp/views/auth_otp_view.dart';
+import '../features/beam_and_go/merchants/bindings/merchants_binding.dart';
+import '../features/beam_and_go/merchants/views/merchants_view.dart';
 import '../features/beneficiary/bindings/beneficiary_binding.dart';
 import '../features/beneficiary/views/beneficiary_view.dart';
 import '../features/card_info/bindings/card_info_binding.dart';
@@ -17,6 +20,8 @@ import '../features/introduction/bindings/introduction_binding.dart';
 import '../features/introduction/views/introduction_view.dart';
 import '../features/onboarding/bindings/onboarding_binding.dart';
 import '../features/onboarding/views/onboarding_view.dart';
+import '../features/other_modules/bindings/other_modules_binding.dart';
+import '../features/other_modules/views/other_modules_view.dart';
 import '../features/select_account/bindings/select_account_binding.dart';
 import '../features/select_account/views/select_account_view.dart';
 import '../features/sign_in/bindings/sign_in_binding.dart';
@@ -52,6 +57,8 @@ class AppPages {
   static const transferFund = _Routes.transferFund;
   static const transferConfirmation = _Routes.transferConfirmation;
   static const transferSummary = _Routes.transferSummary;
+  static const otherModules = _Routes.otherModules;
+  static const merchants = _Routes.merchants;
 
   static final routes = [
     GetPage(
@@ -130,5 +137,13 @@ class AppPages {
         name: _Paths.transferSummary,
         page: () => const TransferSummaryView(),
         binding: TransferSummaryBinding()),
+    GetPage(
+        name: _Paths.otherModules,
+        page: () => const OtherModulesView(),
+        binding: OtherModulesBinding()),
+    GetPage(
+        name: _Paths.merchants,
+        page: () => const MerchantsView(),
+        binding: MerchantsBinding()),
   ];
 }

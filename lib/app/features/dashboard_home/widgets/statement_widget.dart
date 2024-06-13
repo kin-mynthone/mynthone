@@ -168,7 +168,7 @@ class _StatementListTileWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
         ),
         onTap: () {
-          final args = StatementInfoViewArgs(statement: statement);
+          // final args = StatementInfoViewArgs(statement: statement);
           //  Get.toNamed(AppPages.statementInfo, arguments: args);
         },
       ),

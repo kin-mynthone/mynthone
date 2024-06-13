@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
 import 'package:get/get.dart';
+import 'package:mynthone/app/features/other_modules/views/other_modules_view.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../../constants/app_numbers.dart';
@@ -18,7 +19,6 @@ import '../../../widgets/loading_indicator_widget.dart';
 import '../../card_info/views/card_info_view.dart';
 import '../../dashboard/controllers/dashboard_controller.dart';
 import '../../dashboard/views/dashboard_view.dart';
-import '../../statement_info/views/statement_info_view.dart';
 import '../../transfer_fund/views/transfer_fund_view.dart';
 import '../controllers/home_controller.dart';
 import '../controllers/home_statement_controller.dart';
