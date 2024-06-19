@@ -10,7 +10,9 @@ class _VoucherCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        //todo add function here
+      },
       child: CouponCard(
         height: 150,
         backgroundColor: AppColors.hF2F4FE,
