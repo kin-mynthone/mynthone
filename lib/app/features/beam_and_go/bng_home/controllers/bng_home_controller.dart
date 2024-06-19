@@ -23,45 +23,105 @@ class BNGHomeController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    _fetchVoucher();
+    _fetchVouchers();
   }
 
-  Future<void> _fetchVoucher() async {
+  // Future<void> _fetchVoucher() async {
+  //   _status.value = BNGHomeStatus.loading;
+  //   try {
+  //     await Future.delayed(const Duration(seconds: 1));
+
+  //     // _voucher.value =
+  //     _status.value = BNGHomeStatus.succeeded;
+  //   } catch (e) {
+  //     _errorMessage.value = e.toString();
+  //     _status.value = BNGHomeStatus.error;
+  //   }
+  // }
+
+  Future<void> _fetchVouchers() async {
     _status.value = BNGHomeStatus.loading;
     try {
       await Future.delayed(const Duration(seconds: 1));
-
-      // _voucher.value =
+      final voucherFromServer = [
+        Voucher(
+          productSid: '343cf143-0e43-11e4-ba0e-0ad557dde36d',
+          code: 'PRINCE',
+          name: 'Prince Hypermart GC',
+          description: 'A digital gift certificate that will be sent',
+          productTypeId: 1,
+          productTypeName: 'SUPERMARKET',
+          unitPrice: 1000,
+          unitPriceCurrencyCode: 'PHP',
+          imageUrl:
+              'https://pnghq.com/wp-content/uploads/walmart-logo-transparent-png-22100282-png-png-download.png',
+          minQty: 1,
+          maxQty: 4,
+          stockQty: 39,
+          defaultQty: 1,
+          isBranchSpecific: false,
+          branchSid: '',
+          branchCode: '',
+          branchName: '',
+          isShippingRequired: false,
+          isBirthdateRequired: false,
+          accountSid: '343cf143-0e43-11e4-ba0e-0ad557dde36d',
+          shippingAndHandlingFee: 0,
+        ),
+        Voucher(
+          productSid: '343cf143-0e43-11e4-ba0e-0ad557dde36d',
+          code: 'PRINCE',
+          name: 'Prince Hypermart GC',
+          description: 'A digital gift certificate that will be sent',
+          productTypeId: 1,
+          productTypeName: 'SUPERMARKET',
+          unitPrice: 1000,
+          unitPriceCurrencyCode: 'PHP',
+          imageUrl:
+              'https://pnghq.com/wp-content/uploads/walmart-logo-transparent-png-22100282-png-png-download.png',
+          minQty: 1,
+          maxQty: 4,
+          stockQty: 39,
+          defaultQty: 1,
+          isBranchSpecific: false,
+          branchSid: '',
+          branchCode: '',
+          branchName: '',
+          isShippingRequired: false,
+          isBirthdateRequired: false,
+          accountSid: '343cf143-0e43-11e4-ba0e-0ad557dde36d',
+          shippingAndHandlingFee: 0,
+        ),
+        Voucher(
+          productSid: '343cf143-0e43-11e4-ba0e-0ad557dde36d',
+          code: 'PRINCE',
+          name: 'Prince Hypermart GC',
+          description: 'A digital gift certificate that will be sent',
+          productTypeId: 1,
+          productTypeName: 'SUPERMARKET',
+          unitPrice: 1000,
+          unitPriceCurrencyCode: 'PHP',
+          imageUrl:
+              'https://pnghq.com/wp-content/uploads/walmart-logo-transparent-png-22100282-png-png-download.png',
+          minQty: 1,
+          maxQty: 4,
+          stockQty: 39,
+          defaultQty: 1,
+          isBranchSpecific: false,
+          branchSid: '',
+          branchCode: '',
+          branchName: '',
+          isShippingRequired: false,
+          isBirthdateRequired: false,
+          accountSid: '343cf143-0e43-11e4-ba0e-0ad557dde36d',
+          shippingAndHandlingFee: 0,
+        ),
+      ];
+      _voucher.value = voucherFromServer;
       _status.value = BNGHomeStatus.succeeded;
     } catch (e) {
-      _errorMessage.value = e.toString();
+      _errorMessage.value = 'Error description here';
       _status.value = BNGHomeStatus.error;
     }
   }
-
-  final voucherFromServer = [
-    Voucher(
-      productSid: '',
-      code: '',
-      name: '',
-      description: '',
-      productTypeId: 0,
-      productTypeName: '',
-      unitPrice: 0,
-      unitPriceCurrencyCode: '',
-      imageUrl: '',
-      minQty: 0,
-      maxQty: 0,
-      stockQty: 0,
-      defaultQty: 0,
-      isBranchSpecific: true,
-      branchSid: '',
-      branchCode: '',
-      branchName: '',
-      isShippingRequired: true,
-      isBirthdateRequired: true,
-      accountSid: '',
-      shippingAndHandlingFee: 0,
-    )
-  ];
 }

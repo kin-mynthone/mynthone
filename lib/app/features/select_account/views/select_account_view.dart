@@ -67,47 +67,34 @@ class _SelectAccountViewState extends State<SelectAccountView> {
 
   @override
   Widget build(BuildContext context) {
-    return PopScope(
-      canPop: selectAccountController.isLoading ? false : true,
-      child: Stack(
-        children: [
-          Scaffold(
-            backgroundColor: AppColors.h2445D4,
-            body: SafeArea(
-              minimum: const EdgeInsets.symmetric(
-                horizontal: AppNumbers.screenPadding,
-                vertical: AppNumbers.screenPadding,
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  const _HeaderWidget(),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Obx(() => selectAccountController.isLoading
-                      ? _ShimmerListWidget()
-                      : NetworkController.find.checkConnectivityResult
-                          ? const _AccountsListView()
-                          : const ConnectionLost())
-                ],
-              ),
+    return Scaffold(
+      backgroundColor: AppColors.h2445D4,
+      body: SafeArea(
+        minimum: const EdgeInsets.symmetric(
+          horizontal: AppNumbers.screenPadding,
+          vertical: AppNumbers.screenPadding,
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(
+              height: 20,
             ),
-          ),
-          // _buildLoadingOverlay(),
-        ],
+            const _HeaderWidget(),
+            const SizedBox(
+              height: 20,
+            ),
+            Obx(() => selectAccountController.isLoading
+                ? _ShimmerListWidget()
+                : NetworkController.find.checkConnectivityResult
+                    ? const _AccountsListView()
+                    : const ConnectionLost())
+          ],
+        ),
       ),
     );
   }
-
-  // Obx _buildLoadingOverlay() {
-  //   return Obx(
-  //       () => LoadingOverlay(isLoading: selectAccountController.isLoading));
-  // }
 }
 
 class _HeaderWidget extends StatelessWidget {

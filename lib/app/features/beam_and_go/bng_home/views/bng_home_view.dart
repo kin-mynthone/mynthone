@@ -1,15 +1,25 @@
+import 'package:coupon_uikit/coupon_uikit.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:shimmer/shimmer.dart';
 
 import '../../../../constants/app_numbers.dart';
 import '../../../../helpers/asset_path_helper.dart';
+import '../../../../helpers/log_helper.dart';
 import '../../../../models/account_model.dart';
+import '../../../../models/voucher_model.dart';
 import '../../../../routes/app_pages.dart';
 import '../../../../themes/app_colors.dart';
+import '../../../../widgets/custom_alert_dialog_widget.dart';
 import '../../../../widgets/go_back_button_widget.dart';
+import '../../../../widgets/lost_connection_widget.dart';
 import '../../../dashboard/views/dashboard_view.dart';
+import '../../../splash/controllers/network_controller.dart';
 import '../controllers/bng_home_controller.dart';
+
+part '../Widget/shimmer_list_widget.dart';
+part '../Widget/voucher_card_widget.dart';
 
 class BNGHomeViewArgs {
   final Account account;
@@ -19,19 +29,68 @@ class BNGHomeViewArgs {
   });
 }
 
-class BNGHomeView extends GetView<BNGHomeController> {
+class BNGHomeView extends StatefulWidget {
   const BNGHomeView({super.key});
+
+  @override
+  State<BNGHomeView> createState() => _BNGHomeViewState();
+}
+
+class _BNGHomeViewState extends State<BNGHomeView> {
+  final bngHomeController = BNGHomeController.find;
+  final networkController = NetworkController.find;
+
+  late Worker _bngHomeWorker;
+
+  @override
+  void initState() {
+    super.initState();
+    _setUpAuthStatusWorker();
+  }
+
+  @override
+  void dispose() {
+    _bngHomeWorker.dispose();
+    super.dispose();
+  }
+
+  void _setUpAuthStatusWorker() {
+    _bngHomeWorker = ever(
+      bngHomeController.status,
+      (value) {
+        if (value == BNGHomeStatus.error) {
+          Log.printInfo(bngHomeController.currentState);
+          Log.printInfo(networkController.currentState);
+
+          final title = 'Select Voucher'.tr;
+          final message = bngHomeController.errorMessage;
+
+          if (networkController.checkConnectivityResult) {
+            _showErrorDialog(context, title: title, message: message);
+          }
+        }
+        if (value == BNGHomeStatus.loading) {
+          Log.printInfo(bngHomeController.currentState);
+        }
+        if (value == BNGHomeStatus.succeeded) {
+          Log.printInfo(bngHomeController.currentState);
+        }
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          _HeaderWidget(),
-          SizedBox(
-            height: 20,
-          ),
-          _BodyWidget(),
+          const _HeaderWidget(),
+          Obx(() => bngHomeController.isLoading
+              ? _ShimmerListWidget()
+              : NetworkController.find.checkConnectivityResult
+                  ? const _VouchersListView()
+                  : const ConnectionLost()),
         ],
       ),
     );
@@ -74,45 +133,48 @@ class _HeaderWidget extends StatelessWidget {
   }
 }
 
-class _BodyWidget extends StatelessWidget {
-  const _BodyWidget();
+class _VouchersListView extends GetView<BNGHomeController> {
+  const _VouchersListView();
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: AppNumbers.screenPadding),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [],
+    return Obx(
+      () => Expanded(
+        child: Container(
+          padding: const EdgeInsets.symmetric(
+            horizontal: AppNumbers.screenPadding,
+          ),
+          child: ListView.separated(
+            itemCount: controller.voucher.length,
+            padding: const EdgeInsets.only(top: 20),
+            itemBuilder: (context, index) {
+              final voucher = controller.voucher[index];
+              return _VoucherCardWidget(voucher: voucher);
+            },
+            separatorBuilder: (context, index) => const SizedBox(height: 20),
+          ),
+        ),
       ),
     );
   }
 }
 
-class _BeamAndGoWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {},
-      child: Container(
-        padding: const EdgeInsets.all(16.0),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(20.0),
-          boxShadow: const [
-            BoxShadow(
-              color: Colors.black12,
-              blurRadius: 5.0,
-              spreadRadius: 1.0,
-            ),
-          ],
-        ),
-        child: Image.asset(
-          AssetPath.beamAndGo,
-          width: 250,
-          fit: BoxFit.contain,
-        ),
-      ),
-    );
-  }
+Future<void> _showErrorDialog(
+  BuildContext context, {
+  required String title,
+  required String message,
+}) {
+  return showDialog(
+    context: context,
+    barrierDismissible: false,
+    builder: (BuildContext context) {
+      return PopScope(
+          canPop: false,
+          child: CustomAlertDialogWidget(
+            title: title,
+            message: message,
+            onPressed: () {},
+          ));
+    },
+  );
 }
