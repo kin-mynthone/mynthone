@@ -2,25 +2,25 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-import '../../../constants/app_numbers.dart';
-import '../../../helpers/asset_path_helper.dart';
-import '../../../models/account_model.dart';
-import '../../../routes/app_pages.dart';
-import '../../../themes/app_colors.dart';
-import '../../../widgets/go_back_button_widget.dart';
-import '../../beam_and_go/bng_home/views/bng_home_view.dart';
-import '../controllers/other_modules_controller.dart';
+import '../../../../constants/app_numbers.dart';
+import '../../../../helpers/asset_path_helper.dart';
+import '../../../../models/account_model.dart';
+import '../../../../routes/app_pages.dart';
+import '../../../../themes/app_colors.dart';
+import '../../../../widgets/go_back_button_widget.dart';
+import '../../../dashboard/views/dashboard_view.dart';
+import '../controllers/bng_home_controller.dart';
 
-class OtherModulesViewArgs {
+class BNGHomeViewArgs {
   final Account account;
 
-  OtherModulesViewArgs({
+  BNGHomeViewArgs({
     required this.account,
   });
 }
 
-class OtherModulesView extends GetView<OtherModulesController> {
-  const OtherModulesView({super.key});
+class BNGHomeView extends GetView<BNGHomeController> {
+  const BNGHomeView({super.key});
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
@@ -43,16 +43,28 @@ class _HeaderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bngHomeViewArgs = Get.arguments as BNGHomeViewArgs;
+
     return Container(
-      padding: const EdgeInsets.fromLTRB(0, 60, 5, 0),
+      padding: const EdgeInsets.fromLTRB(0, 60, 5, 20),
+      color: AppColors.hF2F4FE,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
               GoBackButton(
-                onPressed: () => Get.back(closeOverlays: true),
+                onPressed: () {
+                  final args =
+                      DashboardViewArgs(account: bngHomeViewArgs.account);
+                  Get.offAllNamed(AppPages.dashboard, arguments: args);
+                },
                 iconColor: AppColors.h403E51,
+              ),
+              Image.asset(
+                AssetPath.beamAndGo,
+                height: 50,
+                fit: BoxFit.contain,
               ),
             ],
           ),
@@ -71,7 +83,7 @@ class _BodyWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: AppNumbers.screenPadding),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [_BeamAndGoWidget()],
+        children: [],
       ),
     );
   }
@@ -80,13 +92,8 @@ class _BodyWidget extends StatelessWidget {
 class _BeamAndGoWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final otherModulesViewArgs = Get.arguments as OtherModulesViewArgs;
-
     return GestureDetector(
-      onTap: () {
-        final args = BNGHomeViewArgs(account: otherModulesViewArgs.account);
-        Get.offAllNamed(AppPages.bngHome, arguments: args);
-      },
+      onTap: () {},
       child: Container(
         padding: const EdgeInsets.all(16.0),
         decoration: BoxDecoration(

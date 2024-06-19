@@ -51,6 +51,9 @@ class AssetPath {
   static const limits = '$_imageSvgPath/limits.svg';
   static const profileSettings = '$_imageSvgPath/profile_settings.svg';
 
-  //Lottie
+  // Lottie
   static const noConnection = '$_imageJsonPath/no_connection.json';
+
+  // Images
+  static const beamAndGo = '$_imageMainPath/beam_and_go.png';
 }
