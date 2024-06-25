@@ -2,8 +2,6 @@ import 'package:get/get.dart';
 
 import '../features/auth_otp/bindings/auth_otp_binding.dart';
 import '../features/auth_otp/views/auth_otp_view.dart';
-import '../features/beam_and_go/bng_home/bindings/bng_home_binding.dart';
-import '../features/beam_and_go/bng_home/views/bng_home_view.dart';
 import '../features/beam_and_go/merchants/bindings/merchants_binding.dart';
 import '../features/beam_and_go/merchants/views/merchants_view.dart';
 import '../features/beneficiary/bindings/beneficiary_binding.dart';
@@ -61,7 +59,6 @@ class AppPages {
   static const transferSummary = _Routes.transferSummary;
   static const otherModules = _Routes.otherModules;
   static const merchants = _Routes.merchants;
-  static const bngHome = _Routes.bngHome;
 
   static final routes = [
     GetPage(
@@ -148,9 +145,5 @@ class AppPages {
         name: _Paths.merchants,
         page: () => const MerchantsView(),
         binding: MerchantsBinding()),
-    GetPage(
-        name: _Paths.bngHome,
-        page: () => const BNGHomeView(),
-        binding: BNGHomeBinding()),
   ];
 }

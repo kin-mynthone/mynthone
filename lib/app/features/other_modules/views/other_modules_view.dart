@@ -8,7 +8,7 @@ import '../../../models/account_model.dart';
 import '../../../routes/app_pages.dart';
 import '../../../themes/app_colors.dart';
 import '../../../widgets/go_back_button_widget.dart';
-import '../../beam_and_go/bng_home/views/bng_home_view.dart';
+import '../../beam_and_go/merchants/views/merchants_view.dart';
 import '../controllers/other_modules_controller.dart';
 
 class OtherModulesViewArgs {
@@ -84,8 +84,8 @@ class _BeamAndGoWidget extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        final args = BNGHomeViewArgs(account: otherModulesViewArgs.account);
-        Get.offAllNamed(AppPages.bngHome, arguments: args);
+        final args = MerchantsViewArgs(account: otherModulesViewArgs.account);
+        Get.offAllNamed(AppPages.merchants, arguments: args);
       },
       child: Container(
         padding: const EdgeInsets.all(16.0),

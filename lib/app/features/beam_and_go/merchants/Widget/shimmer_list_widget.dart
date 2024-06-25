@@ -1,4 +1,4 @@
-part of '../views/bng_home_view.dart';
+part of '../views/merchants_view.dart';
 
 class _ShimmerListWidget extends StatelessWidget {
   @override
