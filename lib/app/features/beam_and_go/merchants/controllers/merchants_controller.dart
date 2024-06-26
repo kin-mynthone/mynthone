@@ -11,6 +11,9 @@ class MerchantsController extends GetxController {
   Rx<MerchantsStatus> get status => _status;
   bool get isLoading => _status.value == MerchantsStatus.loading;
 
+  final _quantity = 1.obs;
+  int get quantity => _quantity.value;
+
   final _errorMessage = ''.obs;
   String get errorMessage => _errorMessage.value;
 
@@ -38,6 +41,18 @@ class MerchantsController extends GetxController {
   //     _status.value = MerchantsStatus.error;
   //   }
   // }
+
+  void resetQuantity() {
+    _quantity.value = 1;
+  }
+
+  void addQuantity() {
+    _quantity.value++;
+  }
+
+  void subtractQuantity() {
+    _quantity.value--;
+  }
 
   Future<void> _fetchVouchers() async {
     _status.value = MerchantsStatus.loading;
