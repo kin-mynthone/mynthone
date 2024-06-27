@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:mynthone/app/features/beam_and_go/select_beneficiary/bindings/select_beneficiary_binding.dart';
+import 'package:mynthone/app/features/beam_and_go/select_beneficiary/views/select_beneficiary_view.dart';
 
 import '../features/auth_otp/bindings/auth_otp_binding.dart';
 import '../features/auth_otp/views/auth_otp_view.dart';
@@ -59,6 +61,7 @@ class AppPages {
   static const transferSummary = _Routes.transferSummary;
   static const otherModules = _Routes.otherModules;
   static const merchants = _Routes.merchants;
+  static const selectBeneficiary = _Routes.selectBeneficiary;
 
   static final routes = [
     GetPage(
@@ -145,5 +148,9 @@ class AppPages {
         name: _Paths.merchants,
         page: () => const MerchantsView(),
         binding: MerchantsBinding()),
+    GetPage(
+        name: _Paths.selectBeneficiary,
+        page: () => const SelectBeneficiaryView(),
+        binding: SelectBeneficiaryBinding()),
   ];
 }
