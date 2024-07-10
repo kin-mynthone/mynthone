@@ -1,7 +1,7 @@
 part of '../views/card_info_view.dart';
 
 class _CardFlipWidget extends GetView<CardInfoController> {
-  const _CardFlipWidget({super.key});
+  const _CardFlipWidget();
 
   @override
   Widget build(BuildContext context) {

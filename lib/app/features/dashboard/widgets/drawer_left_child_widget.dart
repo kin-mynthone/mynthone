@@ -176,93 +176,93 @@ class _GotoBeneficiary extends StatelessWidget {
   }
 }
 
-class _GotoGenerateQrCode extends StatelessWidget {
-  const _GotoGenerateQrCode();
+// class _GotoGenerateQrCode extends StatelessWidget {
+//   const _GotoGenerateQrCode();
 
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(
-        'Generate QR code'.tr,
-        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-              color: AppColors.hF6F6F6,
-            ),
-      ),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-      ),
-      leading: SvgPicture.asset(
-        AssetPath.qrScanner,
-        colorFilter: const ColorFilter.mode(
-          AppColors.hF6F6F6,
-          BlendMode.modulate,
-        ),
-        height: 20,
-      ),
-      onTap: () {
-        Get.toNamed(
-          AppPages.beneficiary,
-        );
-      },
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return ListTile(
+//       title: Text(
+//         'Generate QR code'.tr,
+//         style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+//               color: AppColors.hF6F6F6,
+//             ),
+//       ),
+//       shape: RoundedRectangleBorder(
+//         borderRadius: BorderRadius.circular(10),
+//       ),
+//       leading: SvgPicture.asset(
+//         AssetPath.qrScanner,
+//         colorFilter: const ColorFilter.mode(
+//           AppColors.hF6F6F6,
+//           BlendMode.modulate,
+//         ),
+//         height: 20,
+//       ),
+//       onTap: () {
+//         Get.toNamed(
+//           AppPages.beneficiary,
+//         );
+//       },
+//     );
+//   }
+// }
 
-class _GotoLimits extends StatelessWidget {
-  const _GotoLimits();
+// class _GotoLimits extends StatelessWidget {
+//   const _GotoLimits();
 
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(
-        'Limits'.tr,
-        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-              color: AppColors.hF6F6F6,
-            ),
-      ),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-      ),
-      leading: SvgPicture.asset(
-        AssetPath.limits,
-        colorFilter: const ColorFilter.mode(
-          AppColors.hF6F6F6,
-          BlendMode.modulate,
-        ),
-        height: 20,
-      ),
-      onTap: () {},
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return ListTile(
+//       title: Text(
+//         'Limits'.tr,
+//         style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+//               color: AppColors.hF6F6F6,
+//             ),
+//       ),
+//       shape: RoundedRectangleBorder(
+//         borderRadius: BorderRadius.circular(10),
+//       ),
+//       leading: SvgPicture.asset(
+//         AssetPath.limits,
+//         colorFilter: const ColorFilter.mode(
+//           AppColors.hF6F6F6,
+//           BlendMode.modulate,
+//         ),
+//         height: 20,
+//       ),
+//       onTap: () {},
+//     );
+//   }
+// }
 
-class _GotoProfileSettings extends StatelessWidget {
-  const _GotoProfileSettings();
+// class _GotoProfileSettings extends StatelessWidget {
+//   const _GotoProfileSettings();
 
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(
-        'Profile Settings'.tr,
-        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-              color: AppColors.hF6F6F6,
-            ),
-      ),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-      ),
-      leading: SvgPicture.asset(
-        AssetPath.profileSettings,
-        colorFilter: const ColorFilter.mode(
-          AppColors.hF6F6F6,
-          BlendMode.modulate,
-        ),
-        height: 20,
-      ),
-      onTap: () {},
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return ListTile(
+//       title: Text(
+//         'Profile Settings'.tr,
+//         style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+//               color: AppColors.hF6F6F6,
+//             ),
+//       ),
+//       shape: RoundedRectangleBorder(
+//         borderRadius: BorderRadius.circular(10),
+//       ),
+//       leading: SvgPicture.asset(
+//         AssetPath.profileSettings,
+//         colorFilter: const ColorFilter.mode(
+//           AppColors.hF6F6F6,
+//           BlendMode.modulate,
+//         ),
+//         height: 20,
+//       ),
+//       onTap: () {},
+//     );
+//   }
+// }
 
 class _SignOut extends StatelessWidget {
   const _SignOut();

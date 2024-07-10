@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 
 import 'app/enums/flavor_enum.dart';
 import 'app/helpers/env_helper.dart';
@@ -63,17 +62,17 @@ String _getFlavor() {
   }
 }
 
-Future<void> _initializeSupabase() async {
-  try {
-    final supabaseApp = await Supabase.initialize(
-      url: Env.supabaseUrl,
-      anonKey: Env.supabaseAnon,
-    );
-    Log.printInfo('Supabase App has been initialized. $supabaseApp');
-  } catch (_) {
-    Log.printError('Unable to initialize Supabase');
-  }
-}
+// Future<void> _initializeSupabase() async {
+//   try {
+//     final supabaseApp = await Supabase.initialize(
+//       url: Env.supabaseUrl,
+//       anonKey: Env.supabaseAnon,
+//     );
+//     Log.printInfo('Supabase App has been initialized. $supabaseApp');
+//   } catch (_) {
+//     Log.printError('Unable to initialize Supabase');
+//   }
+// }
 
 Future<void> _initializePersistentStorage() async {
   try {
