@@ -7,9 +7,13 @@ import 'package:mynthone/app/features/beam_and_go/select_beneficiary/controllers
 import 'package:mynthone/app/models/voucher_model.dart';
 
 import '../../../../constants/app_numbers.dart';
+import '../../../../helpers/log_helper.dart';
 import '../../../../models/account_model.dart';
+import '../../../../routes/app_pages.dart';
 import '../../../../themes/app_colors.dart';
+import '../../../../widgets/custom_alert_dialog_widget.dart';
 import '../../../../widgets/go_back_button_widget.dart';
+import '../../purchase_summary/views/purchase_summary_view.dart';
 
 class SelectBeneficiaryViewArgs {
   final Account account;
@@ -28,15 +32,18 @@ class SelectBeneficiaryView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    final selectBeneficiaryViewArgs =
+        Get.arguments as SelectBeneficiaryViewArgs;
+
+    return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          _HeaderWidget(),
-          SizedBox(
+          const _HeaderWidget(),
+          const SizedBox(
             height: 20,
           ),
-          _BodyWidget(),
+          _BodyWidget(selectBeneficiaryViewArgs: selectBeneficiaryViewArgs),
         ],
       ),
     );
@@ -90,7 +97,11 @@ class _HeaderWidget extends StatelessWidget {
 }
 
 class _BodyWidget extends GetView<SelectBeneficiaryController> {
-  const _BodyWidget();
+  const _BodyWidget({
+    required this.selectBeneficiaryViewArgs,
+  });
+
+  final SelectBeneficiaryViewArgs selectBeneficiaryViewArgs;
 
   @override
   Widget build(BuildContext context) {
@@ -111,7 +122,27 @@ class _BodyWidget extends GetView<SelectBeneficiaryController> {
             ),
             ElevatedButton(
                 onPressed: () {
-                  Navigator.pop(context);
+                  FocusScope.of(context).unfocus();
+                  final isValidForm = controller.validateForm();
+
+                  if (!isValidForm) {
+                    Log.printWarning('Invalid Select Beneficiary Form');
+                    final title = 'Beneficiary Error'.tr;
+                    final message =
+                        'Ensure that the form is properly filled in.'.tr;
+                    _showErrorDialog(context, title: title, message: message);
+
+                    return;
+                  }
+
+                  final args = PurchaseSummaryViewArgs(
+                      voucher: selectBeneficiaryViewArgs.voucher,
+                      account: selectBeneficiaryViewArgs.account,
+                      quantity: selectBeneficiaryViewArgs.quantity,
+                      beneficiaryName: controller.nameEditingController.text,
+                      beneficiaryMobile:
+                          controller.mobileNumberEditingController.text);
+                  Get.offAllNamed(AppPages.purchaseSummary, arguments: args);
                 },
                 child: Text(
                   'Continue'.tr,
@@ -119,6 +150,27 @@ class _BodyWidget extends GetView<SelectBeneficiaryController> {
           ],
         ),
       ),
+    );
+  }
+
+  Future<void> _showErrorDialog(
+    BuildContext context, {
+    required String title,
+    required String message,
+  }) {
+    return showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return PopScope(
+          canPop: false,
+          child: CustomAlertDialogWidget(
+            title: title,
+            message: message,
+            onPressed: () {},
+          ),
+        );
+      },
     );
   }
 }

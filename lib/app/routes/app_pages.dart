@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:mynthone/app/features/beam_and_go/purchase_summary/bindings/purchase_summary_binding.dart';
+import 'package:mynthone/app/features/beam_and_go/purchase_summary/views/purchase_summary_view.dart';
 import 'package:mynthone/app/features/beam_and_go/select_beneficiary/bindings/select_beneficiary_binding.dart';
 import 'package:mynthone/app/features/beam_and_go/select_beneficiary/views/select_beneficiary_view.dart';
 
@@ -62,6 +64,7 @@ class AppPages {
   static const otherModules = _Routes.otherModules;
   static const merchants = _Routes.merchants;
   static const selectBeneficiary = _Routes.selectBeneficiary;
+  static const purchaseSummary = _Routes.purchaseSummary;
 
   static final routes = [
     GetPage(
@@ -152,5 +155,9 @@ class AppPages {
         name: _Paths.selectBeneficiary,
         page: () => const SelectBeneficiaryView(),
         binding: SelectBeneficiaryBinding()),
+    GetPage(
+        name: _Paths.purchaseSummary,
+        page: () => const PurchaseSummaryView(),
+        binding: PurchaseSummaryBinding()),
   ];
 }

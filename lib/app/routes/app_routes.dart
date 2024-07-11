@@ -21,6 +21,7 @@ abstract class _Routes {
   static const otherModules = _Paths.otherModules;
   static const merchants = _Paths.merchants;
   static const selectBeneficiary = _Paths.selectBeneficiary;
+  static const purchaseSummary = _Paths.purchaseSummary;
 }
 
 abstract class _Paths {
@@ -44,4 +45,5 @@ abstract class _Paths {
   static const otherModules = '/other-modules';
   static const merchants = '/merchants';
   static const selectBeneficiary = '/select-beneficiary';
+  static const purchaseSummary = '/purchase-summary';
 }

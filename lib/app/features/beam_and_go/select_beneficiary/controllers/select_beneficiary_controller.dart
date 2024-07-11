@@ -45,8 +45,7 @@ class SelectBeneficiaryController extends GetxController {
   }
 
   bool validateForm() {
-    final isValid =
-        _formKey.currentState!.isValid && _gotSelectedBeneficiary.isTrue;
+    final isValid = _formKey.currentState!.isValid;
 
     return isValid;
   }

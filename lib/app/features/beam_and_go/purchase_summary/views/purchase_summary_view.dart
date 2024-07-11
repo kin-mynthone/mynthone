@@ -3,32 +3,34 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:mynthone/app/models/account_model.dart';
 
-import '../../../constants/app_numbers.dart';
-import '../../../models/account_model.dart';
-import '../../../models/beneficiary_model.dart';
-import '../../../routes/app_pages.dart';
-import '../../../themes/app_colors.dart';
-import '../../../widgets/eye_icon_widget.dart';
-import '../../dashboard/views/dashboard_view.dart';
-import '../controllers/transfer_summary_controller.dart';
+import '../../../../constants/app_numbers.dart';
+import '../../../../models/voucher_model.dart';
+import '../../../../routes/app_pages.dart';
+import '../../../../themes/app_colors.dart';
+import '../../../../widgets/eye_icon_widget.dart';
+import '../../../dashboard/views/dashboard_view.dart';
+import '../controllers/purchase_summary_controller.dart';
 
-class TransferSummaryViewArgs {
-  final String amountSend;
-  final String reference;
-  final Beneficiary beneficiary;
+class PurchaseSummaryViewArgs {
   final Account account;
+  final Voucher voucher;
+  final int quantity;
+  final String beneficiaryName;
+  final String beneficiaryMobile;
 
-  TransferSummaryViewArgs({
-    required this.amountSend,
-    required this.reference,
-    required this.beneficiary,
+  PurchaseSummaryViewArgs({
     required this.account,
+    required this.voucher,
+    required this.quantity,
+    required this.beneficiaryName,
+    required this.beneficiaryMobile,
   });
 }
 
-class TransferSummaryView extends GetView<TransferSummaryController> {
-  const TransferSummaryView({super.key});
+class PurchaseSummaryView extends GetView<PurchaseSummaryController> {
+  const PurchaseSummaryView({super.key});
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
@@ -40,42 +42,6 @@ class TransferSummaryView extends GetView<TransferSummaryController> {
             height: 20,
           ),
           _BodyWidget(),
-        ],
-      ),
-    );
-  }
-}
-
-class _BodyWidget extends GetView<TransferSummaryController> {
-  const _BodyWidget();
-
-  @override
-  Widget build(BuildContext context) {
-    final transferSummaryViewArgs = Get.arguments as TransferSummaryViewArgs;
-
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: AppNumbers.screenPadding),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _TransferToWidget(transferSummaryViewArgs: transferSummaryViewArgs),
-          const SizedBox(
-            height: 20,
-          ),
-          _TransferAmountWidget(
-              transferSummaryViewArgs: transferSummaryViewArgs),
-          const SizedBox(
-            height: 20,
-          ),
-          _TransferFeesWidget(transferSummaryViewArgs: transferSummaryViewArgs),
-          const SizedBox(
-            height: 20,
-          ),
-          _TransferFromWidget(transferSummaryViewArgs: transferSummaryViewArgs),
-          const SizedBox(
-            height: 30,
-          ),
-          _GotoDashboardButton(transferSummaryViewArgs: transferSummaryViewArgs)
         ],
       ),
     );
@@ -108,7 +74,7 @@ class _HeaderWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Your transfer was successful!'.tr,
+                      'Purchasing voucher was successful!'.tr,
                       style: Theme.of(context).textTheme.titleLarge?.copyWith(
                             color: AppColors.h2445D4,
                             fontSize: 15,
@@ -139,19 +105,55 @@ class _HeaderWidget extends StatelessWidget {
   }
 }
 
-class _TransferToWidget extends StatelessWidget {
-  const _TransferToWidget({
-    required this.transferSummaryViewArgs,
+class _BodyWidget extends GetView<PurchaseSummaryController> {
+  const _BodyWidget();
+
+  @override
+  Widget build(BuildContext context) {
+    final purchaseSummaryViewArgs = Get.arguments as PurchaseSummaryViewArgs;
+
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: AppNumbers.screenPadding),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _VoucherBeneficiaryWidget(
+              purchaseSummaryViewArgs: purchaseSummaryViewArgs),
+          const SizedBox(
+            height: 20,
+          ),
+          _VoucherWidget(purchaseSummaryViewArgs: purchaseSummaryViewArgs),
+          const SizedBox(
+            height: 20,
+          ),
+          _PurchaseFeesWidget(purchaseSummaryViewArgs: purchaseSummaryViewArgs),
+          const SizedBox(
+            height: 20,
+          ),
+          _PaidFromWidget(purchaseSummaryViewArgs: purchaseSummaryViewArgs),
+          const SizedBox(
+            height: 30,
+          ),
+          _GotoDashboardButton(purchaseSummaryViewArgs: purchaseSummaryViewArgs)
+        ],
+      ),
+    );
+  }
+}
+
+class _VoucherBeneficiaryWidget extends StatelessWidget {
+  const _VoucherBeneficiaryWidget({
+    required this.purchaseSummaryViewArgs,
   });
 
-  final TransferSummaryViewArgs transferSummaryViewArgs;
+  final PurchaseSummaryViewArgs purchaseSummaryViewArgs;
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Transfer to',
+          'Beneficiary',
           style: Theme.of(context).textTheme.titleMedium?.copyWith(
                 color: AppColors.h403E51,
                 fontSize: 15,
@@ -167,42 +169,17 @@ class _TransferToWidget extends StatelessWidget {
             color: AppColors.hF6F6F6,
             borderRadius: BorderRadius.circular(AppNumbers.inputBorderRadius),
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: Row(
             children: [
-              Text(
-                'Beneficiary',
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      color: AppColors.h403E51,
-                      fontSize: 17,
-                      fontWeight: FontWeight.w600,
-                    ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    child: Text(
-                      transferSummaryViewArgs.beneficiary.name,
-                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                            color: AppColors.h403E51,
-                            fontSize: 15,
-                            fontWeight: FontWeight.w500,
-                          ),
-                    ),
-                  ),
-                  Text(
-                    transferSummaryViewArgs
-                        .beneficiary.accountNumber.accountNumber,
-                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                          color: AppColors.h403E51,
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
-                        ),
-                  ),
-                ],
+              Expanded(
+                child: Text(
+                  purchaseSummaryViewArgs.beneficiaryName,
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        color: AppColors.h403E51,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500,
+                      ),
+                ),
               ),
             ],
           ),
@@ -212,21 +189,19 @@ class _TransferToWidget extends StatelessWidget {
   }
 }
 
-class _TransferAmountWidget extends StatelessWidget {
-  const _TransferAmountWidget({
-    required this.transferSummaryViewArgs,
+class _VoucherWidget extends StatelessWidget {
+  const _VoucherWidget({
+    required this.purchaseSummaryViewArgs,
   });
 
-  final TransferSummaryViewArgs transferSummaryViewArgs;
+  final PurchaseSummaryViewArgs purchaseSummaryViewArgs;
   @override
   Widget build(BuildContext context) {
-    final formatBalance = NumberFormat("#,##0.00", "en_US");
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Transfer amount',
+          'Voucher',
           style: Theme.of(context).textTheme.titleMedium?.copyWith(
                 color: AppColors.h403E51,
                 fontSize: 15,
@@ -244,7 +219,7 @@ class _TransferAmountWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(AppNumbers.inputBorderRadius),
           ),
           child: Text(
-            '${transferSummaryViewArgs.account.currency.symbolPrefix} ${formatBalance.format(double.parse(transferSummaryViewArgs.amountSend))}',
+            purchaseSummaryViewArgs.voucher.name,
             style: GoogleFonts.firaCode(
               textStyle: const TextStyle(
                 fontSize: 16,
@@ -259,12 +234,12 @@ class _TransferAmountWidget extends StatelessWidget {
   }
 }
 
-class _TransferFeesWidget extends StatelessWidget {
-  const _TransferFeesWidget({
-    required this.transferSummaryViewArgs,
+class _PurchaseFeesWidget extends StatelessWidget {
+  const _PurchaseFeesWidget({
+    required this.purchaseSummaryViewArgs,
   });
 
-  final TransferSummaryViewArgs transferSummaryViewArgs;
+  final PurchaseSummaryViewArgs purchaseSummaryViewArgs;
   @override
   Widget build(BuildContext context) {
     final formatBalance = NumberFormat("#,##0.00", "en_US");
@@ -273,7 +248,7 @@ class _TransferFeesWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Transfer amount',
+          'Purchased',
           style: Theme.of(context).textTheme.titleMedium?.copyWith(
                 color: AppColors.h403E51,
                 fontSize: 15,
@@ -296,7 +271,7 @@ class _TransferFeesWidget extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Text(
-                        '${transferSummaryViewArgs.account.currency.symbolPrefix} ${formatBalance.format(double.parse('0'))}',
+                        '${purchaseSummaryViewArgs.voucher.unitPriceCurrencyCode} ${formatBalance.format(double.parse(purchaseSummaryViewArgs.voucher.unitPrice.toString()))}',
                         style: GoogleFonts.firaCode(
                           textStyle: const TextStyle(
                             fontSize: 16,
@@ -307,7 +282,7 @@ class _TransferFeesWidget extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      'Transfer fee',
+                      'Voucher price',
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
                             color: AppColors.h403E51,
                             fontSize: 15,
@@ -323,7 +298,7 @@ class _TransferFeesWidget extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Text(
-                        '${transferSummaryViewArgs.account.currency.symbolPrefix}  ${formatBalance.format(double.parse('0'))}',
+                        '${purchaseSummaryViewArgs.voucher.unitPriceCurrencyCode} ${formatBalance.format(double.parse('0'))}',
                         style: GoogleFonts.firaCode(
                           textStyle: const TextStyle(
                             fontSize: 16,
@@ -334,7 +309,7 @@ class _TransferFeesWidget extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      'Conversion rate',
+                      'Processing fee',
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
                             color: AppColors.h403E51,
                             fontSize: 15,
@@ -350,19 +325,19 @@ class _TransferFeesWidget extends StatelessWidget {
   }
 }
 
-class _TransferFromWidget extends GetView<TransferSummaryController> {
-  const _TransferFromWidget({
-    required this.transferSummaryViewArgs,
+class _PaidFromWidget extends GetView<PurchaseSummaryController> {
+  const _PaidFromWidget({
+    required this.purchaseSummaryViewArgs,
   });
 
-  final TransferSummaryViewArgs transferSummaryViewArgs;
+  final PurchaseSummaryViewArgs purchaseSummaryViewArgs;
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Transfer from',
+          'Paid from',
           style: Theme.of(context).textTheme.titleMedium?.copyWith(
                 color: AppColors.h403E51,
                 fontSize: 15,
@@ -383,7 +358,7 @@ class _TransferFromWidget extends GetView<TransferSummaryController> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                transferSummaryViewArgs.account.alias,
+                purchaseSummaryViewArgs.account.alias,
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
                       color: AppColors.h403E51,
                       fontSize: 17,
@@ -397,7 +372,7 @@ class _TransferFromWidget extends GetView<TransferSummaryController> {
                     children: [
                       controller.obscuredAccountNumber
                           ? Text(
-                              hideFirstFourDigits(transferSummaryViewArgs
+                              hideFirstFourDigits(purchaseSummaryViewArgs
                                   .account.accountNumber.accountNumber
                                   .toString()),
                               style: Theme.of(context)
@@ -410,7 +385,7 @@ class _TransferFromWidget extends GetView<TransferSummaryController> {
                                   ),
                             )
                           : Text(
-                              transferSummaryViewArgs
+                              purchaseSummaryViewArgs
                                   .account.accountNumber.accountNumber
                                   .toString(),
                               style: Theme.of(context)
@@ -439,12 +414,19 @@ class _TransferFromWidget extends GetView<TransferSummaryController> {
   }
 }
 
+String hideFirstFourDigits(String number) {
+  if (number.length <= 4) {
+    return number;
+  }
+  return '****${number.substring(number.length - 4)}';
+}
+
 class _GotoDashboardButton extends StatelessWidget {
   const _GotoDashboardButton({
-    required this.transferSummaryViewArgs,
+    required this.purchaseSummaryViewArgs,
   });
 
-  final TransferSummaryViewArgs transferSummaryViewArgs;
+  final PurchaseSummaryViewArgs purchaseSummaryViewArgs;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -452,7 +434,7 @@ class _GotoDashboardButton extends StatelessWidget {
       child: ElevatedButton(
           onPressed: () {
             final args =
-                DashboardViewArgs(account: transferSummaryViewArgs.account);
+                DashboardViewArgs(account: purchaseSummaryViewArgs.account);
             Get.offAllNamed(AppPages.dashboard, arguments: args);
           },
           child: Text(
@@ -460,11 +442,4 @@ class _GotoDashboardButton extends StatelessWidget {
           )),
     );
   }
-}
-
-String hideFirstFourDigits(String number) {
-  if (number.length <= 4) {
-    return number;
-  }
-  return '****${number.substring(number.length - 4)}';
 }
