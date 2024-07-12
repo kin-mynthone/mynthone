@@ -125,6 +125,19 @@ class _HeaderWidget extends StatelessWidget {
                 height: 50,
                 fit: BoxFit.contain,
               ),
+              const Spacer(),
+              IconButton(
+                onPressed: () {
+                  Get.toNamed(AppPages.orderedVoucher);
+                },
+                padding: EdgeInsets.zero,
+                constraints: const BoxConstraints(),
+                icon: const Icon(
+                  Icons.shopping_bag_outlined,
+                  color: AppColors.h2445D4,
+                  size: 25,
+                ),
+              ),
             ],
           ),
         ],

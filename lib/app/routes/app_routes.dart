@@ -22,6 +22,8 @@ abstract class _Routes {
   static const merchants = _Paths.merchants;
   static const selectBeneficiary = _Paths.selectBeneficiary;
   static const purchaseSummary = _Paths.purchaseSummary;
+  static const orderedVoucher = _Paths.orderedVoucher;
+  static const orderedVoucherSummary = _Paths.orderedVoucherSummary;
 }
 
 abstract class _Paths {
@@ -46,4 +48,6 @@ abstract class _Paths {
   static const merchants = '/merchants';
   static const selectBeneficiary = '/select-beneficiary';
   static const purchaseSummary = '/purchase-summary';
+  static const orderedVoucher = '/ordered-voucher';
+  static const orderedVoucherSummary = '/ordered-voucher-summary';
 }
