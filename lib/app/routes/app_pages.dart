@@ -1,15 +1,17 @@
 import 'package:get/get.dart';
-import 'package:mynthone/app/features/beam_and_go/ordered_voucher/bindings/ordered_voucher_binding.dart';
-import 'package:mynthone/app/features/beam_and_go/ordered_voucher/views/ordered_voucher_view.dart';
-import 'package:mynthone/app/features/beam_and_go/purchase_summary/bindings/purchase_summary_binding.dart';
-import 'package:mynthone/app/features/beam_and_go/purchase_summary/views/purchase_summary_view.dart';
-import 'package:mynthone/app/features/beam_and_go/select_beneficiary/bindings/select_beneficiary_binding.dart';
-import 'package:mynthone/app/features/beam_and_go/select_beneficiary/views/select_beneficiary_view.dart';
 
 import '../features/auth_otp/bindings/auth_otp_binding.dart';
 import '../features/auth_otp/views/auth_otp_view.dart';
 import '../features/beam_and_go/merchants/bindings/merchants_binding.dart';
 import '../features/beam_and_go/merchants/views/merchants_view.dart';
+import '../features/beam_and_go/ordered_voucher/bindings/ordered_voucher_binding.dart';
+import '../features/beam_and_go/ordered_voucher/views/ordered_voucher_view.dart';
+import '../features/beam_and_go/ordered_voucher_summary/bindings/ordered_voucher_summary_binding.dart';
+import '../features/beam_and_go/ordered_voucher_summary/views/ordered_voucher_summary_view.dart';
+import '../features/beam_and_go/purchase_summary/bindings/purchase_summary_binding.dart';
+import '../features/beam_and_go/purchase_summary/views/purchase_summary_view.dart';
+import '../features/beam_and_go/select_beneficiary/bindings/select_beneficiary_binding.dart';
+import '../features/beam_and_go/select_beneficiary/views/select_beneficiary_view.dart';
 import '../features/beneficiary/bindings/beneficiary_binding.dart';
 import '../features/beneficiary/views/beneficiary_view.dart';
 import '../features/card_info/bindings/card_info_binding.dart';
@@ -68,6 +70,7 @@ class AppPages {
   static const selectBeneficiary = _Routes.selectBeneficiary;
   static const purchaseSummary = _Routes.purchaseSummary;
   static const orderedVoucher = _Routes.orderedVoucher;
+  static const orderedVoucherSummary = _Routes.orderedVoucherSummary;
 
   static final routes = [
     GetPage(
@@ -166,5 +169,9 @@ class AppPages {
         name: _Paths.orderedVoucher,
         page: () => const OrderedVoucherView(),
         binding: OrderedVoucherBinding()),
+    GetPage(
+        name: _Paths.orderedVoucherSummary,
+        page: () => const OrderedVoucherSummaryView(),
+        binding: OrderedVoucherSummaryBinding()),
   ];
 }
