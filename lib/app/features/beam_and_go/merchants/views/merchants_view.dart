@@ -116,7 +116,7 @@ class _HeaderWidget extends StatelessWidget {
                 onPressed: () {
                   final args =
                       DashboardViewArgs(account: merchantsViewArgs.account);
-                  Get.offAllNamed(AppPages.dashboard, arguments: args);
+                  Get.toNamed(AppPages.dashboard, arguments: args);
                 },
                 iconColor: AppColors.h403E51,
               ),

@@ -46,7 +46,9 @@ class _ButtonsWidget extends StatelessWidget {
             width: 120,
             height: 45,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Get.toNamed(AppPages.depositInstruction);
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.hF2F4FE,
               ),

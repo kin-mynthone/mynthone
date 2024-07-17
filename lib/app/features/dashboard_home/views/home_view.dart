@@ -38,16 +38,16 @@ class HomeView extends GetView<HomeController> {
         title: const _HeaderTitleWidget(),
         centerTitle: false,
         actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 5),
-            child: IconButton(
-              onPressed: () {},
-              icon: SvgPicture.asset(
-                AssetPath.notification,
-                height: 30,
-              ),
-            ),
-          )
+          // Padding(
+          //   padding: const EdgeInsets.only(right: 5),
+          //   child: IconButton(
+          //     onPressed: () {},
+          //     icon: SvgPicture.asset(
+          //       AssetPath.notification,
+          //       height: 30,
+          //     ),
+          //   ),
+          // )
         ],
         automaticallyImplyLeading: false,
       ),

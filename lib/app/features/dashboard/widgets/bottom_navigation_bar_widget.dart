@@ -92,25 +92,25 @@ class _BottomNavigationBarWidget extends GetView<DashboardController> {
                 ),
                 label: 'Statement',
               ),
-              BottomNavigationBarItem(
-                icon: SvgPicture.asset(
-                  AssetPath.settings,
-                  colorFilter: const ColorFilter.mode(
-                    AppColors.hE5EAFF,
-                    BlendMode.modulate, // Blend mode
-                  ),
-                  height: 25,
-                ),
-                activeIcon: SvgPicture.asset(
-                  AssetPath.settings,
-                  colorFilter: const ColorFilter.mode(
-                    AppColors.hE06144,
-                    BlendMode.modulate, // Blend mode
-                  ),
-                  height: 25,
-                ),
-                label: 'Settings',
-              ),
+              // BottomNavigationBarItem(
+              //   icon: SvgPicture.asset(
+              //     AssetPath.settings,
+              //     colorFilter: const ColorFilter.mode(
+              //       AppColors.hE5EAFF,
+              //       BlendMode.modulate, // Blend mode
+              //     ),
+              //     height: 25,
+              //   ),
+              //   activeIcon: SvgPicture.asset(
+              //     AssetPath.settings,
+              //     colorFilter: const ColorFilter.mode(
+              //       AppColors.hE06144,
+              //       BlendMode.modulate, // Blend mode
+              //     ),
+              //     height: 25,
+              //   ),
+              //   label: 'Settings',
+              // ),
             ],
           ),
         ),

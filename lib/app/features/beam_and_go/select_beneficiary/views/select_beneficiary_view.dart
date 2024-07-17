@@ -209,7 +209,7 @@ class _NameWidget extends GetView<SelectBeneficiaryController> {
       autovalidateMode: AutovalidateMode.onUserInteraction,
       validator: (String? value) {
         if (value == null || value.trim().isEmpty) {
-          return 'Name is required'.tr;
+          return 'Fullname is required'.tr; //todo ID here
         }
         return null;
       },
@@ -218,7 +218,7 @@ class _NameWidget extends GetView<SelectBeneficiaryController> {
       autocorrect: false,
       style: const TextStyle(fontSize: 13),
       decoration: InputDecoration(
-        labelText: 'Name'.tr,
+        labelText: 'Fullname'.tr,
       ),
     );
   }

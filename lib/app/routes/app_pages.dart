@@ -24,6 +24,8 @@ import '../features/dashboard_home/bindings/home_binding.dart';
 import '../features/dashboard_home/views/home_view.dart';
 import '../features/dashboard_statements/bindings/statements_binding.dart';
 import '../features/dashboard_statements/views/statements_view.dart';
+import '../features/deposit_instruction/bindings/deposit_instruction_binding.dart';
+import '../features/deposit_instruction/views/deposit_instruction_view.dart';
 import '../features/introduction/bindings/introduction_binding.dart';
 import '../features/introduction/views/introduction_view.dart';
 import '../features/onboarding/bindings/onboarding_binding.dart';
@@ -71,6 +73,7 @@ class AppPages {
   static const purchaseSummary = _Routes.purchaseSummary;
   static const orderedVoucher = _Routes.orderedVoucher;
   static const orderedVoucherSummary = _Routes.orderedVoucherSummary;
+  static const depositInstruction = _Routes.depositInstruction;
 
   static final routes = [
     GetPage(
@@ -173,5 +176,9 @@ class AppPages {
         name: _Paths.orderedVoucherSummary,
         page: () => const OrderedVoucherSummaryView(),
         binding: OrderedVoucherSummaryBinding()),
+    GetPage(
+        name: _Paths.depositInstruction,
+        page: () => const DepositInstructionView(),
+        binding: DepositInstructionBinding()),
   ];
 }

@@ -80,13 +80,13 @@ class _StatementHeaderWidget extends StatelessWidget {
                       fontSize: 15,
                     ),
               ),
-              IconButton(
-                onPressed: () {},
-                icon: SvgPicture.asset(
-                  AssetPath.magnifier,
-                  height: 15,
-                ),
-              ),
+              // IconButton(
+              //   onPressed: () {},
+              //   icon: SvgPicture.asset(
+              //     AssetPath.magnifier,
+              //     height: 15,
+              //   ),
+              // ),
             ],
           ),
           const Divider(

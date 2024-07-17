@@ -2,11 +2,13 @@ import 'package:coupon_uikit/coupon_uikit.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:mynthone/app/features/beam_and_go/ordered_voucher_summary/views/ordered_voucher_summary_view.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../../../constants/app_numbers.dart';
 import '../../../../helpers/log_helper.dart';
 import '../../../../models/ordered_voucher_model.dart';
+import '../../../../routes/app_pages.dart';
 import '../../../../themes/app_colors.dart';
 import '../../../../widgets/custom_alert_dialog_widget.dart';
 import '../../../../widgets/go_back_button_widget.dart';
@@ -106,7 +108,15 @@ class _OrderedVoucherViewState extends State<OrderedVoucherView>
                     : NetworkController.find.checkConnectivityResult
                         ? const _VouchersListView()
                         : const ConnectionLost()),
-                const Center(child: Text('Content for Redeemed')),
+                Obx(() => orderedVoucherController.isLoading
+                    ? Column(
+                        children: [
+                          _ShimmerListWidget(),
+                        ],
+                      )
+                    : NetworkController.find.checkConnectivityResult
+                        ? const _VouchersListView()
+                        : const ConnectionLost()),
               ],
             ),
           ),
@@ -216,7 +226,11 @@ class _VoucherCardWidget extends GetView<OrderedVoucherController> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        final args =
+            OrderedVoucherSummaryViewArgs(orderedVoucher: orderedVoucher);
+        Get.toNamed(AppPages.orderedVoucherSummary, arguments: args);
+      },
       child: CouponCard(
         height: 150,
         backgroundColor: AppColors.hF2F4FE,

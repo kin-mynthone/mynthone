@@ -67,27 +67,36 @@ class _HeaderWidget extends GetView<StatementController> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.fromLTRB(20, 60, 20, 20),
+      padding: const EdgeInsets.fromLTRB(20, 60, 5, 20),
       color: AppColors.hF2F4FE,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Statements'.tr,
-            style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                  color: AppColors.h2445D4,
-                  fontSize: 15,
+          Row(
+            children: [
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Statements'.tr,
+                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                            color: AppColors.h2445D4,
+                            fontSize: 15,
+                          ),
+                    ),
+                    const SizedBox(height: 5),
+                    Text(
+                      'Your previous statements are listed here'.tr,
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                            color: AppColors.h403E51,
+                          ),
+                    ),
+                  ],
                 ),
+              ),
+            ],
           ),
-          const SizedBox(height: 5),
-          Text(
-            'Your previous statements are listed here',
-            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: AppColors.h403E51,
-                ),
-          ),
-          const SizedBox(height: 10),
-          const _SearchFormField(),
         ],
       ),
     );

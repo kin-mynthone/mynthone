@@ -112,14 +112,14 @@ class _HeaderWidget extends GetView<BeneficiaryController> {
                   ],
                 ),
               ),
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.add_outlined,
-                  color: AppColors.hE06144,
-                  size: 25,
-                ),
-              ),
+              // IconButton(
+              //   onPressed: () {},
+              //   icon: const Icon(
+              //     Icons.add_outlined,
+              //     color: AppColors.hE06144,
+              //     size: 25,
+              //   ),
+              // ),
             ],
           ),
 

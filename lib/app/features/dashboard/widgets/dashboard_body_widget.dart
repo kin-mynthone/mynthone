@@ -12,7 +12,7 @@ class _DashboardBodyWidget extends GetView<DashboardController> {
           Center(child: HomeView()),
           //  Center(child: CardView()),
           Center(child: StatementView()),
-          Center(child: Text('page4')),
+          //  Center(child: Text('page4')),
         ],
       ),
     );

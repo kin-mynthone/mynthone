@@ -24,6 +24,7 @@ abstract class _Routes {
   static const purchaseSummary = _Paths.purchaseSummary;
   static const orderedVoucher = _Paths.orderedVoucher;
   static const orderedVoucherSummary = _Paths.orderedVoucherSummary;
+  static const depositInstruction = _Paths.depositInstruction;
 }
 
 abstract class _Paths {
@@ -50,4 +51,5 @@ abstract class _Paths {
   static const purchaseSummary = '/purchase-summary';
   static const orderedVoucher = '/ordered-voucher';
   static const orderedVoucherSummary = '/ordered-voucher-summary';
+  static const depositInstruction = '/deposit-instruction';
 }
